@@ -10,7 +10,7 @@ import { ReactComponent as IconEmail } from '../../components/icons/email.svg';
 import { ReactComponent as IconPassword } from '../../components/icons/password.svg';
 import { ReactComponent as IconName } from '../../components/icons/name.svg';
 import AuthNav from '../../components/AuthNav';
-import { ReactComponent as IconSignupPage } from '../../components/icons/signup-page.svg';
+// import { ReactComponent as IconSignupPage } from '../../components/icons/signup-page.svg';
 import styles from './RegistrationPage.module.scss';
 
 export default function RegistrationPage() {
