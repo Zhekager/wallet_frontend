@@ -1,0 +1,103 @@
+.LoginPage {
+  background-color: #ffffff;
+
+  @media screen and (min-width: 768px) {
+    padding: 60px 114px 196px 114px;
+    width: 768px;
+
+    background-color: #e7eaf2;
+    background-image: url('../../images/ellipse-tablet.png'),
+      url('../../images/ellipse-rose-tablet.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom, right top;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 0;
+    width: 1280px;
+    height: 100vh;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    // align-content: center;
+  }
+}
+
+.ImgContent {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 50px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 50px;
+  }
+}
+
+.Img {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: inline-block;
+    // margin-right: auto;
+    width: 260px;
+    height: 250px;
+    background-image: url('../../images/login-img-tablet.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 28px;
+    background-image: url('../../images/login-img-desk.png');
+    background-position: top center;
+    width: 435px;
+    height: 419px;
+  }
+}
+
+.LoginContent {
+  background-color: #ffffff;
+
+  @media screen and (min-width: 768px) {
+    width: 540px;
+    height: 468px;
+    border-radius: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    position: relative;
+    // width: 720px;
+    width: 56.25%;
+    height: 100vh;
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(50px);
+  }
+}
+
+.LoginForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding-top: 36px;
+  padding-bottom: 36px;
+
+  @media screen and (min-width: 768px) {
+    position: relative;
+    padding: 40px 65px 60px 65px;
+    border-radius: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 540px;
+  }
+}
