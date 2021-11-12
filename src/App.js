@@ -1,11 +1,14 @@
 import Container from './components/Container/Container';
 import './App.scss';
+import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <Container>
       <div className="App">
-        <header className="App-header">
+        {/* <header className="App-header">
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
@@ -17,8 +20,10 @@ function App() {
           >
             Learn React
           </a>
-        </header>
+        </header> */}
+        <RegistrationPage />
       </div>
+      <ToastContainer autoClose={3000} position="top-center" />
     </Container>
   );
 }
