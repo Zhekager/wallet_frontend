@@ -1,0 +1,36 @@
+.head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+.Heading {
+  padding-left: 15px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins';
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .Heading {
+    padding-left: 20px;
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+/*# sourceMappingURL=AuthHeading.module.css.map */
