@@ -3,6 +3,8 @@ import './App.scss';
 import RegistrationPage from './pages/RegistrationPage';
 import LoginPage from './pages/LoginPage';
 
+import Balance from './components/Balance'; //to delete later
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function App() {
@@ -26,6 +28,7 @@ function App() {
         <LoginPage />
       </div>
       <ToastContainer autoClose={3000} position="top-center" />
+      <Balance />
     </Container>
   );
 }
