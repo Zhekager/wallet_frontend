@@ -1,16 +1,4 @@
 //breakpoints
-@include css-vars(
-  (
-    $mobile: 320px,
-  )
-);
-@include css-vars(
-  (
-    $tablet: 768px,
-  )
-);
-@include css-vars(
-  (
-    $desktop: 1280px,
-  )
-);
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1280px;
