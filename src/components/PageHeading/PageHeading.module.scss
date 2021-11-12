@@ -1,0 +1,14 @@
+.PageHeading {
+  display: none;
+  margin: 0;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    font-size: 30px;
+    // margin-left: 40px;
+    margin-top: 60px;
+    font-family: 'Poppins';
+    font-size: 30px;
+    font-weight: 400;
+  }
+}
