@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  background-color: #e7eaf2;
+  font-family: 'Circe';
+  color: #000000;
+  line-height: 1.5;
+}
+
+// html {
+//   box-sizing: border-box;
+//   width: 100vw;
+//   overflow-x: hidden;
+// }
+
+// *,
+// *::before,
+// *::after {
+//   box-sizing: inherit;
+// }
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}

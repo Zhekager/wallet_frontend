@@ -1,0 +1,27 @@
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+.Heading {
+  padding-left: 15px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins';
+  margin: 0;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 20px;
+    font-size: 30px;
+  }
+}
+
+.icon {
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+}
