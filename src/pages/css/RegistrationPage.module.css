@@ -1,0 +1,158 @@
+.RegistrationPage {
+  background-color: #e7eaf2;
+}
+
+@media screen and (min-width: 768px) {
+  .RegistrationPage {
+    width: 768px;
+    background-image: url("../../images/ellipse-rose-tablet.png");
+    background-repeat: no-repeat;
+    background-position: right 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .RegistrationPage {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 150px;
+    margin-right: 50px;
+  }
+}
+
+.Img {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .Img {
+    display: inline-block;
+    margin-top: 60px;
+    margin-right: 50px;
+    width: 250px;
+    height: 250px;
+    background-image: url("../../images/signup-page-tablet.png");
+    background-repeat: no-repeat;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .Img {
+    background-image: url("../../images/signup-page-desk.png");
+    background-repeat: no-repeat;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .ImgContent {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .ImgContent {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.SignupContent {
+  background-color: #ffffff;
+  padding-top: 42px;
+  padding-bottom: 36px;
+}
+
+@media screen and (min-width: 768px) {
+  .SignupContent {
+    width: 540px;
+    height: 616px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 65px 60px 65px;
+    border-radius: 20px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .SignupContent {
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url("../../images/bg-reg-form.png");
+    background-repeat: no-repeat;
+  }
+}
+
+.Form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.Label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.Field {
+  width: 100%;
+  padding: 10px 0 10px 24px;
+  border: none;
+  background-color: #fff;
+  outline: none;
+}
+
+.Field::-webkit-input-placeholder {
+  color: #bdbdbd;
+  font-size: 18px;
+  font-family: 'Circe';
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.Field:-ms-input-placeholder {
+  color: #bdbdbd;
+  font-size: 18px;
+  font-family: 'Circe';
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.Field::-ms-input-placeholder {
+  color: #bdbdbd;
+  font-size: 18px;
+  font-family: 'Circe';
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.Field::placeholder {
+  color: #bdbdbd;
+  font-size: 18px;
+  font-family: 'Circe';
+  font-weight: 400;
+  line-height: 1.5;
+}
+/*# sourceMappingURL=RegistrationPage.module.css.map */

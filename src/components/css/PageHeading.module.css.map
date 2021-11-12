@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,OAAO,EAAE,IAAI;EACb,MAAM,EAAE,CAAC;CAWV;;AATC,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,KAAK;EAJrC,AAAA,YAAY,CAAC;IAKT,OAAO,EAAE,KAAK;IACd,SAAS,EAAE,IAAI;IAEf,UAAU,EAAE,IAAI;IAChB,WAAW,EAAE,SAAS;IACtB,SAAS,EAAE,IAAI;IACf,WAAW,EAAE,GAAG;GAEnB",
+    "sources": [
+        "../PageHeading/PageHeading.module.scss"
+    ],
+    "names": [],
+    "file": "PageHeading.module.css"
+}
