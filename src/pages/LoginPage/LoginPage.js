@@ -1,27 +1,25 @@
-import RegistrationForm from '../../components/RegistrationForm';
-
+import LoginForm from '../../components/LoginForm';
 import PageHeading from '../../components/PageHeading';
 import AuthHeading from '../../components/AuthHeading';
-
 import AuthNav from '../../components/AuthNav';
 
-import styles from './RegistrationPage.module.scss';
+import styles from './LoginPage.module.scss';
 
-export default function RegistrationPage() {
+export default function LoginPage() {
   return (
-    <div className={styles.RegistrationPage}>
+    <div className={styles.LoginPage}>
       <div className={styles.ImgContent}>
         <div className={styles.Img}></div>
         <PageHeading text="Finance App" />
       </div>
 
-      <div className={styles.SignupContent}>
-        <div className={styles.SignupForm}>
+      <div className={styles.LoginContent}>
+        <div className={styles.LoginForm}>
           <AuthHeading text="Wallet" />
 
-          <RegistrationForm />
+          <LoginForm />
 
-          <AuthNav content="вход" path="/login" />
+          <AuthNav content="регистрация" path="/register" />
         </div>
       </div>
     </div>

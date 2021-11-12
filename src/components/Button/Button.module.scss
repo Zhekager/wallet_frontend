@@ -1,7 +1,6 @@
 .Button {
   display: block;
   margin: 0 auto;
-  margin-bottom: 20px;
   padding: 13px 58px;
   min-width: 280px;
   background-color: #24cca7;
@@ -13,8 +12,8 @@
   text-align: center;
   text-transform: uppercase;
   border-radius: 20px;
+  border: 1px solid #24cca7;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border: none;
   transition-property: box-shadow;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

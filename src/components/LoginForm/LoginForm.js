@@ -7,17 +7,14 @@ import * as Yup from 'yup';
 import Button from '../Button';
 import { ReactComponent as IconEmail } from '../icons/email.svg';
 import { ReactComponent as IconLock } from '../icons/lock.svg';
-import { ReactComponent as IconName } from '../icons/user.svg';
 
-import styles from './RegistrationForm.module.scss';
+import styles from './LoginForm.module.scss';
 
-export default function RegistrationForm() {
-  //   const dispatch = useDispatch();
+export default function LoginForm() {
+  // const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [name, setName] = useState('');
-  //   const isLoading = useSelector(authSelectors.getLoading);
+  // const isLoading = useSelector(authSelectors.getLoading);
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -25,10 +22,6 @@ export default function RegistrationForm() {
         return setEmail(value);
       case 'password':
         return setPassword(value);
-      case 'confirmPassword':
-        return setConfirmPassword(value);
-      case 'name':
-        return setName(value);
       default:
         return;
     }
@@ -36,13 +29,9 @@ export default function RegistrationForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // dispatch(
-    //   authOperations.register({ email, password, confirmPassword, name }),
-    // );
+    // dispatch(authOperations.logIn({ email, password }));
     setEmail('');
     setPassword('');
-    setConfirmPassword('');
-    setName('');
   };
 
   const validationsSchema = Yup.object().shape({
@@ -53,14 +42,6 @@ export default function RegistrationForm() {
       .min(6, 'Password should be of minimum 6 characters length')
       .max(12, 'Password should be of maximum 12 characters length')
       .required('Password is required'),
-    confirmPassword: Yup.string('Enter your password again')
-      .oneOf([Yup.ref('password')], 'Passwords are not the same!')
-      .required('Password confirmation is required!'),
-    name: Yup.string()
-      .typeError('Enter your name')
-      .min(1, 'Name should be of minimum 1 character length')
-      .max(12, 'Name should be of maximum 12 characters length')
-      .required('Name is required'),
   });
 
   return (
@@ -68,8 +49,6 @@ export default function RegistrationForm() {
       initialValues={{
         email: '',
         password: '',
-        confirmPassword: '',
-        name: '',
       }}
       validateOnBlur
       // onSubmit={async values => {
@@ -105,34 +84,10 @@ export default function RegistrationForm() {
             />
           </label>
 
-          <label htmlFor="confirmPassword" className={styles.Label}>
-            <IconLock width={24} height={24} />
-            <Field
-              name="confirmPassword"
-              placeholder="Подтвердите пароль"
-              type="password"
-              value={confirmPassword}
-              onChange={handleChange}
-              className={styles.Field}
-            />
-          </label>
-
-          <label htmlFor="name" className={styles.Label}>
-            <IconName width={24} height={24} />
-            <Field
-              name="name"
-              placeholder="Ваше имя"
-              type="text"
-              value={name}
-              onChange={handleChange}
-              className={styles.Field}
-            />
-          </label>
-
           <Button
             type="submit"
             // disabled={isSubmitting}
-            contentBtn="Регистрация"
+            contentBtn="вход"
           />
 
           {/* {isLoading && <LoaderSpinner />} */}

@@ -1,6 +1,7 @@
 import Container from './components/Container/Container';
 import './App.scss';
-import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
+import RegistrationPage from './pages/RegistrationPage';
+import LoginPage from './pages/LoginPage';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -22,6 +23,7 @@ function App() {
           </a>
         </header> */}
         <RegistrationPage />
+        <LoginPage />
       </div>
       <ToastContainer autoClose={3000} position="top-center" />
     </Container>

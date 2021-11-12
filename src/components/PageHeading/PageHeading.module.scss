@@ -4,11 +4,17 @@
 
   @media screen and (min-width: 768px) {
     display: block;
+
     font-size: 30px;
-    // margin-left: 40px;
-    margin-top: 60px;
+    margin-left: 40px;
+
     font-family: 'Poppins';
     font-size: 30px;
     font-weight: 400;
+  }
+
+  @media screen and (min-width: 1280px) {
+    text-align: center;
+    margin-left: 0;
   }
 }
