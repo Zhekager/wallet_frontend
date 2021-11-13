@@ -6,6 +6,9 @@ import LoginPage from './pages/LoginPage';
 import Balance from './components/Balance'; //to delete later
 import Currency from './components/Sidebar/Currency'; //to delete later
 
+import AddTransaction from './components/AddTransactionsForm/AddTransaction';
+
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function App() {
@@ -31,6 +34,7 @@ function App() {
       <ToastContainer autoClose={3000} position="top-center" />
       <Balance />
       <Currency />
+      <AddTransaction/>
     </Container>
   );
 }
