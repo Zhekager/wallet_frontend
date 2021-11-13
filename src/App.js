@@ -2,6 +2,7 @@ import Container from './components/Container/Container';
 import './App.scss';
 import RegistrationPage from './pages/RegistrationPage';
 import LoginPage from './pages/LoginPage';
+import Navigation from './components/Navigation';
 
 import Balance from './components/Balance'; //to delete later
 import Currency from './components/Sidebar/Currency'; //to delete later
@@ -25,6 +26,7 @@ function App() {
             Learn React
           </a>
         </header> */}
+        <Navigation />
         <RegistrationPage />
         <LoginPage />
       </div>
