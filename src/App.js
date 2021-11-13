@@ -11,7 +11,8 @@ import Navigation from './components/Navigation';
 
 
 import Balance from './components/Balance'; //to delete later
-import Currency from './components/Sidebar/Currency'; //to delete later
+import Currency from './components/Sidebar/Currency';
+import Table from './components/Table'; //to delete later
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -43,6 +44,7 @@ function App() {
       <ToastContainer autoClose={3000} position="top-center" />
       <Balance />
       <Currency />
+      <Table />
     </Container>
   );
 }
