@@ -1,8 +1,14 @@
 import Container from './components/Container/Container';
 import './App.scss';
+
+
+
+import Navigation from './components/Navigation';
+
 // import RegistrationPage from './pages/RegistrationPage';
 // import { Switch } from 'react-router-dom';
 // import LoginPage from './pages/LoginPage';
+
 
 import Balance from './components/Balance'; //to delete later
 import Currency from './components/Sidebar/Currency'; //to delete later
@@ -26,8 +32,13 @@ function App() {
             Learn React
           </a>
         </header> */}
+
+        <Navigation />
+       
+
         {/* <RegistrationPage />
         <LoginPage /> */}
+
       </div>
       <ToastContainer autoClose={3000} position="top-center" />
       <Balance />
