@@ -6,7 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 // import PublicRoute from './routes/PublicRoute';
 import Container from './components/Container';
 // import LoaderSpinner from './components/LoaderSpinner';
-
+// import Table from './components/Table'; //to delete later
 // import Navigation from './components/Navigation'; //to delete later
 // import Balance from './components/Balance'; //to delete later
 // import Currency from './components/Sidebar/Currency'; //to delete later
@@ -31,14 +31,6 @@ const LoginPage = lazy(() =>
 // const DashboardPage = lazy(() =>
 //   import('./pages/DashboardPage' /* webpackChunkName: "dashboard-page" */),
 // );
-
-////////////////////////////
-
-// import Balance from './components/Balance'; //to delete later
-// import Currency from './components/Sidebar/Currency';
-// import Table from './components/Table'; //to delete later
-
-//////////////////////////////////////////
 
 function App() {
   // const dispatch = useDispatch();
@@ -75,39 +67,6 @@ function App() {
         <ToastContainer autoClose={3000} position="top-center" />
       </Container>
     </>
-    // )
-
-    //////////////////////////////
-
-    //     <Container>
-    //       <div className="App">
-    // {/* <header className="App-header">
-    //   <p>
-    //     Edit <code>src/App.js</code> and save to reload.
-    //   </p>
-    //   <a
-    //     className="App-link"
-    //     href="https://reactjs.org"
-    //     target="_blank"
-    //     rel="noopener noreferrer"
-    //   >
-    //     Learn React
-    //   </a>
-    // </header> */}
-
-    //         <Navigation />
-
-    // {/* <RegistrationPage />
-    // <LoginPage /> */}
-
-    //       </div>
-    //       <ToastContainer autoClose={3000} position="top-center" />
-    //       <Balance />
-    //       <Currency />
-    //       <Table />
-    //     </Container>
-
-    //////////////////////////////////////////
   );
 
   //   return (
