@@ -16,7 +16,7 @@ import {
 
 import { toast } from 'react-toastify';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = 'https://wallet-api.herokuapp.com';
 
 const token = {
   set(token) {
