@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "../HomeTab/HomeTab.module.scss"
-    ],
-    "names": [],
-    "file": "HomeTab.module.css"
-}
