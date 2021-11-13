@@ -64,11 +64,11 @@ export const updateTransaction = ({ date, transactionId }) => async dispatch => 
     }
 };
 
-export const filterTransaction = (month, age) => async dispatch => {
+export const filterTransaction = (month, year) => async dispatch => {
     dispatch(filterTransRequest());
 
     try {
-        const { data } = await axios.get(`/categories?month=${month}&year=${age}`);
+        const { data } = await axios.get(`/categories?month=${month}&year=${year}`);
         dispatch(filterTransSuccess(data));
     } catch (error) {
         dispatch(filterTransError(error.message));
