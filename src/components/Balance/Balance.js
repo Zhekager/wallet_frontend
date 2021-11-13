@@ -1,9 +1,12 @@
 import React from 'react';
-// redux to add
+// import { useSelector } from 'react-redux';
+// import { balanceSelectors } from '../../redux/balance';
+
 import styles from './Balance.module.scss';
 
 const Balance = () => {
-  const total = 24000; //to change
+  const total = 24000;
+  // const total = useSelector(balanceSelectors.getBalance);
 
   return (
     <div className={styles.wrapper}>
