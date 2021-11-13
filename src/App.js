@@ -17,6 +17,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import './App.module.scss';
 
+
 const RegistrationPage = lazy(() =>
   import(
     './pages/RegistrationPage' /* webpackChunkName: "registration-page" */
@@ -32,11 +33,21 @@ const LoginPage = lazy(() =>
 //   import('./pages/DashboardPage' /* webpackChunkName: "dashboard-page" */),
 // );
 
+////////////////////////////  
+  
+// import Balance from './components/Balance'; //to delete later
+// import Currency from './components/Sidebar/Currency';
+// import Table from './components/Table'; //to delete later
+  
+//////////////////////////////////////////  
+
+
 function App() {
   // const dispatch = useDispatch();
   // const isLoading = useSelector(authSelectors.getLoading);
 
   return (
+
     // !isLoading && (
     <>
       <Container>
@@ -68,6 +79,42 @@ function App() {
       </Container>
     </>
     // )
+
+          
+     //////////////////////////////     
+          
+//     <Container>
+//       <div className="App">
+        {/* <header className="App-header">
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </header> */}
+
+//         <Navigation />
+       
+
+        {/* <RegistrationPage />
+        <LoginPage /> */}
+
+//       </div>
+//       <ToastContainer autoClose={3000} position="top-center" />
+//       <Balance />
+//       <Currency />
+//       <Table />
+//     </Container>
+
+
+//////////////////////////////////////////
+
   );
 
   //   return (
