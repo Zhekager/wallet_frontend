@@ -10,11 +10,11 @@
 // const DashboardPage = () => {
 //   return (
 //     <>
-//       <Header />
-//       <Navigation />
-//       <Balance />
-//       <Currency />
-//       <Transactions />
+//   {/* <Header /> */}
+//   <Navigation />
+//   {/* <Balance />
+//   <Currency />
+//   <Transactions /> */}
 //     </>
 //   );
 // };

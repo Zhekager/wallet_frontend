@@ -1,0 +1,35 @@
+.Error {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+
+  @media screen and (min-width: 768px) {
+    width: 60%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 50%;
+  }
+}
+
+.ErrorContent {
+  margin: 0;
+  color: gray;
+  font-weight: 500;
+  font-size: 14px;
+
+  @media screen and (min-width: 768px) {
+    padding: 20px;
+    font-size: 20px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 30px;
+    font-size: 30px;
+  }
+}
