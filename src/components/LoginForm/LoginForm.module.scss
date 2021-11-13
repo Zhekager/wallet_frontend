@@ -4,18 +4,10 @@
   margin-bottom: 20px;
 }
 
-.Label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin-bottom: 40px;
-  padding-left: 14px;
-  border-bottom: 1px solid #e0e0e0;
-}
-
 .Field {
   width: 100%;
+  height: 50px;
+  font-size: 18px;
   padding: 10px 20px 10px 22px;
   border: none;
   background-color: #ffffff;
@@ -25,7 +17,7 @@
 .Field::placeholder {
   color: #bdbdbd;
   font-size: 18px;
-  font-family: 'Circe';
+  font-family: 'Circe', sans-serif;
   font-weight: 400;
   line-height: 1.5;
 }
