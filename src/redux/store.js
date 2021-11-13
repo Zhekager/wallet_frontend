@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './auth';
+import { balanceReducer } from './balance';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -30,6 +31,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+    balance: balanceReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
