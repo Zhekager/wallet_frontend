@@ -1,8 +1,15 @@
 import { useState } from 'react';
 import Select from 'react-select';
-import { month, year, tableData } from '../../assets/data/select-data/selectData';
+import {
+  month,
+  year,
+  tableData,
+} from '../../assets/data/select-data/selectData';
 import styles from './Table.module.scss';
-import { monthInitial, yearInitial, } from '../../assets/data/select-data/selectData';
+import {
+  monthInitial,
+  yearInitial,
+} from '../../assets/data/select-data/selectData';
 const colourStyles = {
   placeholder: base => ({
     ...base,
@@ -25,7 +32,7 @@ const colourStyles = {
   }),
 
   control: styles => ({
-      ...styles,
+    ...styles,
     borderRadius: '30px',
     border: '1px solid #000000',
     padding: '0 15px',
@@ -50,87 +57,85 @@ const colourStyles = {
     fontStyle: 'normal',
     fontWeight: '400',
     fontSize: '16px',
-      lineHeight: ' 1.5',
-      
+    lineHeight: ' 1.5',
   }),
 };
 
 function Table() {
-    const [selected, setSelected] = useState({ month: '', year: '' });
-    const handleChange = event => {
-        setSelected(event.label);
-    };
-    return (
-        <div className={styles.tableContainer}>
-            <div className={styles.selectContainer}>
-            <div className={styles.select}>
-            <Select
+  const [selected, setSelected] = useState({ month: '', year: '' });
+  const handleChange = event => {
+    setSelected(event.label);
+  };
+  return (
+    <div className={styles.tableContainer}>
+      <div className={styles.selectContainer}>
+        <div className={styles.select}>
+          <Select
             value={selected.month}
             options={month}
             name="month"
-                onChange={handleChange}
-                placeholder={monthInitial}
-                styles={colourStyles} 
-            />
-            </div>
-            <div className={styles.select}>
-            <Select
-                value={selected.year}
-                options={year}
-                name="month"
-                onChange={handleChange}
-                placeholder={yearInitial}
-                styles={colourStyles}
-            />
-            </div>
-            </div>
+            onChange={handleChange}
+            placeholder={monthInitial}
+            styles={colourStyles}
+          />
+        </div>
+        <div className={styles.select}>
+          <Select
+            value={selected.year}
+            options={year}
+            name="month"
+            onChange={handleChange}
+            placeholder={yearInitial}
+            styles={colourStyles}
+          />
+        </div>
+      </div>
 
-            <div className={styles.categoryContainer}>
-                <ul className={styles.listTitle}>
-                    <li className={styles.listTitleText}>Категория</li>
-                    <li className={styles.listTitleText}>Сумма</li>
-                </ul>
+      <div className={styles.categoryContainer}>
+        <ul className={styles.listTitle}>
+          <li className={styles.listTitleText}>Категория</li>
+          <li className={styles.listTitleText}>Сумма</li>
+        </ul>
 
-                <ul className={styles.listTransaction}>
-                    {tableData?.length > 0 ? (
-                        tableData.map(({ color, value, sum}) => {
-                            return (
-                                <li className={styles.elementTransaction}>
-                                    <div
-                                        style={{
-                                            backgroundColor: `${color}`,
-                                            width: '24px',
-                                            minHeight: '24px',
-                                            borderRadius: '2px',
-                                            marginRight: '16px',
-                                        }}
-                                    ></div>
-                                    <div className={styles.category}>{value}</div>
-                                    <div className={styles.sum}>{sum}</div>
-                                </li>
-                            );
-                        })
-                    ) : (
-                        <li className={styles.elementTransaction}>
-                                <div className={styles.category}>За выбраный период нет транзакций :(</div>
-                        </li>
-                    )}
-                </ul>
+        <ul className={styles.listTransaction}>
+          {tableData?.length > 0 ? (
+            tableData.map(({ color, value, sum }) => {
+              return (
+                <li className={styles.elementTransaction}>
+                  <div
+                    style={{
+                      backgroundColor: `${color}`,
+                      width: '24px',
+                      minHeight: '24px',
+                      borderRadius: '2px',
+                      marginRight: '16px',
+                    }}
+                  ></div>
+                  <div className={styles.category}>{value}</div>
+                  <div className={styles.sum}>{sum}</div>
+                </li>
+              );
+            })
+          ) : (
+            <li className={styles.elementTransaction}>
+              <div className={styles.category}>
+                За выбраный период нет транзакций :(
+              </div>
+            </li>
+          )}
+        </ul>
 
-                <ul className={styles.listTotal}>
-                    <li className={styles.itemTotal}>
-                        <div className={styles.itemText}>Расходы:</div>
-                        
-                        
-                    </li>
-                    <li className={styles.itemTotal}>
-                        <div className={styles.itemText}>Доходы:</div>
-                    </li>
-                </ul>
-            </div>
-            </div>
-        
-    );
-};
+        <ul className={styles.listTotal}>
+          <li className={styles.itemTotal}>
+            <div className={styles.itemText}>Расходы:</div>
+          </li>
+          <li className={styles.itemTotal}>
+            <div className={styles.itemText}>Доходы:</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+}
 
 export default Table;
