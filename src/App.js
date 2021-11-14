@@ -13,11 +13,9 @@ import Container from './components/Container';
 import DashboardPage from './pages/DashboardPage/DasboardPage'; //to delete later
 // import AddTransaction from './components/AddTransactionsForm/AddTransaction';
 // import { TransactionForm } from './components/TransactionForm/TransactionForm';
+import Header from './components/Header/Header';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
-
 
 import './App.module.scss';
 
@@ -40,11 +38,11 @@ function App() {
   // const dispatch = useDispatch();
   // const isLoading = useSelector(authSelectors.getLoading);
 
-
   return (
     // !isLoading && (
     <>
       <Container>
+        <Header />
         <Suspense fallback={'<LoaderSpinner />'}>
           <Switch>
             <Route path="/" exact redirectTo="/dashboard" restricted>
@@ -72,43 +70,7 @@ function App() {
         <ToastContainer autoClose={3000} position="top-center" />
       </Container>
     </>
-
   );
-
-  //   return (
-  //     // !isLoading && (
-  //     <>
-  //       <Container>
-  //         <Suspense fallback={'<LoaderSpinner />'}>
-  //           <Switch>
-  //             <PublicRoute path="/" exact redirectTo="/dashboard" restricted>
-  //             <RegistrationPage />
-  //             </PublicRoute>
-
-  //             <PublicRoute path="/register" redirectTo="/dashboard" restricted>
-  //             <RegistrationPage />
-  //             </PublicRoute>
-
-  //             <PublicRoute path="/login" redirectTo="/dashboard" restricted>
-  //             <LoginPage />
-  //             </PublicRoute>
-
-  //             <PrivateRoute path="/dashboard" redirectTo="/login">
-  //               <DashboardPage />
-  //             </PrivateRoute>
-
-  //             <Route>
-  //               <NotFoundPage />
-  //             </Route>
-  //           </Switch>
-  //         </Suspense>
-
-  //         <ToastContainer autoClose={3000} position="top-center" />
-  //       </Container>
-  //     </>
-  //     // )
-  //   );
-  // }
 }
 
 export default App;

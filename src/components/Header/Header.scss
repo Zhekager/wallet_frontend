@@ -25,9 +25,10 @@
 
 .logo p {
   margin: 0;
-  font-family: Popins, sans-serif;
+  font-family: 'Popins', sans-serif;
   font-size: 20px;
   text-transform: uppercase;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
@@ -58,4 +59,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
+}
+p {
+  font-family: 'Popins', sans-serif;
 }

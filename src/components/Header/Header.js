@@ -2,13 +2,13 @@ import React, { useCallback } from 'react';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { IconButton } from '@material-ui/core';
 import s from './Header.scss';
-import authSelectors from '../../redux/auth/auth-selectors';
-import { useDispatch, useSelector } from 'react-redux';
+// import authSelectors from '../../redux/auth/auth-selectors';
+import { useDispatch } from 'react-redux';
 import authOperations from '../../redux/auth/auth-operations';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+// import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 function Header() {
-  const user = useSelector(authSelectors.getUsername);
+  // const user = useSelector(authSelectors.getUsername);
   const dispatch = useDispatch();
   const onLogout = useCallback(() => {
     dispatch(authOperations.logOut());
@@ -22,10 +22,10 @@ function Header() {
           </a>
           <div className={s.user}>
             <a href="/user" className={s.user__info}>
-              {<img src={user.avatar} alt="avatar" className={s.avatar} /> || (
+              {/* {<img src={user.avatar} alt="avatar" className={s.avatar} /> || (
                 <AccountCircleIcon color="secondary" />
-              )}
-              <p>{user.name}</p>
+              )} */}
+              {/* <p>{user.name}</p> */}
             </a>
             <IconButton
               type="button"
