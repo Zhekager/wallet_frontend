@@ -1,0 +1,94 @@
+li {
+  list-style-type: none;
+}
+ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+.tableContainer {
+  width: 280px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  background-color: rgba(231, 234, 242, 1);
+
+  @media screen and (min-width: 768px) {
+    width: 350px;
+  }
+}
+
+.select {
+  margin-bottom: 20px;
+}
+
+.categoryContainer {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.listTitle {
+  display: flex;
+  justify-content: space-between;
+  height: 58px;
+  margin-top: 0;
+  margin-bottom: 9px;
+  border-radius: 29px;
+  align-items: center;
+  background-color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.listTitleText {
+  padding-left: 20px;
+  padding-right: 20px;
+  //font-family: 'Poppins', sans-serif;
+  //font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.listTransaction {
+  margin: 0 0 15px 0;
+}
+
+.elementTransaction {
+  display: flex;
+  height: 54px;
+  padding-left: 16px;
+  padding-right: 16px;
+  align-items: center;
+  color: #000;
+  border-bottom: 1px solid #dcdcdf;
+}
+
+.sum {
+  margin-left: auto;
+}
+
+.category {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.listTotal {
+  margin: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 40px;
+}
+
+.itemTotal {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.itemText {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+}

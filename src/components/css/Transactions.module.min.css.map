@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "../Transactions/Transactions.module.scss"
-    ],
-    "names": [],
-    "file": "Transactions.module.min.css"
-}

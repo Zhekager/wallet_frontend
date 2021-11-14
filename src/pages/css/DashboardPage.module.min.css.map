@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "../DashboardPage/DashboardPage.module.scss"
-    ],
-    "names": [],
-    "file": "DashboardPage.module.min.css"
-}
