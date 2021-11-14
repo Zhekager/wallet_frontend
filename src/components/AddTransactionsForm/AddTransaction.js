@@ -1,16 +1,20 @@
 import React from "react";
-import scss from "./AddTransaction.module.scss";
+import PropTypes from "prop-types";
+import styles from "./AddTransaction.module.scss";
 
-const AddTransaction = ({ modalHandler }) => {
+const AddTransaction = ({ onClick }) => {
   return (
     <button
-      className={scss.add__transaction_btn}
+      className={styles.add_transaction_btn}
       type="button"
-      onClick={() => modalHandler()}
+      onClick={onClick}
     >
       +
     </button>
   );
 };
 
+AddTransaction.propTypes = {
+  openModal: PropTypes.func.isRequired,
+};
 export default AddTransaction;
