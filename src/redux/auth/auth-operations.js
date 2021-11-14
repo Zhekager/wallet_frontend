@@ -142,3 +142,12 @@ export const fetchCurrentUser = () => async (dispatch, getState) => {
     return toast.error('Something went wrong! Try again later.');
   }
 };
+
+const authOperations = {
+  token,
+  logOut,
+  logIn,
+  register,
+};
+
+export default authOperations;
