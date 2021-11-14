@@ -43,7 +43,7 @@ export default function LoginForm() {
       onSubmit={handleSubmit}
       validationSchema={validationsSchema}
     >
-      {formik => (
+      {({ isSubmitting }) => (
         <Form className={styles.Form}>
           <TextFieldForm
             label={<IconEmail width={24} height={24} />}
@@ -60,11 +60,7 @@ export default function LoginForm() {
             className={styles.Field}
           />
 
-          <Button
-            type="submit"
-            // disabled={isSubmitting}
-            contentBtn="вход"
-          />
+          <Button type="submit" disabled={isSubmitting} contentBtn="вход" />
 
           {/* {isLoading && <LoaderSpinner />} */}
         </Form>
