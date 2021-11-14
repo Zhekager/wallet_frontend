@@ -13,7 +13,7 @@ import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './auth';
 import { balanceReducer } from './balance';
-import { transactionsReducer } from './transactions'
+import { transactionsReducer } from './transactions';
 
 const middleware = [
   ...getDefaultMiddleware({

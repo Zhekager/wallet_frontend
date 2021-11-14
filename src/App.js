@@ -11,7 +11,8 @@ import Container from './components/Container';
 // import Balance from './components/Balance'; //to delete later
 // import Currency from './components/Sidebar/Currency'; //to delete later
 import DashboardPage from './pages/DashboardPage/DasboardPage'; //to delete later
-
+// import AddTransaction from './components/AddTransactionsForm/AddTransaction';
+// import { TransactionForm } from './components/TransactionForm/TransactionForm';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
