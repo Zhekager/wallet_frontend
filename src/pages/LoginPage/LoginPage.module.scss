@@ -6,8 +6,8 @@
     width: 768px;
 
     background-color: #e7eaf2;
-    background-image: url('../../images/ellipse-tablet.png'),
-      url('../../images/ellipse-rose-tablet.png');
+    background-image: url('../../assets/images/ellipse-tablet.png'),
+      url('../../assets/images/ellipse-rose-tablet.png');
     background-repeat: no-repeat, no-repeat;
     background-position: left bottom, right top;
   }
@@ -17,7 +17,7 @@
     width: 1280px;
     height: 100vh;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
     // align-content: center;
   }
@@ -29,7 +29,7 @@
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     margin-bottom: 50px;
   }
 
@@ -48,14 +48,14 @@
     // margin-right: auto;
     width: 260px;
     height: 250px;
-    background-image: url('../../images/login-img-tablet.png');
+    background-image: url('../../assets/images/login-img-tablet.png');
     background-repeat: no-repeat;
     background-position: left top;
   }
 
   @media screen and (min-width: 1280px) {
     margin-bottom: 28px;
-    background-image: url('../../images/login-img-desk.png');
+    background-image: url('../../assets/images/login-img-desk.png');
     background-position: top center;
     width: 435px;
     height: 419px;

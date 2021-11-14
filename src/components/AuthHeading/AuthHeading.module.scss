@@ -7,21 +7,24 @@
 }
 
 .Heading {
-  padding-left: 15px;
   font-size: 20px;
   font-weight: 700;
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
   margin: 0;
 
   @media screen and (min-width: 768px) {
-    padding-left: 20px;
     font-size: 30px;
   }
 }
 
-.icon {
+.svgLogo {
+  width: 30px;
+  height: 30px;
+  margin-right: 14px;
+
   @media screen and (min-width: 768px) {
     width: 40px;
     height: 40px;
+    margin-right: 20px;
   }
 }
