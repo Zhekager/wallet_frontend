@@ -1,4 +1,4 @@
-/* 
+
 
 import PropTypes from 'prop-types';
 //import style from "./Modal.module.css";
@@ -6,11 +6,11 @@ import { createPortal } from "react-dom";
 
 const modalRoot = document.querySelector("#modal-root");
 
-export default function Modal({ showModal, children }) {
+export default function Modal({ openModal, children }) {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.code === "Escape") {
-        showModal();
+        openModal();
       }
     };
 
@@ -18,11 +18,11 @@ window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [showModal]);
+  }, [openModal]);
     
 const handleBackdropClick = (e) => {
     if (e.currentTarget === e.target) {
-      showModal();
+      openModal();
     }
 };
     return createPortal(
@@ -34,6 +34,6 @@ const handleBackdropClick = (e) => {
   }
 
 Modal.propTypes = {
-  showModal: PropTypes.func.isRequired,
+  openModal: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
-};  */
+};  
