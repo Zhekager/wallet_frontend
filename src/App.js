@@ -16,6 +16,9 @@ import DashboardPage from './pages/DashboardPage/DasboardPage'; //to delete late
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+
+
 import './App.module.scss';
 
 const RegistrationPage = lazy(() =>
@@ -36,6 +39,7 @@ const LoginPage = lazy(() =>
 function App() {
   // const dispatch = useDispatch();
   // const isLoading = useSelector(authSelectors.getLoading);
+
 
   return (
     // !isLoading && (
@@ -68,6 +72,7 @@ function App() {
         <ToastContainer autoClose={3000} position="top-center" />
       </Container>
     </>
+
   );
 
   //   return (
