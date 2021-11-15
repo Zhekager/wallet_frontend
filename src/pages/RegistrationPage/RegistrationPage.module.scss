@@ -6,20 +6,22 @@
     width: 768px;
 
     background-color: #e7eaf2;
-    background-image: url('../../assets/images/ellipse-tablet.png'),
-      url('../../assets/images/ellipse-rose-tablet.png');
+    background-image: url('../../assets/images/ellipse-violet.png'),
+      url('../../assets/images/ellipse-pink.png');
     background-repeat: no-repeat, no-repeat;
     background-position: left bottom, right top;
   }
 
   @media screen and (min-width: 1280px) {
+    position: relative;
     padding: 0;
     width: 1280px;
-    // height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: flex-end;
-    // align-items: center;
-    align-content: center;
+    align-items: center;
+    // align-content: center;
+    // padding-bottom: 100px;
   }
 }
 
@@ -34,31 +36,36 @@
   }
 
   @media screen and (min-width: 1280px) {
+    position: absolute;
+    top: 170px;
+    left: 66px;
+
     flex-direction: column;
-    justify-content: center;
     margin-right: 42px;
+    // padding-top: 170px;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 }
 
-.Img {
+.svgSignup {
   display: none;
 
   @media screen and (min-width: 768px) {
     display: inline-block;
-    // margin-right: auto;
     width: 274px;
     height: 250px;
-    background-image: url('../../assets/images/signup-img-tablet.png');
-    background-repeat: no-repeat;
-    background-position: left top;
+    // background-image: url('../../assets/images/signup-img-tablet.png');
+    // background-repeat: no-repeat;
+    // background-position: left top;
   }
 
   @media screen and (min-width: 1280px) {
     margin-bottom: 32px;
-    background-image: url('../../assets/images/signup-img-desk.png');
-    background-position: top center;
-    width: 452px;
-    height: 412px;
+    width: 453px;
+    height: 413px;
+    // background-image: url('../../assets/images/signup-img-desk.png');
+    // background-position: top center;
   }
 }
 
@@ -71,11 +78,10 @@
   }
 
   @media screen and (min-width: 1280px) {
-    // position: relative;
     padding-top: 52px;
     padding-bottom: 52px;
     width: 56.25%;
-    // height: auto;
+    height: 100%;
     border-radius: 0;
     background-color: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(50px);
@@ -85,21 +91,24 @@
 .SignupForm {
   background-color: #ffffff;
   padding-top: 36px;
-  // padding-bottom: 36px;
+  padding-bottom: 36px;
 
   @media screen and (min-width: 768px) {
-    // position: relative;
     padding: 40px 65px 60px 65px;
     border-radius: 20px;
   }
 
   @media screen and (min-width: 1280px) {
+    // position: absolute;
+    // top: 52px;
+    // right: 90px;
     margin-left: auto;
     margin-right: auto;
+    width: 540px;
+
     // position: absolute;
     // top: 50%;
     // left: 50%;
     // transform: translateY(-50%, -50%);
-    width: 540px;
   }
 }

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import useSizeScreen from '../../hooks/useSizeScreen';
 import { Logo } from '../IconBtn/Logo';
-// import { ReactComponent as IconLogo } from '../icons/icon-logo30.svg';
 
 import styles from './AuthHeading.module.scss';
 

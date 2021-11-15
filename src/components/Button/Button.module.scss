@@ -1,6 +1,6 @@
 .Button {
   display: block;
-  margin: 0 auto;
+  margin: 6px auto 0 auto;
   padding: 13px 58px;
   min-width: 280px;
   background-color: #24cca7;
@@ -29,6 +29,7 @@
   @media screen and (min-width: 768px) {
     min-width: 300px;
     padding: 13px 68px;
+    margin-top: 16px;
   }
 }
 

@@ -45,7 +45,7 @@ function App() {
     // !isLoading && (
     <>
       <Container>
-        <Header />
+        {/* <Header /> */}
         <Suspense fallback={'<LoaderSpinner />'}>
           <Switch>
             <Route path="/" exact redirectTo="/dashboard" restricted>
@@ -71,12 +71,10 @@ function App() {
         </Suspense>
 
         <ToastContainer autoClose={3000} position="top-center" />
-        
-        <ModalProvider>
-        <Controls />
-        </ModalProvider>
-        
 
+        {/* <ModalProvider>
+        <Controls />
+        </ModalProvider> */}
       </Container>
     </>
   );
