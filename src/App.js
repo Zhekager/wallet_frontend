@@ -11,11 +11,14 @@ import Container from './components/Container';
 // import Balance from './components/Balance'; //to delete later
 // import Currency from './components/Sidebar/Currency'; //to delete later
 import DashboardPage from './pages/DashboardPage/DasboardPage'; //to delete later
-// import AddTransaction from './components/AddTransactionsForm/AddTransaction';
+import { ModalProvider } from './components/Modal/ModalContext';
+import Controls from './components/AddTransactionsButton/AddTransaction';
+import Modal from './components/Modal/ModalForm';
+
 // import { TransactionForm } from './components/TransactionForm/TransactionForm';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+//import FormModal from '../Modal/FormModal';
 import './App.module.scss';
 
 const RegistrationPage = lazy(() =>
@@ -66,6 +69,12 @@ function App() {
         </Suspense>
 
         <ToastContainer autoClose={3000} position="top-center" />
+        
+        <ModalProvider>
+        <Controls />
+        </ModalProvider>
+        
+
       </Container>
     </>
   );
