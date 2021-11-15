@@ -1,0 +1,33 @@
+.dashboard {
+  padding: 13px 0 35px;
+  background-color: #e7eaf2;
+  // backdrop-filter: blur(50px);
+}
+
+@media screen and (min-width: 768px) {
+  .dashboard {
+    padding-top: 20px;
+
+    // background-image: url('../../assets/images/ellipse-violet.png'),
+    //   url('../../assets/images/ellipse-pink.png');
+    // background-repeat: no-repeat, no-repeat;
+    // background-position: left bottom, right top;
+
+    & .container {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .dashboard {
+    padding-top: 40px;
+
+    & .container {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}
