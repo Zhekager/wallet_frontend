@@ -1,0 +1,42 @@
+.BtnGoogle {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  padding: 13px 20px;
+  justify-content: center;
+  width: 300px;
+  height: 50px;
+  border-radius: 20px;
+  border: 1px solid #4a56e2;
+  background: #ffffff;
+
+  font-family: 'Circe', sans-serif;
+  color: #4a56e2;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  text-align: center;
+  // text-transform: uppercase;
+  transform: scale(1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition-property: box-shadow, transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  // &:hover,
+  &:focus {
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+      0px 2px 2px rgba(0, 0, 0, 0.12);
+    transform: scale(1.03);
+    cursor: pointer;
+  }
+}
+
+.svgGoogle {
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+}

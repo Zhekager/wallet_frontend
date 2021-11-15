@@ -1,6 +1,7 @@
 .AuthNav {
   width: 280px;
   margin: 0 auto;
+  // height: 50px;
 
   @media screen and (min-width: 768px) {
     width: 300px;
@@ -16,6 +17,7 @@
   color: #4a56e2;
   font-weight: 400;
   font-size: 18px;
+  height: 50px;
   letter-spacing: 0.1em;
   line-height: 1.5;
   text-align: center;

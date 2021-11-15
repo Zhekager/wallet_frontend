@@ -2,6 +2,7 @@ import LoginForm from '../../components/LoginForm';
 import PageHeading from '../../components/PageHeading';
 import AuthHeading from '../../components/AuthHeading';
 import AuthNav from '../../components/AuthNav';
+import LoginGoogle from '../../components/LoginGoogle';
 
 import useSizeScreen from '../../hooks/useSizeScreen';
 import { LoginImgPage } from '../../components/IconBtn/LoginImgPage';
@@ -29,6 +30,7 @@ export default function LoginPage() {
 
           <LoginForm />
 
+          <LoginGoogle />
           <AuthNav content="регистрация" path="/register" />
         </div>
       </div>
