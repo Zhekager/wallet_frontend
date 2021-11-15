@@ -8,8 +8,19 @@ const Error = ({ errorContent }) => {
       <p text={errorContent} className={styles.ErrorContent}>
         {errorContent}
       </p>
+      <div class="contant_box_404">
+        <h3 className={styles.ErrorContent}>Look like you're lost</h3>
+
+        <p className={styles.ErrorContent}>
+          the page you are looking for not avaible!
+        </p>
+
+        <a href="" class="link_404">
+          Go to Home
+        </a>
+      </div>
     </div>
-  );
+  ):
 };
 
 Error.propTypes = {
