@@ -12,8 +12,6 @@ export default function AuthHeading({ text }) {
 
   return (
     <div className={styles.head}>
-      {/* <IconLogo width={30} height={30} className={styles.icon} /> */}
-
       {sizeScreen <= 767 ? (
         <Logo svg={styles.svgLogo} />
       ) : (
