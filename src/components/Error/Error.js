@@ -20,7 +20,7 @@ const Error = ({ errorContent }) => {
         </a>
       </div>
     </div>
-  ):
+  );
 };
 
 Error.propTypes = {
