@@ -1,156 +1,136 @@
 import React, {useState} from 'react';
 import style from './TransactionForm.module.scss'; 
+import { Formik, Form, Field, } from 'formik';
+import * as Yup from 'yup';
+import Button from '../Button';
+import Switch from './Switch';
+//import Box from '@material-ui/core/Box';
 
- export const TransactionForm = () => {
-  const [typeOfTransaction, setTypeOfTransiction] = useState('');
-  const updateTypeOfTransiction = e => {
-    setAnmount('');
-    setDate(currentDate);
-    setComment('');
-    setTypeOfTransiction(e.target.value);
+//redux
+//import { useDispatch } from 'react-redux';
+//import fetchTransactions from '../../redux/transactions/transaction-operations';
+
+export default function TransactionForm() {
+  
+
+  const validationsSchema = Yup.object().shape({
+    typeOfTransaction: Yup.string().required('Type is required'),
+    category: Yup.string(),
+    amount: Yup.number().min(0).required('Amount is required'),
+    date: Yup.date().required('Date is required'),
+    comment: Yup.string()
+  });
+
+  const [chooseSelect, setSelect] = useState(false);
+  const [category, setCategory] = useState();
+
+   const onSwitchChecked = evt => {
+    setSelect(evt.target.checked);
+    setCategory(null);
   };
+  
 
-  const [amount, setAnmount] = useState('');
-  const updateAnmount = e => {
-    setAnmount(e.target.value);
-  };
 
-  const currentDate = new Date()
-    .toLocaleDateString()
-    .split('.')
-    .reverse()
-    .join('-');
-  const [date, setDate] = useState(currentDate);
-  const updateDate = e => {
-    setDate(e.target.value);
-  };
-
-  const [comment, setComment] = useState('');
-  const updateComment = e => {
-    setComment(e.target.value);
-  };
-
-  const [category, setCategory] = useState('');
-  const updateCategory = e => {
-    setCategory(e.target.value);
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    const formData = {
-      typeOfTransaction,
-      amount,
-      date,
-      comment,
-    };
-    console.log(formData);
-  };
-
-  return ( 
-    /* <div className={style.modal}> */
-       <div className={style.container}>  
-        
-        {/* <div className={style.box}>  */}
-           <form className={style.form} onSubmit={handleSubmit}>
-            <h1 className={style.title}>Добавить транзакцию</h1>
-            <div className={style.formBox}>
-              <div className={style.toggleradio} > 
-               <label className={style.labelBox}>
-                Доход  
-                  <input
-                  className={style.perekl}
-                  type="radio"
-                  value="income"
-                  id='Доход'
-                  name="typeOfTransiction"
-                  checked={typeOfTransaction === 'income'}
-                  onChange={updateTypeOfTransiction}
-                  required
-                /> 
-                
-            </label> 
-               <label className={style.labelBox}> 
-                  <input
-                    className={style.perekl}
-                  type="radio"
-                  value="cost"
-                  id='Расход'
-                  name="typeOfTransiction"
-                  checked={typeOfTransaction === 'cost'}
-                  onChange={updateTypeOfTransiction}
-                  
-                  
-                /> 
-                Расход
-                </label>
-
-              </div>
-              {typeOfTransaction === 'cost' && (
-                <label className={style.categoryBox}>
-                  <select
-                    className={style.inputCategory}
-                    value={category}
-                    onChange={updateCategory}
-                    required
-                  >
-                    <option hidden="">Выберите категорию</option>
-                    <option value="Основной">Основной</option>
-                    <option value="Еда">Еда</option>
-                    <option value="Авто">Авто</option>
-                    <option value="Развитие">Развитие</option>
-                    <option value="Дети">Дети</option>
-                    <option value="Дом">Дом</option>
-                    <option value="Образование">Образование</option>
-                    <option value="Остальное">Остальное</option>
-                  </select>
-                </label>
+//
+  return (
+   
+    <div className={style.container}>
+    <div className={style.form}>
+    <h3 className={style.title}>Добавить транзакцию</h3>
+    
+    <Formik
+      initialValues={{
+        typeOfTransaction: 'Расход',
+        category: 'Выберите категорию',
+        amount: '',
+        date: '',
+        comment: ''
+      }}
+      //onSubmit={openModal}
+      validationSchema={validationsSchema}
+    >
+      
+    {({ errors, touched, isSubmitting }) => (
+      <Form>
+        {/* <div id="my-radio-group"></div>
+          <div role="group" aria-labelledby="my-radio-group">
+            <label>
+              <Field type="radio" name="typeOfTransaction" value="Доход" />
+              Доход
+            </label>
+            <label>
+              <Field type="radio" name="typeOfTransaction" value="Расход" />
+              Расход
+            </label>
+              {errors.typeOfTransaction && touched.typeOfTransaction && (
+                <span className="error">{errors.typeOfTransaction}</span>
               )}
-              <input
-                className={style.inputNumber}
-                type="number"
-                placeholder="0.00"
-                name="amount"
-                value={amount}
-                onChange={updateAnmount}
-                required
-              />
-              <input
-                className={style.inputDate}
-                type="date"
-                name="date"
-                value={date}
-                onChange={updateDate}
-                required
-              />
-              <label>
-            <textarea
-                  placeholder='Комментарий'
-                  className={style.textarea}
-                  type="text"
-                  name="comment"
-                  value={comment}
-                  onChange={updateComment}
-                  required
-                >
-                  
-                </textarea>
-              </label>
-             </div> 
-            <div className={style.btnBox}>
-              <button className={style.button} type="submit">
-                Добавить
-              </button>
-          
-              <button className={style.button2} type="submit">
-                Отмена
-              </button>
-          
-            </div>
-          </form>
-        </div> 
-      /* </div>
-      </div>  */
-    );
- }
+          </div> */}
+              
+           
+       <div className={style.box}>  
+           <p className={style.text} style={{ color: 'rgba(36, 204, 167, 1)' }}>
+            Доход
+          </p> 
+             
+            <Switch    
+            onSwitch={chooseSelect => onSwitchChecked(chooseSelect)}
+            isChecked={chooseSelect}
+            onClick={chooseSelect => onSwitchChecked(chooseSelect)}
+          />
+          <p className={style.text} style={{ color: 'rgba(255, 101, 150, 1)' }}>
+            Расход
+          </p>
+           
+         </div> 
+      
+            
+            <Field name="category" as="select" hidden>
+              <option value="">Выберите категорию</option>
+              <option value="Основной">Основной</option>
+              <option value="Еда">Еда</option>
+              <option value="Авто">Авто</option>
+              <option value="Развитие">Развитие</option>
+              <option value="Дети">Дети</option>
+              <option value="Дом">Дом</option>
+              <option value="Образование">Образование</option>
+              <option value="Остальное">Остальное</option>
+            </Field>
+            {errors.category && touched.category &&
+        <span className="input-feedback">
+          {errors.category}
+        </span>}
+
+            <Field name="amount"
+            type="number"
+            placeholder="0.00" />
+            {errors.amount &&
+        touched.amount &&
+        <span className="input-feedback">
+          {errors.amount}
+        </span>}
+            
+            <Field
+            name="date"
+            type="date"
+          />
+            
+            <Field name="comment" as="textarea"
+            type="text"
+            placeholder="Комментарий" />
+
+          <Button disabled={isSubmitting} type="submit" contentBtn="Добавить" />
+          <Button type="submit" contentBtn="Отмена" />
+
+          {/* {isLoading && <LoaderSpinner />} */}
+        </Form>
+      )}
+      </Formik>
+    
+      </div>
+    </div>
+    
+  );
+}
 
 

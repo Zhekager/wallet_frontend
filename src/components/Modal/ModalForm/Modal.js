@@ -4,7 +4,7 @@ import { ModalContext } from "../ModalContext";
 
 
 export const Modal = (props) => {
-    const { children, title } = props;
+    const { title, children } = props;
     const { closeModal } = useContext(ModalContext);
 
     const [closing, setClosing] = useState(false);
@@ -35,13 +35,13 @@ export const Modal = (props) => {
         <div className={backdropClasses} onClick={handleClose}>
             <div className={style.modal} onClick={(event) => event.stopPropagation()}>
                 <div className={style.modal_header}>
-                    <h3>{title}</h3>
+                    <h3 className={style.title}>{title}</h3>
                 </div>
                 <div className={style.modal_body}>
-                    {children}
-                </div>
+                        {children}
             </div>
             </div>
-        </div>
+            </div>
+            </div>
     )
 }
