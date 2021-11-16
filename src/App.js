@@ -15,7 +15,7 @@ import { ModalProvider } from './components/Modal/ModalContext';
 import Controls from './components/AddTransactionsButton/AddTransaction';
 import Modal from './components/Modal/ModalForm';
 
-// import { TransactionForm } from './components/TransactionForm/TransactionForm';
+ import  TransactionForm  from './components/TransactionForm/TransactionForm';
 import Header from './components/Header/Header';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -72,9 +72,13 @@ function App() {
 
         <ToastContainer autoClose={3000} position="top-center" />
 
-        {/* <ModalProvider>
+
+        <ModalProvider>
           <Controls />
-        </ModalProvider> */}
+      {/*   <TransactionForm /> */}
+          
+        </ModalProvider> 
+
       </Container>
     </>
   );
