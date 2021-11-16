@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 // import PrivateRoute from './routes/PrivateRoute';
 // import PublicRoute from './routes/PublicRoute';
 import Container from './components/Container';
-// import LoaderSpinner from './components/LoaderSpinner';
+import Spinner from './components/Spinner';
 // import Table from './components/Table'; //to delete later
 // import Navigation from './components/Navigation'; //to delete later
 // import Balance from './components/Balance'; //to delete later
@@ -18,7 +18,7 @@ import Modal from './components/Modal/ModalForm';
 
 // import Spinner from './components/Spinner'
 
-// import { TransactionForm } from './components/TransactionForm/TransactionForm';
+import TransactionForm from './components/TransactionForm/TransactionForm';
 import Header from './components/Header/Header';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -49,7 +49,7 @@ function App() {
     <>
       <Container>
         {/* <Header /> */}
-        <Suspense fallback={'<LoaderSpinner />'}>
+        <Suspense fallback={<Spinner />}>
           <Switch>
             <Route path="/" exact redirectTo="/dashboard" restricted>
               <RegistrationPage />
@@ -75,9 +75,10 @@ function App() {
 
         <ToastContainer autoClose={3000} position="top-center" />
 
-        {/* <ModalProvider>
-        <Controls />
-        </ModalProvider> */}
+        <ModalProvider>
+          <Controls />
+          {/*   <TransactionForm /> */}
+        </ModalProvider>
       </Container>
     </>
   );

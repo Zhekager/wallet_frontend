@@ -4,6 +4,7 @@
 import { Formik, Form } from 'formik';
 import TextFieldForm from '../TextFieldForm';
 import * as Yup from 'yup';
+import Spinner from '../Spinner';
 
 import Button from '../Button';
 import { ReactComponent as IconEmail } from '../icons/email.svg';
@@ -80,7 +81,7 @@ export default function RegistrationForm() {
             label={<IconLock width={24} height={24} />}
             name="confirmPassword"
             type="password"
-            placeholder="Подтвердите пароль"
+            placeholder="Пароль"
             className={styles.Field}
           />
           <TextFieldForm
@@ -97,7 +98,7 @@ export default function RegistrationForm() {
             contentBtn="Регистрация"
           />
 
-          {/* {isLoading && <LoaderSpinner />} */}
+          {/* {isLoading && <Spinner />} */}
         </Form>
       )}
     </Formik>
