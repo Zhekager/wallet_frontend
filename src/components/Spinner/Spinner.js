@@ -5,10 +5,10 @@ import './Spinner.scss';
 const Spinner = () => (
   <Loader
     type="BallTriangle"
-    color="#00BFFF"
+    color="#24CCA7"
     className="Loader"
-    height={70}
-    width={70}
+    height={100}
+    width={100}
     visible={true}
   />
 );

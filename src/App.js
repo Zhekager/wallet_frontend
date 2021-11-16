@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 // import PrivateRoute from './routes/PrivateRoute';
 // import PublicRoute from './routes/PublicRoute';
 import Container from './components/Container';
-// import LoaderSpinner from './components/LoaderSpinner';
+import Spinner from './components/Spinner';
 // import Table from './components/Table'; //to delete later
 // import Navigation from './components/Navigation'; //to delete later
 // import Balance from './components/Balance'; //to delete later
@@ -46,7 +46,7 @@ function App() {
     <>
       <Container>
         {/* <Header /> */}
-        <Suspense fallback={'<LoaderSpinner />'}>
+        <Suspense fallback={<Spinner />}>
           <Switch>
             <Route path="/" exact redirectTo="/dashboard" restricted>
               <RegistrationPage />

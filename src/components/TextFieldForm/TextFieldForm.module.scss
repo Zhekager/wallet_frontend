@@ -6,4 +6,16 @@
   margin-bottom: 34px;
   padding-left: 14px;
   border-bottom: 1px solid #e0e0e0;
+
+  @media screen and (min-width: 1280px) and (max-height: 799px) {
+    margin-bottom: 16px;
+  }
+
+  @media screen and (min-width: 1280px) and (min-height: 800px) {
+    margin-bottom: 26px;
+  }
+
+  @media screen and (min-width: 1280px) and (min-height: 960px) {
+    margin-bottom: 34px;
+  }
 }
