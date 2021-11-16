@@ -74,7 +74,7 @@ function App() {
 
         <ModalProvider>
           <Controls />
-          {/*   <TransactionForm /> */}
+          <TransactionForm /> 
         </ModalProvider>
       </Container>
     </>

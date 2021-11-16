@@ -1,4 +1,3 @@
-
 import React, { useContext } from "react";
 import styles from "./AddTransaction.module.scss";
 import { ModalContext } from "../Modal/ModalContext";
@@ -27,4 +26,3 @@ const Controls = () => {
 };
 
 export default Controls;
-
