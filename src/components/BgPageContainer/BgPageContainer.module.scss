@@ -1,0 +1,42 @@
+.BgPageContainer {
+  background-color: #ffffff;
+
+  @media screen and (min-width: 768px) {
+    padding: 60px 114px 196px 114px;
+    width: 768px;
+
+    background-color: #e7eaf2;
+    background-image: url('../../assets/images/ellipse-violet.png'),
+      url('../../assets/images/ellipse-pink.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom, right top;
+  }
+
+  @media screen and (min-width: 1280px) {
+    position: relative;
+    padding: 0;
+    width: 1280px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    // align-content: center;
+  }
+
+  @media screen and (min-width: 1280px) and (max-height: 719px) {
+    position: relative;
+    min-height: 100%;
+  }
+
+  @media screen and (min-width: 1280px) and (min-height: 720px) {
+    position: relative;
+    height: 100vh;
+  }
+}
+
+.BgSignupPageContainer {
+  composes: BgPageContainer;
+
+  @media screen and (min-width: 768px) {
+    padding: 60px 114px 50px 114px;
+  }
+}
