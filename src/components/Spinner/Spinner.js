@@ -4,11 +4,11 @@ import './Spinner.scss';
 
 const Spinner = () => (
   <Loader
-    type="BallTriangle"
-    color="#00BFFF"
+    type="Grid"
+    color="#C5BAFF"
     className="Loader"
-    height={70}
-    width={70}
+    height={80}
+    width={80}
     visible={true}
   />
 );

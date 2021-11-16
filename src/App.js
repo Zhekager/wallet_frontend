@@ -14,6 +14,9 @@ import DashboardPage from './pages/DashboardPage/DasboardPage'; //to delete late
 import { ModalProvider } from './components/Modal/ModalContext';
 import Controls from './components/AddTransactionsButton/AddTransaction';
 import Modal from './components/Modal/ModalForm';
+// import Chart from './components/Chart/Chart';
+
+// import Spinner from './components/Spinner'
 
 // import { TransactionForm } from './components/TransactionForm/TransactionForm';
 import Header from './components/Header/Header';
