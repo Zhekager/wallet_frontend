@@ -81,7 +81,7 @@ export default function RegistrationForm() {
             label={<IconLock width={24} height={24} />}
             name="confirmPassword"
             type="password"
-            placeholder="Подтвердите пароль"
+            placeholder="Пароль"
             className={styles.Field}
           />
           <TextFieldForm
