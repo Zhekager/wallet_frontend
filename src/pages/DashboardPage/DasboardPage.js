@@ -1,22 +1,27 @@
-// import React, { Fragment } from 'react';
-// import Media from 'react-media';
-
-// import Header from '../../components/Header';
-// import Navigation from '../../components/Navigation';
-// import Balance from '../../components/Balance';
-// import Currency from '../../components/Currency';
+import React, { Fragment } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Header from '../../components/Header';
+import Sidebar from '../../components/Sidebar';
+// import Currency from '../../components/Sidebar/Currency';
+import './DashboardPage.scss';
 // import Transactions from '../../components/Transactions';
 
-// const DashboardPage = () => {
-//   return (
-//     <>
-//   {/* <Header /> */}
-//   <Navigation />
-//   {/* <Balance />
-//   <Currency />
-//   <Transactions /> */}
-//     </>
-//   );
-// };
-
-// export default DashboardPage;
+export default function DashboardPage() {
+  return (
+    <>
+      <Header />
+      <div className="dashboard">
+        <div className="container">
+          <Sidebar />
+          <main>
+            <Switch>
+              <Route />
+              <Route />
+              {/* <Route path="/currency" component={Currency} /> */}
+            </Switch>
+          </main>
+        </div>
+      </div>
+    </>
+  );
+}

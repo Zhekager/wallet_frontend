@@ -3,6 +3,7 @@ import RegistrationForm from '../../components/RegistrationForm';
 import PageHeading from '../../components/PageHeading';
 import AuthHeading from '../../components/AuthHeading';
 import AuthNav from '../../components/AuthNav';
+import LoginGoogle from '../../components/LoginGoogle';
 
 import useSizeScreen from '../../hooks/useSizeScreen';
 import { SignupImgPage } from '../../components/IconBtn/SignupImgPage';
@@ -29,6 +30,8 @@ export default function RegistrationPage() {
           <AuthHeading text="Wallet" />
 
           <RegistrationForm />
+
+          <LoginGoogle />
 
           <AuthNav content="вход" path="/login" />
         </div>

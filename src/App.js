@@ -72,11 +72,13 @@ function App() {
 
         <ToastContainer autoClose={3000} position="top-center" />
 
+
         <ModalProvider>
           <Controls />
       {/*   <TransactionForm /> */}
           
         </ModalProvider> 
+
       </Container>
     </>
   );

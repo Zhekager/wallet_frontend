@@ -6,6 +6,7 @@ import TextFieldForm from '../TextFieldForm';
 import * as Yup from 'yup';
 
 import Button from '../Button';
+import Spinner from '../Spinner';
 import { ReactComponent as IconEmail } from '../icons/email.svg';
 import { ReactComponent as IconLock } from '../icons/lock.svg';
 
@@ -62,7 +63,7 @@ export default function LoginForm() {
 
           <Button type="submit" disabled={isSubmitting} contentBtn="вход" />
 
-          {/* {isLoading && <LoaderSpinner />} */}
+          {/* {isLoading && <Spinner />} */}
         </Form>
       )}
     </Formik>
