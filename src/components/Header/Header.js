@@ -1,11 +1,12 @@
 import React, { useCallback } from 'react';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { IconButton } from '@material-ui/core';
-import s from './Header.scss';
+import s from './Header.module.scss';
 // import authSelectors from '../../redux/auth/auth-selectors';
 import { useDispatch } from 'react-redux';
 import authOperations from '../../redux/auth/auth-operations';
 // import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import Logo from '../AuthHeading/AuthHeading';
 
 function Header() {
   // const user = useSelector(authSelectors.getUsername);
@@ -18,7 +19,7 @@ function Header() {
       <header className={s.header}>
         <div className={s.header__box}>
           <a href="/" className={s.logo}>
-            <p>Wallet</p>
+            <Logo text="Wallet" />
           </a>
           <div className={s.user}>
             <a href="/user" className={s.user__info}>
