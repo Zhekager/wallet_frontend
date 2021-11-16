@@ -16,7 +16,7 @@ import Controls from './components/AddTransactionsButton/AddTransaction';
 import Modal from './components/Modal/ModalForm';
 
 import TransactionForm from './components/TransactionForm/TransactionForm';
-import Header from './components/Header/Header';
+// import Header from './components/Header/Header';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 //import FormModal from '../Modal/FormModal';
