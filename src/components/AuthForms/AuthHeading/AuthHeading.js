@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import useSizeScreen from '../../hooks/useSizeScreen';
-import { Logo } from '../IconBtn/Logo';
+import useSizeScreen from '../../../hooks/useSizeScreen';
+import { Logo } from '../../IconBtn/Logo';
 
 import styles from './AuthHeading.module.scss';
 

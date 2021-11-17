@@ -50,4 +50,52 @@ const tableData = [
   },
 ];
 
-export { month, year, yearInitial, monthInitial, tableData };
+const costs = [
+  // {
+  //   value: '',
+  //   category: 'Choose category',
+  //   id: 1,
+  // },
+  {
+    value: 'Main costs',
+    category: 'Basic',
+    id: 2,
+  },
+  {
+    value: 'Products',
+    category: 'Food',
+    id: 3,
+  },
+  {
+    value: 'Car',
+    category: 'Auto',
+    id: 4,
+  },
+  {
+    value: 'Taking Care of Yourself',
+    category: 'Development',
+    id: 5,
+  },
+  {
+    value: 'Taking Care of children',
+    category: 'Children',
+    id: 6,
+  },
+  {
+    value: 'Leisure',
+    category: 'House',
+    id: 7,
+  },
+  {
+    value: 'Education',
+    category: 'Education',
+    id: 8,
+  },
+  {
+    value: 'Other expenses',
+    category: 'The other',
+    id: 9,
+  },
+];
+
+export { month, year, yearInitial, monthInitial, tableData, costs };
