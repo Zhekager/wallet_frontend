@@ -1,10 +1,10 @@
-import LoginForm from '../../components/LoginForm';
-import AuthHeading from '../../components/AuthHeading';
-import AuthNav from '../../components/AuthNav';
-import LoginGoogle from '../../components/LoginGoogle';
+import LoginForm from '../../components/AuthForms/LoginForm';
+import AuthHeading from '../../components/AuthForms/AuthHeading';
+import AuthNav from '../../components/AuthForms/AuthNav';
+import LoginGoogle from '../../components/AuthForms/LoginGoogle';
 import BgPageContainer from '../../components/BgPageContainer';
 import ImgContentContainer from '../../components/ImgContentContainer';
-import AuthContentContainer from '../../components/AuthContentContainer';
+import AuthContentContainer from '../../components/AuthForms/AuthContentContainer';
 
 import useSizeScreen from '../../hooks/useSizeScreen';
 import { LoginImgPage } from '../../components/IconBtn/LoginImgPage';
@@ -28,7 +28,7 @@ export default function LoginPage() {
           <AuthHeading text="Wallet" />
           <LoginForm />
           <LoginGoogle />
-          <AuthNav content="регистрация" path="/register" />
+          <AuthNav content="Sign up" path="/register" />
         </AuthContentContainer>
       </AuthContentContainer>
     </BgPageContainer>

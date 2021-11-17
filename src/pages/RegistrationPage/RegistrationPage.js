@@ -1,10 +1,10 @@
-import RegistrationForm from '../../components/RegistrationForm';
-import AuthHeading from '../../components/AuthHeading';
-import AuthNav from '../../components/AuthNav';
-import LoginGoogle from '../../components/LoginGoogle';
+import RegistrationForm from '../../components/AuthForms/RegistrationForm';
+import AuthHeading from '../../components/AuthForms/AuthHeading';
+import AuthNav from '../../components/AuthForms/AuthNav';
+import LoginGoogle from '../../components/AuthForms/LoginGoogle';
 import BgPageContainer from '../../components/BgPageContainer';
 import ImgContentContainer from '../../components/ImgContentContainer';
-import AuthContentContainer from '../../components/AuthContentContainer';
+import AuthContentContainer from '../../components/AuthForms/AuthContentContainer';
 
 import useSizeScreen from '../../hooks/useSizeScreen';
 import { SignupImgPage } from '../../components/IconBtn/SignupImgPage';
@@ -28,7 +28,7 @@ export default function RegistrationPage() {
           <AuthHeading text="Wallet" />
           <RegistrationForm />
           <LoginGoogle />
-          <AuthNav content="вход" path="/login" />
+          <AuthNav content="Log in" path="/login" />
         </AuthContentContainer>
       </AuthContentContainer>
     </BgPageContainer>

@@ -4,12 +4,12 @@
 import { Formik, Form } from 'formik';
 import TextFieldForm from '../TextFieldForm';
 import * as Yup from 'yup';
-import Spinner from '../Spinner';
+import Spinner from '../../Spinner';
 
-import Button from '../Button';
-import { ReactComponent as IconEmail } from '../icons/email.svg';
-import { ReactComponent as IconLock } from '../icons/lock.svg';
-import { ReactComponent as IconName } from '../icons/user.svg';
+import Button from '../../Button';
+import { ReactComponent as IconEmail } from '../../icons/email.svg';
+import { ReactComponent as IconLock } from '../../icons/lock.svg';
+import { ReactComponent as IconName } from '../../icons/user.svg';
 
 import styles from './RegistrationForm.module.scss';
 
@@ -74,29 +74,25 @@ export default function RegistrationForm() {
             label={<IconLock width={24} height={24} />}
             name="password"
             type="password"
-            placeholder="Пароль"
+            placeholder="Password"
             className={styles.Field}
           />
           <TextFieldForm
             label={<IconLock width={24} height={24} />}
             name="confirmPassword"
             type="password"
-            placeholder="Пароль"
+            placeholder="Confirm password"
             className={styles.Field}
           />
           <TextFieldForm
             label={<IconName width={24} height={24} />}
             name="name"
             type="text"
-            placeholder="Ваше имя"
+            placeholder="Your name"
             className={styles.Field}
           />
 
-          <Button
-            disabled={isSubmitting}
-            type="submit"
-            contentBtn="Регистрация"
-          />
+          <Button disabled={isSubmitting} type="submit" contentBtn="Sign up" />
 
           {/* {isLoading && <Spinner />} */}
         </Form>

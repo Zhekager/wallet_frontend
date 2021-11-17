@@ -29,7 +29,8 @@
 
   @media screen and (min-width: 1280px) and (min-height: 720px) {
     position: relative;
-    height: 100vh;
+    // height: 100vh;
+    min-height: 100%;
   }
 }
 
@@ -38,5 +39,10 @@
 
   @media screen and (min-width: 768px) {
     padding: 60px 114px 50px 114px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    position: relative;
+    padding: 0;
   }
 }

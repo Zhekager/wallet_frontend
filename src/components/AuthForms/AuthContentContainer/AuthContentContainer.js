@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import styles from './AuthContentContainer.module.scss';
 
 const AuthContentContainer = ({ children, authContainer }) => {
