@@ -5,9 +5,19 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import Button from '../Button';
 import Switch from './Switch';
+
+import { costs } from '../../assets/data/select-data/selectData';
+
+import styles from './TransactionForm.module.scss';
+
+
+
+//import Box from '@material-ui/core/Box';
+
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 //import Box from '@material-ui/core/Box';
+
 
 import 'react-datepicker/dist/react-datepicker.css';
 import AddTransaction from '../AddTransactionsButton/AddTransaction';
@@ -22,6 +32,7 @@ export default function TransactionForm() {
     date: Yup.date().required('Date is required'),
     comment: Yup.string(),
   });
+
 
   const [chooseSelect, setSelect] = useState(false);
   const [category, setCategory] = useState();
@@ -53,6 +64,7 @@ export default function TransactionForm() {
   };
 
   //
+
   return (
     <div className={style.container}>
       <div className={style.form}>
@@ -86,14 +98,15 @@ export default function TransactionForm() {
               )}
           </div> */}
 
+
               <div className={style.box}>
+
                 <p
                   className={style.text}
                   style={{ color: 'rgba(36, 204, 167, 1)' }}
                 >
                   Income
                 </p>
-
                 <Switch
                   onSwitch={chooseSelect => onSwitchChecked(chooseSelect)}
                   isChecked={chooseSelect}

@@ -6,7 +6,7 @@ import TextFieldForm from '../TextFieldForm';
 import * as Yup from 'yup';
 
 import Button from '../../Button';
-import Spinner from '../../Spinner';
+// import Spinner from '../../Spinner';
 import { ReactComponent as IconEmail } from '../../icons/email.svg';
 import { ReactComponent as IconLock } from '../../icons/lock.svg';
 
