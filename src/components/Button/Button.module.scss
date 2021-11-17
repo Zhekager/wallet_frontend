@@ -52,3 +52,11 @@
   border-color: transparent;
   color: gray;
 }
+
+.ButtonSecondary {
+  composes: Button;
+
+  background-color: #ffffff;
+  color: #4a56e2;
+  border: 1px solid #4a56e2;
+}

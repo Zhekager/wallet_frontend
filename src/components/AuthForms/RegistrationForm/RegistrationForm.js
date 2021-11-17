@@ -92,7 +92,12 @@ export default function RegistrationForm() {
             className={styles.Field}
           />
 
-          <Button disabled={isSubmitting} type="submit" contentBtn="Sign up" />
+          <Button
+            disabled={isSubmitting}
+            type="submit"
+            contentBtn="Sign up"
+            button="Button"
+          />
 
           {/* {isLoading && <Spinner />} */}
         </Form>

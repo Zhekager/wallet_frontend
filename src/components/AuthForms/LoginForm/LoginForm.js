@@ -61,7 +61,12 @@ export default function LoginForm() {
             className={styles.Field}
           />
 
-          <Button type="submit" disabled={isSubmitting} contentBtn="Log in" />
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            contentBtn="Log in"
+            button="Button"
+          />
 
           {/* {isLoading && <Spinner />} */}
         </Form>
