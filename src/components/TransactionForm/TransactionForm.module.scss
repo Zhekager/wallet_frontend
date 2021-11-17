@@ -2,6 +2,9 @@
   margin-left: auto;
   margin-right: auto;
   width: 540px;
+  
+//   min-height: 540px;
+
   border-radius: 20px;
   background-color: #ffffff;
   /* position: fixed;*/
@@ -81,9 +84,23 @@
   border-bottom: 1px solid #e0e0e0;
 }
 
+
 .Credentials {
   display: flex;
   justify-content: space-between;
+
+.categoryBox {
+  width: 409.5px;
+  height: 34px;
+  margin: 40px 0px;
+}
+.inputNumber,
+.inputDate {
+  width: 190px;
+  height: 34px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+
   margin-bottom: 40px;
 }
 
@@ -126,10 +143,19 @@
   line-height: 1.5;
   height: 44px;
   border: none;
-  outline: none;
+
+//   outline: none;
+//   border-bottom: 1px solid #e0e0e0;
+//   resize: none;
+//   overflow: hidden;
+
   border-bottom: 1px solid #e0e0e0;
   resize: none;
-  overflow: hidden;
+  padding: 5px;
+  outline: none;
+  margin-bottom: 30px;
+}
+
 
   &::placeholder {
     color: #bdbdbd;
@@ -143,6 +169,18 @@
 //   cursor: pointer;
 // }
 
+.btn {
+  width: 300px;
+  height: 50px;
+  margin-bottom: 20px;
+  background-color: #24cca7;
+  border-radius: 20px;
+  border: none;
+  color: #ffffff;
+  outline: none;
+  cursor: pointer;
+
+
 // .inputRadio {
 //   margin-top: 0px;
 //   margin-bottom: 0px;
@@ -150,6 +188,7 @@
 //   cursor: pointer;
 // }
 
+///////////////////////////
 // .categoryBox {
 //   width: 409.5px;
 //   height: 34px;
@@ -259,3 +298,68 @@
 //   letter-spacing: 0.1em;
 //   text-transform: uppercase;
 // }
+
+.btn2 {
+  display: block;
+  width: 300px;
+  height: 50px;
+  margin: 20px auto 0 auto;
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #4a56e2;
+  color: #4a56e2;
+  outline: none;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+// select
+
+.select {
+  width: 409.5px;
+  height: 34px;
+  margin: 40px 0px;
+  //border: none;
+  //border-bottom: 2px solid #b9c9d4;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  color: #bdbdbd;
+  box-shadow: none;
+  outline: none;
+}
+
+.select .selectprefix {
+  display: none;
+}
+.calendar {
+  position: relative;
+  padding: 0 20px 10px 20px;
+  margin-bottom: 40px;
+  width: 190px;
+  height: 34px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  margin-left: 30px;
+  font-weight: 400;
+  font-size: 18px;
+  color: #000000;
+  content: url('../icons/calendar.png');
+}
+.calendar:focus {
+  outline: none;
+}
+
+.datebform {
+  display: flex;
+  justify-content: space-between;
+}
+
