@@ -1,5 +1,6 @@
 .container {
   width: 540px;
+
   min-height: 540px;
   border-radius: 20px;
   background-color: #ffffff;
@@ -10,14 +11,12 @@
   border: 1px solid black;
   margin: 0px;
 }
-
 .box {
   margin: 40px 160px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .text {
   padding-left: 70px;
   padding-right: 70px;
@@ -30,13 +29,11 @@
   line-height: 24px;
   color: #e0e0e0;
 }
-
 .form {
   //display: flex;
   //flex-wrap: wrap;
   margin: 40px 80px 60px;
 }
-
 .title {
   font-style: normal;
   font-weight: normal;
@@ -49,7 +46,6 @@
   //padding: 0;
   //margin: 0;
 }
-
 .formBox {
   display: flex;
   flex-wrap: wrap;
@@ -57,27 +53,23 @@
   /* flex-direction: column; */
   align-items: center;
 }
-
 .formBox input,
 .formBox textarea,
 .formBox select {
   outline: none;
 }
-
 .labelBox {
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 }
-
 .inputRadio {
   margin-top: 0px;
   margin-bottom: 0px;
   margin-right: 5px;
   cursor: pointer;
 }
-
 .categoryBox {
   width: 409.5px;
   height: 34px;
@@ -88,6 +80,7 @@
   width: 190px;
   height: 34px;
   border: none;
+
   border-bottom: 1px solid #e0e0e0;
   margin-bottom: 40px;
 }
@@ -102,28 +95,25 @@
 .inputNumber {
   text-align: center;
 }
-
 .inputCategory {
   width: 409.5px;
   height: 34px;
   border: none;
   border-bottom: 2px solid #b9c9d4;
-
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 27px;
   color: #bdbdbd;
 }
-
 .textareaBox {
   width: 281px;
 }
-
 .textarea {
   width: 409.5px;
   height: 34px;
   border: none;
+
   border-bottom: 1px solid #e0e0e0;
   resize: none;
   padding: 5px;
@@ -159,7 +149,6 @@
   color: #ffffff;
   outline: none;
   cursor: pointer;
-
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -173,6 +162,7 @@
   display: block;
   width: 300px;
   height: 50px;
+
   margin: 20px auto 0 auto;
   background-color: #ffffff;
   border-radius: 20px;

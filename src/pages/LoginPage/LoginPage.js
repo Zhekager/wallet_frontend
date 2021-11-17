@@ -1,8 +1,10 @@
-import LoginForm from '../../components/LoginForm';
-import PageHeading from '../../components/PageHeading';
-import AuthHeading from '../../components/AuthHeading';
-import AuthNav from '../../components/AuthNav';
-import LoginGoogle from '../../components/LoginGoogle';
+import LoginForm from '../../components/AuthForms/LoginForm';
+import AuthHeading from '../../components/AuthForms/AuthHeading';
+import AuthNav from '../../components/AuthForms/AuthNav';
+import LoginGoogle from '../../components/AuthForms/LoginGoogle';
+import BgPageContainer from '../../components/BgPageContainer';
+import ImgContentContainer from '../../components/ImgContentContainer';
+import AuthContentContainer from '../../components/AuthForms/AuthContentContainer';
 
 import useSizeScreen from '../../hooks/useSizeScreen';
 import { LoginImgPage } from '../../components/IconBtn/LoginImgPage';
@@ -13,27 +15,22 @@ export default function LoginPage() {
   const sizeScreen = useSizeScreen();
 
   return (
-    <div className={styles.LoginPage}>
-      <div className={styles.ImgContent}>
-        {/* <div className={styles.svgLoginImg}></div> */}
+    <BgPageContainer bgContainer="BgPageContainer">
+      <ImgContentContainer>
         {sizeScreen >= 768 && sizeScreen < 1280 && (
           <LoginImgPage svg={styles.svgLoginImg} />
         )}
         {sizeScreen >= 1280 && <LoginImgPage svg={styles.svgLoginImg} />}
+      </ImgContentContainer>
 
-        <PageHeading text="Finance App" />
-      </div>
-
-      <div className={styles.LoginContent}>
-        <div className={styles.LoginForm}>
+      <AuthContentContainer authContainer="LoginContainer">
+        <AuthContentContainer authContainer="LoginFormContainer">
           <AuthHeading text="Wallet" />
-
           <LoginForm />
-
           <LoginGoogle />
-          <AuthNav content="регистрация" path="/register" />
-        </div>
-      </div>
-    </div>
+          <AuthNav content="Sign up" path="/register" />
+        </AuthContentContainer>
+      </AuthContentContainer>
+    </BgPageContainer>
   );
 }

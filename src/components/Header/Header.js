@@ -6,7 +6,7 @@ import s from './Header.module.scss';
 import { useDispatch } from 'react-redux';
 import authOperations from '../../redux/auth/auth-operations';
 // import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import Logo from '../AuthHeading/AuthHeading';
+import Logo from '../AuthForms/AuthHeading';
 
 function Header() {
   // const user = useSelector(authSelectors.getUsername);
