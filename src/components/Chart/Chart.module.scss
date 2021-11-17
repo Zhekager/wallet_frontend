@@ -1,17 +1,17 @@
 .title {
   font-family: 'Poppins', sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 30px;
   line-height: 1.5;
-  letter-spacing: 0.05em;
-  color: #212121e0;
-  margin: 0 auto 20px;
+  //letter-spacing: 0.05em;
+  color: #000000;
+  margin: 30 20px;
   width: fit-content;
 }
 
 .doughnut canvas {
-  min-width: 270px;
-  min-height: 270px;
+  min-width: 100px;
+  min-height: 100px;
 }
 
 .chart {

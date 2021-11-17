@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Header from '../../components/Header';
 import Sidebar from '../../components/Sidebar';
+import HomeTab from '../../components/HomeTab';
 // import Currency from '../../components/Sidebar/Currency';
 import './DashboardPage.scss';
-// import Transactions from '../../components/Transactions';
 
 export default function DashboardPage() {
   return (
@@ -15,7 +15,7 @@ export default function DashboardPage() {
           <Sidebar />
           <main>
             <Switch>
-              <Route />
+              <Route path="/dashboard" component={HomeTab} />
               <Route />
               {/* <Route path="/currency" component={Currency} /> */}
             </Switch>
