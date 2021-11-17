@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 import styles from './Button.module.scss';
 
-const Button = ({ onLoadMore, contentBtn, disabled, button }) => (
+const Button = ({ handleClick, contentBtn, disabled, button }) => (
   <button
     disabled={disabled}
-    onClick={onLoadMore}
+    onClick={handleClick}
     className={styles[`${button}`]}
   >
     {contentBtn}
@@ -14,12 +14,12 @@ const Button = ({ onLoadMore, contentBtn, disabled, button }) => (
 );
 
 Button.defaultProps = {
-  onLoadMore: () => null,
+  handleClick: () => null,
   disabled: false,
 };
 
 Button.propTypes = {
-  onLoadMore: PropTypes.func,
+  handleClick: PropTypes.func,
   contentBtn: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
 };
