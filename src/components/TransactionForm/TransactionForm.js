@@ -3,39 +3,28 @@ import Select from 'react-select';
 import style from './TransactionForm.module.scss';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-
-import SelectCategoryItem from './SelectCategoryItem';
 import Button from '../Button';
 import Switch from './Switch';
+
 import { costs } from '../../assets/data/select-data/selectData';
 
 import styles from './TransactionForm.module.scss';
 
-import DatePicker from 'react-datepicker';
-import moment from 'moment';
+
 
 //import Box from '@material-ui/core/Box';
+
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+//import Box from '@material-ui/core/Box';
+
+
 import 'react-datepicker/dist/react-datepicker.css';
 import AddTransaction from '../AddTransactionsButton/AddTransaction';
 //redux
 //import { useDispatch } from 'react-redux';
 //import fetchTransactions from '../../redux/transactions/transaction-operations';
-
 export default function TransactionForm() {
-  const [chooseSelect, setChooseSelect] = useState(false);
-  const [visibleCategory, setVisibleCategory] = useState(false);
-  const [typeOfTransaction, setTypeOfTransaction] = useState('Сosts');
-
-  const onSwitchChecked = evt => {
-    setChooseSelect(evt.target.checked);
-    setTypeOfTransaction('Income');
-    toggleVisibleCategory();
-  };
-
-  const toggleVisibleCategory = () => {
-    setVisibleCategory(!visibleCategory);
-  };
-
   const validationsSchema = Yup.object().shape({
     typeOfTransaction: Yup.string().required('Type is required'),
     category: Yup.string(),
@@ -44,15 +33,47 @@ export default function TransactionForm() {
     comment: Yup.string(),
   });
 
+
+  const [chooseSelect, setSelect] = useState(false);
+  const [category, setCategory] = useState();
+  const [startDate, setStartDate] = useState(new Date());
+
+  const onSwitchChecked = evt => {
+    setSelect(evt.target.checked);
+    setCategory(null);
+  };
+
+  //
+
+  const handleSelect = evt => {
+    setCategory(evt.target.value);
+  };
+
+  const handleDate = date => {
+    setStartDate(date);
+    const formatedDate = moment(date).format('DD/MMMM/yyyy');
+    const dateD = moment(formatedDate).date();
+    const month = moment(formatedDate).format('MMMM');
+    const year = moment(formatedDate).year();
+    /* setTransactionItem((state) => ({
+      ...state,
+      date: dateD,
+      month: month,
+      year: year,
+    })); */
+  };
+
+  //
+
   return (
-    <div className={styles.container}>
-      <div className={styles.form}>
-        <h3 className={styles.title}>Add transaction</h3>
+    <div className={style.container}>
+      <div className={style.form}>
+        <h3 className={style.title}>Add transaction</h3>
 
         <Formik
           initialValues={{
-            typeOfTransaction: 'Costs',
-            category: '',
+            typeOfTransaction: 'Cost',
+            category: 'Choose category',
             amount: '',
             date: '',
             comment: '',
@@ -61,7 +82,7 @@ export default function TransactionForm() {
           validationSchema={validationsSchema}
         >
           {({ errors, touched, isSubmitting }) => (
-            <Form className={styles.Form}>
+            <Form>
               {/* <div id="my-radio-group"></div>
           <div role="group" aria-labelledby="my-radio-group">
             <label>
@@ -77,9 +98,11 @@ export default function TransactionForm() {
               )}
           </div> */}
 
-              <div className={styles.box}>
+
+              <div className={style.box}>
+
                 <p
-                  className={styles.text}
+                  className={style.text}
                   style={{ color: 'rgba(36, 204, 167, 1)' }}
                 >
                   Income
@@ -90,74 +113,81 @@ export default function TransactionForm() {
                   onClick={chooseSelect => onSwitchChecked(chooseSelect)}
                 />
                 <p
-                  className={styles.text}
+                  className={style.text}
                   style={{ color: 'rgba(255, 101, 150, 1)' }}
                 >
-                  Costs
+                  Cost
                 </p>
               </div>
 
-              <Field
-                name="category"
-                costs={costs.costs}
-                as="select"
-                hidden={visibleCategory}
-                className={styles.SelectBox}
-              >
-                <option
-                  value="Choose category"
-                  className={styles.PlaceholderSelect}
-                >
-                  Choose category
-                </option>
-                {costs.map(SelectCategoryItem)}
-                {/* <option value="">Выберите категорию</option>
-                <option value="Основной">Основной</option>
-                <option value="Еда">Еда</option>
-                <option value="Авто">Авто</option>
-                <option value="Развитие">Развитие</option>
-                <option value="Дети">Дети</option>
-                <option value="Дом">Дом</option>
-                <option value="Образование">Образование</option>
-                <option value="Остальное">Остальное</option> */}
-              </Field>
+              {/* <Field name="category" as="select" hidden>
+              <option value="">Choose category</option>
+              <option value="Основной">Основной</option>
+              <option value="Еда">Еда</option>
+              <option value="Авто">Авто</option>
+              <option value="Развитие">Развитие</option>
+              <option value="Дети">Дети</option>
+              <option value="Дом">Дом</option>
+              <option value="Образование">Образование</option>
+              <option value="Остальное">Остальное</option>
+            </Field> */}
+
+              <div className={style.select}>
+                <Select
+                  className="select"
+                  classNamePrefix="selectprefix"
+                  isIncome={!chooseSelect}
+                  category={category}
+                  placeholder="Choose category"
+                  isSearchable={true}
+                  name="category"
+                  value={category}
+                  onChange={handleSelect}
+                />
+              </div>
+
               {errors.category && touched.category && (
-                <div className={styles.inputFeedback}>{errors.category}</div>
+                <span className="input-feedback">{errors.category}</span>
               )}
 
-              {errors.amount && touched.amount && (
-                <div className={styles.inputFeedback}>{errors.amount}</div>
-              )}
-              <div className={styles.Credentials}>
+              <div className={style.datebform}>
                 <Field
+                  className={style.inputNumber}
                   name="amount"
                   type="number"
                   placeholder="0.00"
-                  className={styles.Amount}
+                  //value={amount}
+                  //onChange={updateAnmount}
                 />
-                <Field name="date" type="date" className={styles.Date} />
-              </div>
+                {errors.amount && touched.amount && (
+                  <span className="input-feedback">{errors.amount}</span>
+                )}
 
+                {/*    <Field
+            name="date"
+            type="date"
+          
+          /> */}
+
+                <DatePicker
+                  id="select"
+                  className={style.calendar}
+                  selected={startDate}
+                  onChange={handleDate}
+                  dateFormat="dd.MM.yyyy"
+                />
+              </div>
               <Field
+                className={style.textarea}
                 name="comment"
                 as="textarea"
                 type="text"
                 placeholder="Comment"
-                className={styles.Comment}
               />
 
-              <Button
-                disabled={isSubmitting}
-                type="submit"
-                contentBtn="Add"
-                button="Button"
-              />
-              <Button
-                type="submit"
-                contentBtn="Cancel"
-                button="ButtonSecondary"
-              />
-
+              <Button disabled={isSubmitting} type="submit" contentBtn="Add" />
+              {/* <Button className={style.btn2}  type="submit" contentBtn="Cancel" /> */}
+              <button className={style.btn2}>Cancel</button>
               {/* {isLoading && <LoaderSpinner />} */}
             </Form>
           )}

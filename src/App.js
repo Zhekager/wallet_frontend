@@ -79,7 +79,6 @@ function App() {
           <Controls />
 
           <TransactionForm />
-
         </ModalProvider>
       </Container>
     </>
