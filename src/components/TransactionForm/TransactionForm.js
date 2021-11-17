@@ -5,26 +5,39 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import Button from '../Button';
 import Switch from './Switch';
+import SelectCategoryItem from './SelectCategoryItem';
 
 import { costs } from '../../assets/data/select-data/selectData';
 
-import styles from './TransactionForm.module.scss';
-
-
-
 //import Box from '@material-ui/core/Box';
-
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 //import Box from '@material-ui/core/Box';
-
-
 import 'react-datepicker/dist/react-datepicker.css';
 import AddTransaction from '../AddTransactionsButton/AddTransaction';
 //redux
 //import { useDispatch } from 'react-redux';
 //import fetchTransactions from '../../redux/transactions/transaction-operations';
+
+import styles from './TransactionForm.module.scss';
+
 export default function TransactionForm() {
+  const [chooseSelect, setChooseSelect] = useState(false);
+  const [visibleCategory, setVisibleCategory] = useState(false);
+  const [typeOfTransaction, setTypeOfTransaction] = useState('Сosts');
+  // const [category, setCategory] = useState();
+  const [startDate, setStartDate] = useState(new Date());
+
+  const onSwitchChecked = evt => {
+    setChooseSelect(evt.target.checked);
+    setTypeOfTransaction('Income');
+    toggleVisibleCategory();
+  };
+
+  const toggleVisibleCategory = () => {
+    setVisibleCategory(!visibleCategory);
+  };
+
   const validationsSchema = Yup.object().shape({
     typeOfTransaction: Yup.string().required('Type is required'),
     category: Yup.string(),
@@ -32,22 +45,6 @@ export default function TransactionForm() {
     date: Yup.date().required('Date is required'),
     comment: Yup.string(),
   });
-
-
-  const [chooseSelect, setSelect] = useState(false);
-  const [category, setCategory] = useState();
-  const [startDate, setStartDate] = useState(new Date());
-
-  const onSwitchChecked = evt => {
-    setSelect(evt.target.checked);
-    setCategory(null);
-  };
-
-  //
-
-  const handleSelect = evt => {
-    setCategory(evt.target.value);
-  };
 
   const handleDate = date => {
     setStartDate(date);
@@ -72,8 +69,8 @@ export default function TransactionForm() {
 
         <Formik
           initialValues={{
-            typeOfTransaction: 'Cost',
-            category: 'Choose category',
+            typeOfTransaction: 'Costs',
+            category: '',
             amount: '',
             date: '',
             comment: '',
@@ -98,9 +95,7 @@ export default function TransactionForm() {
               )}
           </div> */}
 
-
               <div className={style.box}>
-
                 <p
                   className={style.text}
                   style={{ color: 'rgba(36, 204, 167, 1)' }}
@@ -120,19 +115,26 @@ export default function TransactionForm() {
                 </p>
               </div>
 
-              {/* <Field name="category" as="select" hidden>
-              <option value="">Choose category</option>
-              <option value="Основной">Основной</option>
-              <option value="Еда">Еда</option>
-              <option value="Авто">Авто</option>
-              <option value="Развитие">Развитие</option>
-              <option value="Дети">Дети</option>
-              <option value="Дом">Дом</option>
-              <option value="Образование">Образование</option>
-              <option value="Остальное">Остальное</option>
-            </Field> */}
+              {errors.category && touched.category && (
+                <div className="input-feedback">{errors.category}</div>
+              )}
+              <Field
+                name="category"
+                costs={costs.costs}
+                as="select"
+                hidden={visibleCategory}
+                className={styles.SelectBox}
+              >
+                <option
+                  value="Choose category"
+                  className={styles.PlaceholderSelect}
+                >
+                  Choose category
+                </option>
+                {costs.map(SelectCategoryItem)}
+              </Field>
 
-              <div className={style.select}>
+              {/* <div className={style.select}>
                 <Select
                   className="select"
                   classNamePrefix="selectprefix"
@@ -144,30 +146,28 @@ export default function TransactionForm() {
                   value={category}
                   onChange={handleSelect}
                 />
+              </div> */}
+
+              {errors.amount && touched.amount && (
+                <div className={styles.inputFeedback}>{errors.amount}</div>
+              )}
+              <div className={styles.Credentials}>
+                <Field
+                  name="amount"
+                  type="number"
+                  placeholder="0.00"
+                  className={styles.Amount}
+                />
+                <Field name="date" type="date" className={styles.Date} />
               </div>
 
-              {errors.category && touched.category && (
-                <span className="input-feedback">{errors.category}</span>
-              )}
-
-              <div className={style.datebform}>
+              {/* <div className={style.datebform}>
                 <Field
                   className={style.inputNumber}
                   name="amount"
                   type="number"
                   placeholder="0.00"
-                  //value={amount}
-                  //onChange={updateAnmount}
                 />
-                {errors.amount && touched.amount && (
-                  <span className="input-feedback">{errors.amount}</span>
-                )}
-
-                {/*    <Field
-            name="date"
-            type="date"
-          
-          /> */}
 
                 <DatePicker
                   id="select"
@@ -176,18 +176,36 @@ export default function TransactionForm() {
                   onChange={handleDate}
                   dateFormat="dd.MM.yyyy"
                 />
-              </div>
+              </div> */}
+
               <Field
+                name="comment"
+                as="textarea"
+                type="text"
+                placeholder="Comment"
+                className={styles.Comment}
+              />
+
+              {/* <Field
                 className={style.textarea}
                 name="comment"
                 as="textarea"
                 type="text"
                 placeholder="Comment"
+              /> */}
+
+              <Button
+                disabled={isSubmitting}
+                type="submit"
+                contentBtn="Add"
+                button="Button"
+              />
+              <Button
+                type="submit"
+                contentBtn="Cancel"
+                button="ButtonSecondary"
               />
 
-              <Button disabled={isSubmitting} type="submit" contentBtn="Add" />
-              {/* <Button className={style.btn2}  type="submit" contentBtn="Cancel" /> */}
-              <button className={style.btn2}>Cancel</button>
               {/* {isLoading && <LoaderSpinner />} */}
             </Form>
           )}
