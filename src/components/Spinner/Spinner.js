@@ -4,7 +4,6 @@ import './Spinner.scss';
 
 const Spinner = () => (
   <Loader
-
     type="BallTriangle"
     color="#24CCA7"
     className="Loader"
