@@ -1,20 +1,19 @@
-import PropTypes from 'prop-types';
-import errorImage from '../image/oops.jpeg';
-import styles from './Error.module.scss';
+import style from './Error.module.scss';
+import { Link } from 'react-router-dom';
+import { AiOutlineLeft } from 'react-icons/ai';
 
-const Error = ({ errorContent }) => {
-  return (
-    <div role="alert" className={styles.Error}>
-      <p text={errorContent} className={styles.ErrorContent}>
-        {errorContent}
-      </p>
-      <img src={errorImage} width="550" alt="no_res" />
-    </div>
-  );
-};
+const NotFound = () => (
+  <div className={style.container}>
+    <h1 className={style.notFound}>404 - Page Not Found!</h1>
+    <img className={style.image} src="https://i.imgur.com/qIufhof.png" />
+    <p className={style.text}>
+      Looks like you've followed a broken link or entered a URL that doesn't
+      exist on this site.
+      <Link className={style.link} to="/">
+        <AiOutlineLeft /> Back to our site
+      </Link>
+    </p>
+  </div>
+);
 
-Error.propTypes = {
-  errorContent: PropTypes.string.isRequired,
-};
-
-export default Error;
+export default NotFound;

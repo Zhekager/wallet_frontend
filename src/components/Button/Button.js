@@ -3,8 +3,12 @@ import PropTypes from 'prop-types';
 
 import styles from './Button.module.scss';
 
-const Button = ({ onLoadMore, contentBtn, disabled }) => (
-  <button disabled={disabled} onClick={onLoadMore} className={styles.Button}>
+const Button = ({ onLoadMore, contentBtn, disabled, button }) => (
+  <button
+    disabled={disabled}
+    onClick={onLoadMore}
+    className={styles[`${button}`]}
+  >
     {contentBtn}
   </button>
 );

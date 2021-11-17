@@ -1,6 +1,6 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
-import Balance from './Balance/Balance';
+import Balance from './ChartBalance/ChartBalance';
 import styles from './Chart.module.scss';
 
 export default function Chart({ arrColors, arrMoney, consumption }) {

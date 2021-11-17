@@ -33,10 +33,30 @@
     padding: 13px 68px;
     margin-top: 16px;
   }
+
+  @media screen and (min-width: 1280px) and (max-height: 719px) {
+    height: 40px;
+    font-size: 16px;
+    padding: 5px 50px;
+  }
+
+  @media screen and (min-width: 1280px) and (min-height: 720px) {
+    height: 50px;
+    font-size: 18px;
+    padding: 13px 58px;
+  }
 }
 
 .Button:disabled {
   background-color: rgba(0, 0, 0, 0.25);
   border-color: transparent;
   color: gray;
+}
+
+.ButtonSecondary {
+  composes: Button;
+
+  background-color: #ffffff;
+  color: #4a56e2;
+  border: 1px solid #4a56e2;
 }

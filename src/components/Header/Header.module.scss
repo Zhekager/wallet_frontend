@@ -23,16 +23,6 @@
   text-decoration: none;
 }
 
-.logo p {
-  margin: 0;
-  font-family: 'Popins', sans-serif;
-  font-size: 20px;
-  text-transform: uppercase;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-}
-
 .user {
   display: flex;
   align-items: center;
@@ -60,6 +50,31 @@
   height: 30px;
   border-radius: 50%;
 }
-p {
-  font-family: 'Popins', sans-serif;
+
+.svgLogo {
+  width: 30px;
+  height: 30px;
+  margin-right: 14px;
+
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+  }
+}
+
+.Heading {
+  width: 121px;
+  height: 40px;
+  left: 145px;
+  top: 20px;
+  font-size: 30px;
+  line-height: 45px;
+  margin: 0;
+
+  color: #000000;
+
+  @media screen and (min-width: 768px) {
+    font-size: 30px;
+  }
 }

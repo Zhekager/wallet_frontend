@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
-import { Google } from '../IconBtn/Google';
+import { Google } from '../../IconBtn/Google';
 
 import styles from './LoginGoogle.module.scss';
 
@@ -51,7 +51,7 @@ const LoginGoogle = () => {
               disabled={renderProps.disabled}
             >
               <Google svg={styles.svgGoogle} />
-              Вход через Google
+              Log in with Google
             </button>
           )}
           buttonText="Log in with Google"

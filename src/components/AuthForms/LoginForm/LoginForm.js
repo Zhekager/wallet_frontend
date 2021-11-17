@@ -5,10 +5,10 @@ import { Formik, Form } from 'formik';
 import TextFieldForm from '../TextFieldForm';
 import * as Yup from 'yup';
 
-import Button from '../Button';
-import Spinner from '../Spinner';
-import { ReactComponent as IconEmail } from '../icons/email.svg';
-import { ReactComponent as IconLock } from '../icons/lock.svg';
+import Button from '../../Button';
+// import Spinner from '../../Spinner';
+import { ReactComponent as IconEmail } from '../../icons/email.svg';
+import { ReactComponent as IconLock } from '../../icons/lock.svg';
 
 import styles from './LoginForm.module.scss';
 
@@ -57,11 +57,16 @@ export default function LoginForm() {
             label={<IconLock width={24} height={24} />}
             name="password"
             type="password"
-            placeholder="Пароль"
+            placeholder="Password"
             className={styles.Field}
           />
 
-          <Button type="submit" disabled={isSubmitting} contentBtn="вход" />
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            contentBtn="Log in"
+            button="Button"
+          />
 
           {/* {isLoading && <Spinner />} */}
         </Form>
