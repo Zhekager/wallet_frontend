@@ -1,24 +1,37 @@
 .Error {
-  width: 50%;
+  //width: 50%;
   margin: 20px auto;
   padding: 20px;
   text-align: center;
   border-radius: 8px;
+  top: 50%;
+  left: 50%;
 
-  //height: 400px;
   background-position: center;
 
   // box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
   // 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 
   @media screen and (min-width: 768px) {
-    width: 60%;
+    //width: 60%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
   }
 
   @media screen and (min-width: 1200px) {
-    width: 50%;
-    margin-top: -50px;
-    font-family: 'Arvo', serif;
+    // width: 50%;
+    // margin-top: -50px;
+    // font-family: 'Arvo', serif;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
   }
 }
 

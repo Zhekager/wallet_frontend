@@ -1,0 +1,25 @@
+.button {
+  border-radius: 10px;
+  border: 0;
+  min-width: 60px;
+  padding: 2px 10px;
+  margin-left: 15px;
+
+  font-size: 16px;
+  line-height: 1.6;
+  color: #212121;
+  background: #24cca7;
+
+  transition-property: background-color, color, box-shadow, transform;
+  transition-duration: 250ms;
+  &:hover {
+    transform: scale(1.05);
+    background-color: tomato;
+    color: #ffffff;
+    box-shadow: 4px 4px 4px 0px rgba(34, 60, 80, 0.2);
+    cursor: pointer;
+  }
+}
+.user {
+  font-weight: 700;
+}
