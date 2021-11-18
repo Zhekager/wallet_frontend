@@ -44,11 +44,11 @@ const LoginGoogle = () => {
         <GoogleLogin
           clientId={CLIENT_ID}
           // clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-          render={renderProps => (
+          render={({ onClick, disabled }) => (
             <button
               className={styles.BtnGoogle}
-              onClick={renderProps.onClick}
-              disabled={renderProps.disabled}
+              onClick={onClick}
+              disabled={disabled}
             >
               <Google svg={styles.svgGoogle} />
               Log in with Google
