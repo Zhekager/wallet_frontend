@@ -12,16 +12,16 @@ import { costs } from '../../assets/data/select-data/selectData';
 //import Box from '@material-ui/core/Box';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-//import Box from '@material-ui/core/Box';
 import 'react-datepicker/dist/react-datepicker.css';
 import AddTransaction from '../AddTransactionsButton/AddTransaction';
+import './TransactionFormDatepicker.scss';
 //redux
 //import { useDispatch } from 'react-redux';
 //import fetchTransactions from '../../redux/transactions/transaction-operations';
 
 import styles from './TransactionForm.module.scss';
 
-export default function TransactionForm() {
+export default function TransactionForm({ onClose }) {
   const [chooseSelect, setChooseSelect] = useState(false);
   const [visibleCategory, setVisibleCategory] = useState(false);
   const [typeOfTransaction, setTypeOfTransaction] = useState('Сosts');
@@ -46,12 +46,12 @@ export default function TransactionForm() {
     comment: Yup.string(),
   });
 
-  const handleDate = date => {
+   const handleDate = date => {
     setStartDate(date);
     const formatedDate = moment(date).format('DD/MMMM/yyyy');
     const dateD = moment(formatedDate).date();
     const month = moment(formatedDate).format('MMMM');
-    const year = moment(formatedDate).year();
+    const year = moment(formatedDate).year(); 
     /* setTransactionItem((state) => ({
       ...state,
       date: dateD,
@@ -60,7 +60,11 @@ export default function TransactionForm() {
     })); */
   };
 
-  //
+  const handleClick = e => {
+    if (e.currentTarget === e.target) {
+      onClose();
+    }
+  };
 
   return (
     <div className={style.container}>
@@ -158,7 +162,15 @@ export default function TransactionForm() {
                   placeholder="0.00"
                   className={styles.Amount}
                 />
-                <Field name="date" type="date" className={styles.Date} />
+                 {/*  <Field name="date" type="date" className={styles.Date} />  */}
+                
+                <DatePicker
+                  id="select"
+                  className={styles.Date}
+                  selected={startDate}
+                  onChange={handleDate}
+                  dateFormat="dd.MM.yyyy"
+                />
               </div>
 
               {/* <div className={style.datebform}>
@@ -169,14 +181,7 @@ export default function TransactionForm() {
                   placeholder="0.00"
                 />
 
-                <DatePicker
-                  id="select"
-                  className={style.calendar}
-                  selected={startDate}
-                  onChange={handleDate}
-                  dateFormat="dd.MM.yyyy"
-                />
-              </div> */}
+               */}
 
               <Field
                 name="comment"
@@ -201,6 +206,7 @@ export default function TransactionForm() {
                 button="Button"
               />
               <Button
+                handleClick={handleClick}
                 type="submit"
                 contentBtn="Cancel"
                 button="ButtonSecondary"
