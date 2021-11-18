@@ -3,23 +3,6 @@
   align-items: center;
   justify-content: center;
   margin: 0;
-  margin-bottom: 40px;
-
-  @media screen and (min-width: 1280px) and (max-height: 719px) {
-    margin-bottom: 10px;
-  }
-
-  @media screen and (min-width: 1280px) and (min-height: 720px) {
-    margin-bottom: 20px;
-  }
-
-  @media screen and (min-width: 1280px) and (min-height: 800px) {
-    margin-bottom: 30px;
-  }
-
-  @media screen and (min-width: 1280px) and (min-height: 960px) {
-    margin-bottom: 40px;
-  }
 }
 
 .Heading {
