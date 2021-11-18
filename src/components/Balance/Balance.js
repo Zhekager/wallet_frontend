@@ -10,7 +10,7 @@ const Balance = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h2 className={styles.title}>Ваш баланс</h2>
+      <h2 className={styles.title}>balance</h2>
       <p className={styles.text}>
         <span className={styles.currency}>&#8372;</span>
         {total}
