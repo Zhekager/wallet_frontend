@@ -48,7 +48,7 @@ function App() {
     // !isLoading && (
     <>
       <Container>
-        {/* <Header /> */}
+        {<Header />}
         <Suspense fallback={<Spinner />}>
           <Switch>
             <Route path="/" exact redirectTo="/dashboard" restricted>
