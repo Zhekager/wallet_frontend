@@ -46,12 +46,12 @@ export default function TransactionForm({ onClose }) {
     comment: Yup.string(),
   });
 
-   const handleDate = date => {
+  const handleDate = date => {
     setStartDate(date);
     const formatedDate = moment(date).format('DD/MMMM/yyyy');
     const dateD = moment(formatedDate).date();
     const month = moment(formatedDate).format('MMMM');
-    const year = moment(formatedDate).year(); 
+    const year = moment(formatedDate).year();
     /* setTransactionItem((state) => ({
       ...state,
       date: dateD,
@@ -162,8 +162,8 @@ export default function TransactionForm({ onClose }) {
                   placeholder="0.00"
                   className={styles.Amount}
                 />
-                 {/*  <Field name="date" type="date" className={styles.Date} />  */}
-                
+                {/*  <Field name="date" type="date" className={styles.Date} />  */}
+
                 <DatePicker
                   id="select"
                   className={styles.Date}
@@ -207,7 +207,6 @@ export default function TransactionForm({ onClose }) {
               />
               <Button
                 handleClick={handleClick}
-                type="submit"
                 contentBtn="Cancel"
                 button="ButtonSecondary"
               />
