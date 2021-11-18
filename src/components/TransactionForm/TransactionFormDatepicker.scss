@@ -10,4 +10,9 @@
 
 .react-datepicker-wrapper {
   display: block;
+
+  @media screen and (max-width: 320px) {
+    margin-left: 40px;
+    text-align: left;
+  }
 }
