@@ -1,31 +1,39 @@
 .dashboard {
   padding: 13px 0 35px;
-  background-color: #e7eaf2;
-  // backdrop-filter: blur(50px);
+  background-color: #ffffff;
 }
 
 @media screen and (min-width: 768px) {
   .dashboard {
+    display: block;
     padding-top: 20px;
 
-    // background-image: url('../../assets/images/ellipse-violet.png'),
-    //   url('../../assets/images/ellipse-pink.png');
-    // background-repeat: no-repeat, no-repeat;
-    // background-position: left bottom, right top;
+    background-color: #e7eaf2;
+    background-image: url('../../assets/images/ellipse-violet.png'),
+      url('../../assets/images/ellipse-pink.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom, right top;
+    // background-color: rgba(255, 255, 255, 0.4);
 
-    & .container {
+    & .wrapper {
       display: flex;
       align-items: flex-start;
       flex-direction: column;
+      min-height: 100vh;
     }
   }
 }
 
 @media screen and (min-width: 1280px) {
   .dashboard {
-    padding-top: 40px;
+    position: relative;
+    padding-top: 80px;
+    width: 1280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    & .container {
+    & .wrapper {
       flex-direction: row;
       justify-content: space-between;
     }

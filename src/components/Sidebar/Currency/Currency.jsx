@@ -29,9 +29,9 @@ export default function Currency() {
   return (
     <div className="currency">
       <ul className="currency__title-list">
-        <li className="currency__title">Валюта</li>
-        <li className="currency__title">Покупка</li>
-        <li className="currency__title">Продажа</li>
+        <li className="currency__title">Currency</li>
+        <li className="currency__title">Buy</li>
+        <li className="currency__title">Sell</li>
       </ul>
 
       <ul className="currency__price-list">

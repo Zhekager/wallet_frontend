@@ -1,14 +1,7 @@
 import transactions from '../transactions.json';
 import './HomeTabDesktop.scss';
 
-const tableHeadData = [
-  'Дата',
-  'Тип',
-  'Категория',
-  'Комментарий',
-  'Сумма',
-  'Баланс',
-];
+const tableHeadData = ['Date', 'Type', 'Category', 'Comment', 'Sum', 'Balance'];
 
 export default function HomeTabDesktop() {
   const res = transactions.data;

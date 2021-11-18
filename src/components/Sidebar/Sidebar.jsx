@@ -11,14 +11,15 @@ export default function Sidebar() {
         <Navigation />
         <Balance />
       </div>
-
-      <Media
-        queries={{
-          tablet: '(min-width: 768px)',
-        }}
-      >
-        {({ tablet }) => <>{tablet && <Currency />}</>}
-      </Media>
+      <div>
+        <Media
+          queries={{
+            tablet: '(min-width: 768px)',
+          }}
+        >
+          {({ tablet }) => <>{tablet && <Currency />}</>}
+        </Media>
+      </div>
     </aside>
   );
 }

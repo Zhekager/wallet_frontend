@@ -23,7 +23,7 @@ function Navigation() {
           ) : (
             <div className={styles.boxNav}>
               <Home svg={styles.svgNav} />
-              <span className={styles.textNav}>Главная</span>
+              <span className={styles.textNav}>Home</span>
             </div>
           )}
         </button>
@@ -40,7 +40,7 @@ function Navigation() {
           ) : (
             <div className={styles.boxNav}>
               <Statistics svg={styles.svgNav} />
-              <span className={styles.textNav}>Статистика</span>
+              <span className={styles.textNav}>Statistics</span>
             </div>
           )}
         </button>
