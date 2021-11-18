@@ -104,6 +104,10 @@
   height: 44px;
 }
 
+.Date {
+  margin-left: 30px;
+}
+
 .Amount::placeholder {
   font-family: 'Circe', sans-serif;
   font-weight: 400;
@@ -314,25 +318,28 @@
 // .select .selectprefix {
 //   display: none;
 // }
-// .calendar {
-//   position: relative;
-//   padding: 0 20px 10px 20px;
-//   margin-bottom: 40px;
-//   width: 190px;
-//   height: 34px;
-//   border: none;
-//   border-bottom: 1px solid #e0e0e0;
-//   margin-left: 30px;
-//   font-weight: 400;
-//   font-size: 18px;
-//   color: #000000;
-//   content: url('../icons/calendar.png');
-// }
-// .calendar:focus {
-//   outline: none;
-// }
+/* .calendar {
+  position: relative;
+  padding: 0 20px 10px 20px;
+  margin-bottom: 40px;
+  width: 190px;
+  height: 34px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+
+  font-weight: 400;
+  font-size: 18px;
+  color: #000000;
+}
+.calendar:focus {
+  outline: none;
+} */
 
 // .datebform {
 //   display: flex;
 //   justify-content: space-between;
 // }
+
+.PlaceholderSelect {
+  color: #bdbdbd;
+}
