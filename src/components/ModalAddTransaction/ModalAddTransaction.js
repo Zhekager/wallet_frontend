@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import Button from '../Button';
-
 import PropTypes from 'prop-types';
 
 import styles from './ModalAddTransaction.module.scss';

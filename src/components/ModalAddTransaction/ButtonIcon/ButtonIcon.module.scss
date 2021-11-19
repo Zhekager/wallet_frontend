@@ -65,3 +65,24 @@
     right: 85px;
   }
 }
+
+.btnLogout {
+  padding: 0;
+  color: #bdbdbd;
+  background-color: #ffffff;
+  font-family: 'Circe', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  border: none;
+  cursor: pointer;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    color: #ff6596;
+  }
+}

@@ -11,7 +11,7 @@ import Spinner from './components/Spinner';
 // import Navigation from './components/Navigation'; //to delete later
 // import Balance from './components/Balance'; //to delete later
 // import Currency from './components/Sidebar/Currency'; //to delete later
-// import DashboardPage from './pages/DashboardPage/DashboardPage'; //to delete later
+
 
 // import Chart from './components/Chart/Chart';
 
@@ -20,6 +20,7 @@ import Spinner from './components/Spinner';
 // import Header from './components/Header/Header';
 
 import TransactionForm from './components/TransactionForm/TransactionForm';
+
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
