@@ -1,22 +1,24 @@
-// import { useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 // import { authOperations, authSelectors } from 'redux/auth';
+import { authOperations } from '../../../redux/auth';
+import { authSelectors } from '../../../redux/auth';
 import { Formik, Form } from 'formik';
 import TextFieldForm from '../TextFieldForm';
 import * as Yup from 'yup';
 
 import Button from '../../Button';
-// import Spinner from '../../Spinner';
+import Spinner from '../../Spinner';
 import { ReactComponent as IconEmail } from '../../icons/email.svg';
 import { ReactComponent as IconLock } from '../../icons/lock.svg';
 
 import styles from './LoginForm.module.scss';
 
 export default function LoginForm() {
-  // const dispatch = useDispatch();
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-  // const isLoading = useSelector(authSelectors.getLoading);
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const isLoading = useSelector(authSelectors.getLoading);
 
   const validationsSchema = Yup.object().shape({
     email: Yup.string('Enter your email')
@@ -29,10 +31,10 @@ export default function LoginForm() {
   });
 
   const handleSubmit = e => {
-    e.preventDefault();
-    // dispatch(authOperations.logIn({ email, password }));
-    // setEmail('');
-    // setPassword('');
+    // e.preventDefault();
+    dispatch(authOperations.logIn({ email, password }));
+    setEmail('');
+    setPassword('');
   };
 
   return (
@@ -41,15 +43,19 @@ export default function LoginForm() {
         email: '',
         password: '',
       }}
+      validateOnBlur
       onSubmit={handleSubmit}
       validationSchema={validationsSchema}
     >
-      {({ isSubmitting }) => (
+      {({ handleChange, handleBlur, values, isValid, dirty }) => (
         <Form className={styles.Form}>
           <TextFieldForm
             label={<IconEmail width={24} height={24} />}
             name="email"
             type="email"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.email}
             placeholder="E-mail"
             className={styles.Field}
           />
@@ -57,18 +63,21 @@ export default function LoginForm() {
             label={<IconLock width={24} height={24} />}
             name="password"
             type="password"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.password}
             placeholder="Password"
             className={styles.Field}
           />
 
           <Button
             type="submit"
-            disabled={isSubmitting}
+            disabled={!isValid && !dirty}
             contentBtn="Log in"
             button="Button"
           />
 
-          {/* {isLoading && <Spinner />} */}
+          {isLoading && <Spinner />}
         </Form>
       )}
     </Formik>
