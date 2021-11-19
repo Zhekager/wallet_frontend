@@ -1,92 +1,136 @@
-.container {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-
+.container_error {
   @media screen and (min-width: 320px) {
-    width: 480px;
+    .container {
+      width: 480px;
+    }
   }
 
   @media screen and (min-width: 768px) {
-    width: 768px;
+    .container {
+      width: 768px;
+    }
   }
 
-  @media screen and (min-width: 1200px) {
-    width: 1200px;
+  @media screen and (min-width: 1280px) {
+    .container {
+      width: 1280px;
+    }
+  }
+}
+.box {
+  background-image: url('../../assets/images/ellipse-violet.png'),
+    url('../../assets/images/ellipse-pink.png');
+  background-repeat: no-repeat;
+  background-position: left bottom, right top;
+  background-size: 200px;
+  & .error {
+    min-height: 100vh;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .box {
+    display: block;
+    padding: 0;
+    background-color: #f8f8f8;
+
+    & .error {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      min-height: 100vh;
+      width: 768px;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .box {
+    position: relative;
+    width: 1280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-size: 400px;
+
+    & .error {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 }
 
 .notFound {
+  width: 280px;
   font-family: 'Poppins', sans-serif;
   font-size: 25px;
   font-weight: 700;
-  padding: 20px;
+  padding: 5px;
   position: absolute;
-  left: 0px;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   @media screen and (min-width: 768px) {
     font-size: 30px;
-    left: 50%;
+    width: 330px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     font-size: 50px;
-    left: 35%;
+    width: 540px;
   }
 }
 
 .image {
   width: 250px;
   height: 250px;
-  margin-top: 200px;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   @media screen and (min-width: 768px) {
-    width: 500px;
-    height: 500px;
-    margin: 0px;
-    transform: rotate(8deg);
+    width: 300px;
+    height: 300px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     width: 600px;
     height: 600px;
     margin: 0px;
-    position: absolute;
-    top: 200px;
-    left: 30px;
+    top: 70%;
     padding: 15px;
-    transform: rotate(8deg);
   }
 }
 
 .text {
+  width: 300px;
   text-decoration: none;
   padding: 20px;
   font-family: 'Poppins', sans-serif;
-
-  border-width: 0; // хотя это значение равно 0 по умолчанию
-  background-color: rgba(221, 221, 221, 0.315);
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  border-width: 0;
+  background-color: rgba(8, 8, 8, 0.582);
+  color: #fff;
   border-radius: 15px;
-  // padding: 10px;
 
   @media screen and (min-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
+    background-color: rgba(8, 8, 8, 0.582);
   }
 
-  @media screen and (min-width: 1200px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    font-size: 20px;
+  @media screen and (min-width: 1280px) {
+    font-size: 15px;
     font-weight: 400;
     width: 500px;
-    position: absolute;
+    height: 100px;
     right: 100px;
     bottom: 100px;
   }
@@ -95,22 +139,15 @@
 .link {
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   text-decoration: none;
-  background-color: transparent;
   color: #24cca7;
 
-  @media screen and (min-width: 768px) {
-    font-size: 20px;
-    font-weight: 400;
-    display: flex;
-  }
-
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     display: flex;
     align-items: center;
   }
