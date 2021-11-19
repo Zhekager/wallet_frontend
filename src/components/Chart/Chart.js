@@ -6,7 +6,7 @@ import styles from './Chart.module.scss';
 export default function Chart({ arrColors, arrMoney, consumption }) {
   return (
     <div className={styles.chart}>
-      <p className={styles.title}>Статистика</p>
+      <p className={styles.title}>Statistics</p>
       <div className={styles.containerChart}>
         <Balance consumption={consumption} />
         <div className={styles.doughnut}>

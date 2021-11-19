@@ -6,6 +6,21 @@ import { Switch, Route } from 'react-router-dom';
 // import PublicRoute from './routes/PublicRoute';
 import Container from './components/Container';
 import Spinner from './components/Spinner';
+
+// import Table from './components/Table'; //to delete later
+// import Navigation from './components/Navigation'; //to delete later
+// import Balance from './components/Balance'; //to delete later
+// import Currency from './components/Sidebar/Currency'; //to delete later
+import DashboardPage from './pages/DashboardPage/DasboardPage'; //to delete later
+import { ModalProvider } from './components/Modal/ModalContext';
+import Controls from './components/AddTransactionsButton/AddTransaction';
+import Modal from './components/Modal/ModalForm';
+// import Chart from './components/Chart/Chart';
+
+// import Spinner from './components/Spinner'
+
+import TransactionForm from './components/TransactionForm/TransactionForm';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.module.scss';
