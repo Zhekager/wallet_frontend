@@ -24,7 +24,7 @@ export default function DashboardPage() {
   };
 
   const onOpenModal = e => {
-    toggleModal();
+    setShowModal(true);
   };
 
   return (

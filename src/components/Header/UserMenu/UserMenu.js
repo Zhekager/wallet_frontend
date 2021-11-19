@@ -28,9 +28,9 @@
 
 // import { useDispatch, useSelector } from 'react-redux';
 // import { authSelectors, authOperations } from '../../redux/auth';
-import ButtonIcon from '../ModalAddTransaction/ButtonIcon';
-import { Logout } from '../IconBtn/Logout';
-import useSizeScreen from '../../hooks/useSizeScreen';
+import ButtonIcon from '../../ModalAddTransaction/ButtonIcon';
+import { Logout } from '../../IconBtn/Logout';
+import useSizeScreen from '../../../hooks/useSizeScreen';
 
 import Avatar from '@material-ui/core/Avatar';
 import { styled } from '@material-ui/core/styles';
@@ -72,7 +72,6 @@ export default function UserMenu({ onClick }) {
       )}
 
       <ButtonIcon
-        // onClick={() => dispatch(authOperations.logOut())}
         onClick={onClick}
         aria-label="Open modal"
         btnClass="btnLogout"

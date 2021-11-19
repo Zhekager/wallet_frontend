@@ -57,7 +57,7 @@
 
 import { useState } from 'react';
 import Logo from '../AuthForms/AuthHeading';
-import UserMenu from '../UserMenu';
+import UserMenu from './UserMenu';
 import ModalAddTransaction from '../ModalAddTransaction';
 import ButtonIcon from '../ModalAddTransaction/ButtonIcon';
 import LogoutForm from './LogoutForm';
@@ -76,15 +76,14 @@ export default function Header() {
   };
 
   const onOpenModal = e => {
-    toggleModal();
+    setShowModal(true);
   };
 
   return (
     <header className={styles.Header}>
       <div className={styles.HeaderContainer}>
         <Logo text="Wallet" />
-        <UserMenu onClick={toggleModal} />
-        {/* {showModal && <ModalLogout onClose={toggleModal} />} */}
+        <UserMenu onClick={onOpenModal} />
 
         {showModal && (
           <ModalAddTransaction onClose={toggleModal}>
