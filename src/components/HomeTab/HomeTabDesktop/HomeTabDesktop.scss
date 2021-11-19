@@ -1,10 +1,12 @@
 .table {
   display: block;
   min-width: 688px;
-  margin-left: 80px;
+  margin: 0 auto;
+
   // margin-right: 85px;
   @media screen and (min-width: 1280px) {
     width: 700px;
+    padding-top: 20px;
   }
 }
 .table-head {
@@ -55,7 +57,7 @@
 
 .table-body {
   display: block;
-  max-height: 60vh;
+  max-height: 90vh;
   overflow: auto;
   &_row {
     display: flex;
