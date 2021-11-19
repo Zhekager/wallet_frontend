@@ -95,7 +95,7 @@
   padding: 0px;
 }
 
-.active .svgNav {
+.navLinkActive .svgNav {
   fill: #4a56e2;
   background-color: #fff;
   filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
@@ -110,16 +110,6 @@
     padding-bottom: 13px;
   }
 
-  .buttonNav {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    border-radius: 6px;
-    width: 38px;
-    height: 38px;
-    padding: 0;
-  }
-
   .svgNav {
     width: 38px;
     height: 38px;
@@ -132,16 +122,8 @@
   .navigation {
     display: grid;
     justify-content: start;
-  }
-
-  .buttonNav {
-    display: flex;
-    margin-left: 6px;
-    margin-right: 6px;
-    background-color: transparent;
-    border-radius: 2px;
-    outline: none;
-    cursor: pointer;
+    padding: 0;
+    margin-bottom: 30px;
   }
 
   .boxNav {
@@ -149,6 +131,8 @@
     align-items: center;
     fill: #6e78e8;
     background-color: transparent;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 
   .textNav {
@@ -160,7 +144,7 @@
     color: #000000;
   }
 
-  .active .textNav {
+  .navLinkActive .textNav {
     font-weight: 700;
   }
 

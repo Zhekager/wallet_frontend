@@ -2,6 +2,23 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  margin-top: 40px;
+
+  @media screen and (min-width: 1280px) and (max-height: 719px) {
+    margin-top: 10px;
+  }
+
+  @media screen and (min-width: 1280px) and (min-height: 720px) {
+    margin-top: 20px;
+  }
+
+  @media screen and (min-width: 1280px) and (min-height: 800px) {
+    margin-top: 30px;
+  }
+
+  @media screen and (min-width: 1280px) and (min-height: 960px) {
+    margin-top: 40px;
+  }
 }
 
 .Field {

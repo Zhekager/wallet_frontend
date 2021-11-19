@@ -6,6 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 // import PublicRoute from './routes/PublicRoute';
 import Container from './components/Container';
 import Spinner from './components/Spinner';
+
 // import Table from './components/Table'; //to delete later
 // import Navigation from './components/Navigation'; //to delete later
 // import Balance from './components/Balance'; //to delete later
@@ -16,7 +17,13 @@ import DashboardPage from './pages/DashboardPage/DasboardPage'; //to delete late
 
 // import Spinner from './components/Spinner'
 
-import Header from './components/Header/Header';
+
+// import Header from './components/Header/Header';
+
+
+
+import TransactionForm from './components/TransactionForm/TransactionForm';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -33,9 +40,9 @@ const NotFoundPage = lazy(() =>
 const LoginPage = lazy(() =>
   import('./pages/LoginPage' /* webpackChunkName: "login-page" */),
 );
-// const DashboardPage = lazy(() =>
-//   import('./pages/DashboardPage' /* webpackChunkName: "dashboard-page" */),
-// );
+const DashboardPage = lazy(() =>
+  import('./pages/DashboardPage' /* webpackChunkName: "dashboard-page" */),
+);
 
 function App() {
   // const dispatch = useDispatch();
@@ -45,7 +52,6 @@ function App() {
     // !isLoading && (
     <>
       <Container>
-        {<Header />}
         <Suspense fallback={<Spinner />}>
           <Switch>
             <Route path="/" exact redirectTo="/dashboard" restricted>

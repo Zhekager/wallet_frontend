@@ -80,6 +80,38 @@
   }
 }
 
-.head {
-  margin: 0px;
+.button__exit__svg {
+  margin-right: 10px;
+}
+
+.button__exit {
+  display: block;
+  color: #bdbdbd;
+  width: 51px;
+  height: 24px;
+  left: 1142.5px;
+  top: 28px;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.vector {
+  width: 0px;
+  height: 30px;
+  left: 1099.5px;
+  top: 25px;
+
+  border: 1px solid #bdbdbd;
+
+  @media screen and (max-width: 768px) {
+    width: 0px;
+    height: 30px;
+    left: 633.5px;
+    top: 25px;
+
+    border: 1px solid #bdbdbd;
+  }
+  @media screen and (max-width: 320px) {
+    display: none;
+  }
 }
