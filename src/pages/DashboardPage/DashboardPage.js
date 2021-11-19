@@ -9,12 +9,14 @@ import TransactionForm from '../../components/TransactionForm';
 import ButtonIcon from '../../components/ModalAddTransaction/ButtonIcon';
 import BgPageContainer from '../../components/BgPageContainer';
 import Button from '../../components/Button';
+import useSizeScreen from '../../hooks/useSizeScreen';
 import { HiX } from 'react-icons/hi';
 // import Currency from '../../components/Sidebar/Currency';
 
 import './DashboardPage.scss';
 
 export default function DashboardPage() {
+  const sizeScreen = useSizeScreen();
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
@@ -50,13 +52,15 @@ export default function DashboardPage() {
             <ModalAddTransaction onClose={toggleModal}>
               <TransactionForm onClose={toggleModal} />
 
-              <ButtonIcon
-                btnClass="ButtonIconClose"
-                onClick={toggleModal}
-                aria-label="Close modal"
-              >
-                <HiX />
-              </ButtonIcon>
+              {sizeScreen > 767 && (
+                <ButtonIcon
+                  btnClass="ButtonIconClose"
+                  onClick={toggleModal}
+                  aria-label="Close modal"
+                >
+                  <HiX />
+                </ButtonIcon>
+              )}
             </ModalAddTransaction>
           )}
         </div>
