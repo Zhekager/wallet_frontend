@@ -6,6 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 // import PublicRoute from './routes/PublicRoute';
 import Container from './components/Container';
 import Spinner from './components/Spinner';
+
 // import Table from './components/Table'; //to delete later
 // import Navigation from './components/Navigation'; //to delete later
 // import Balance from './components/Balance'; //to delete later
@@ -19,9 +20,9 @@ import Modal from './components/Modal/ModalForm';
 // import Spinner from './components/Spinner'
 
 import TransactionForm from './components/TransactionForm/TransactionForm';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-//import FormModal from '../Modal/FormModal';
 import './App.module.scss';
 
 const RegistrationPage = lazy(() =>
@@ -35,9 +36,9 @@ const NotFoundPage = lazy(() =>
 const LoginPage = lazy(() =>
   import('./pages/LoginPage' /* webpackChunkName: "login-page" */),
 );
-// const DashboardPage = lazy(() =>
-//   import('./pages/DashboardPage' /* webpackChunkName: "dashboard-page" */),
-// );
+const DashboardPage = lazy(() =>
+  import('./pages/DashboardPage' /* webpackChunkName: "dashboard-page" */),
+);
 
 function App() {
   // const dispatch = useDispatch();
@@ -72,12 +73,6 @@ function App() {
         </Suspense>
 
         <ToastContainer autoClose={3000} position="top-center" />
-
-        {/* <ModalProvider>
-          <Controls />
-
-          <TransactionForm />
-        </ModalProvider> */}
       </Container>
     </>
   );
