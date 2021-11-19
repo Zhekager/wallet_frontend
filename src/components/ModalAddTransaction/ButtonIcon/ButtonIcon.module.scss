@@ -13,9 +13,10 @@
 
   cursor: pointer;
   // outline: none;
-  @media screen and (max-width: 320px) {
+  // скрытие кнопки закрытия на мобилке
+  /*  @media screen and (max-width: 320px) {
     visibility: hidden;
-  }
+  } */
 }
 
 .ButtonIconClose svg {

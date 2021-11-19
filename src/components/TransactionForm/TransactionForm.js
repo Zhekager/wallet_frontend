@@ -5,11 +5,12 @@ import Button from '../Button';
 import Switch from './Switch';
 import SelectCategory from './SelectCategory';
 import { costs } from '../../assets/data/select-data/selectData';
-
+//import "./transactionFormSelect.scss";
 //import Box from '@material-ui/core/Box';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+//import Select from "react-select";
 
 import './TransactionFormDatepicker.scss';
 //redux
@@ -156,7 +157,8 @@ export default function TransactionForm({ onClose }) {
                 {costs.map(SelectCategoryItem)}
               </Field> */}
               {!visibleCategory &&
-                <SelectCategory
+                  <SelectCategory
+                 
                   name="category"
                   costs={costs.costs}
                   hidden={visibleCategory}
@@ -164,7 +166,7 @@ export default function TransactionForm({ onClose }) {
                   value={values.category}
                   onBlur={handleChange}
                   handleChange={handleChangeCategory}
-                  className={styles.select}
+                  
               
                 //error={touched.category && Boolean(errors.category)}
                 //helperText={touched.category && errors.category}
