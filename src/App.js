@@ -1,26 +1,8 @@
 import { lazy, Suspense } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { authOperations, authSelectors } from 'redux/auth';
 import { Switch, Route } from 'react-router-dom';
-// import PrivateRoute from './routes/PrivateRoute';
-// import PublicRoute from './routes/PublicRoute';
 import Container from './components/Container';
 import Spinner from './components/Spinner';
-
-// import Table from './components/Table'; //to delete later
-// import Navigation from './components/Navigation'; //to delete later
-// import Balance from './components/Balance'; //to delete later
-// import Currency from './components/Sidebar/Currency'; //to delete later
-
-
-// import Chart from './components/Chart/Chart';
-
-// import Spinner from './components/Spinner'
-
-// import Header from './components/Header/Header';
-
-import TransactionForm from './components/TransactionForm/TransactionForm';
-
+// import TransactionForm from './components/TransactionForm/TransactionForm';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
