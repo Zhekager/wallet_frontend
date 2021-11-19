@@ -116,6 +116,21 @@
 //   }
 // }
 
+.Header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 10;
+
+  @media screen and (min-width: 768px) {
+    position: relative;
+  }
+}
+
 .HeaderContainer {
   display: flex;
   justify-content: space-between;

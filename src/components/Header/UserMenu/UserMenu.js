@@ -67,7 +67,7 @@ export default function UserMenu({ onClick }) {
           <span className={styles.Name}>{name}</span> */}
 
           <MyAvatar>N</MyAvatar>
-          <span className={styles.Name}>Test Name</span>
+          <span className={styles.Name}>Maryna Skrypnyk</span>
         </div>
       )}
 
