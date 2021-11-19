@@ -5,22 +5,23 @@ import Button from '../Button';
 import Switch from './Switch';
 import SelectCategory from './SelectCategory';
 import { costs } from '../../assets/data/select-data/selectData';
-
+//import "./transactionFormSelect.scss";
 //import Box from '@material-ui/core/Box';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+//import Select from "react-select";
 
 import './TransactionFormDatepicker.scss';
 //redux
-//import { useDispatch } from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 //import fetchTransactions from '../../redux/transactions/transaction-operations';
 
 import styles from './TransactionForm.module.scss';
 
 export default function TransactionForm({ onClose }) {
   // const dispatch = useDispatch();
-
+  
   const [chooseSelect, setChooseSelect] = useState(false);
   const [visibleCategory, setVisibleCategory] = useState(false);
   const [category, setCategory] = useState('Choose category');
@@ -76,7 +77,7 @@ export default function TransactionForm({ onClose }) {
 
   const validationsSchema = Yup.object().shape({
     typeOfTransaction: Yup.string().required('Type is required'),
-    // category: Yup.string('Choose category').required('Category is required'),
+    //category: Yup.string('Choose category').required('Category is required'),
     amount: Yup.number('Enter your amount')
       .min(0)
       .required('Amount is required'),
@@ -85,6 +86,7 @@ export default function TransactionForm({ onClose }) {
   });
 
   return (
+    <div className={styles.modal}>
     <div className={styles.container}>
       <div className={styles.form}>
         <h3 className={styles.title}>Add transaction</h3>
@@ -154,18 +156,22 @@ export default function TransactionForm({ onClose }) {
                 </option>
                 {costs.map(SelectCategoryItem)}
               </Field> */}
-
-              <SelectCategory
-                name="category"
-                hidden={visibleCategory}
-                category={category}
-                value={values.category}
-                onBlur={handleChange}
-                handleChange={handleChangeCategory}
-                // error={touched.category && Boolean(errors.category)}
-                // helperText={touched.category && errors.category}
-              />
-
+              {!visibleCategory &&
+                  <SelectCategory
+                 
+                  name="category"
+                  costs={costs.costs}
+                  hidden={visibleCategory}
+                  category={category}
+                  value={values.category}
+                  onBlur={handleChange}
+                  handleChange={handleChangeCategory}
+                  
+              
+                //error={touched.category && Boolean(errors.category)}
+                //helperText={touched.category && errors.category}
+                />
+              }
               {/* <div className={style.select}>
                 <Select
                   className="select"
@@ -233,6 +239,7 @@ export default function TransactionForm({ onClose }) {
           )}
         </Formik>
       </div>
-    </div>
+      </div>
+      </div>
   );
 }

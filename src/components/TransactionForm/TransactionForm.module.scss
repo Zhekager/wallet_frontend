@@ -1,3 +1,5 @@
+@import '../../stylesheet/breakpoints';
+
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -8,7 +10,10 @@
   // left: 50%;
   // top: 50%;
   /* transform: translate(50%, -50%); */
-  border: 1px solid black;
+  @media (min-width: $tablet) {
+    width: 540px;
+    min-height: 617px;
+  }
 }
 
 .box {
@@ -16,6 +21,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (min-width: $tablet) {
+    margin-bottom: 40px;
+  }
 }
 
 .text {
@@ -32,13 +41,17 @@
   color: #e0e0e0;
 }
 
-.Form {
+/* .Form {
   display: flex;
   flex-direction: column;
-}
+} */
 
 .form {
   padding: 40px 64px 60px 64px;
+
+  @media (min-width: $tablet) {
+    padding: 40px 65px 60px;
+  }
 }
 
 .title {
@@ -50,6 +63,10 @@
   line-height: 1.5;
   text-align: center;
   color: #000000;
+
+  @media (min-width: $tablet) {
+    margin-bottom: 40px;
+  }
 }
 
 // .formBox {
@@ -85,6 +102,9 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 34px;
+  @media (min-width: $tablet) {
+    margin-bottom: 40px;
+  }
 }
 
 .Amount,
@@ -101,7 +121,6 @@
   outline: none;
   border-bottom: 1px solid #e0e0e0;
   line-height: 1.5;
-  height: 44px;
 }
 
 .Date {
@@ -139,6 +158,10 @@
 
   &::placeholder {
     color: #bdbdbd;
+  }
+
+  @media (min-width: $tablet) {
+    margin-bottom: 40px;
   }
 }
 
@@ -221,84 +244,6 @@
 //   outline: none;
 // }
 
-// ::placeholder {
-//   width: 139px;
-//   height: 24px;
-//   text-align: left;
-//   font-style: normal;
-//   font-weight: normal;
-//   font-size: 18px;
-//   line-height: 27px;
-//   color: #bdbdbd;
-//   border: none;
-// }
-// .btnBox {
-//   display: flex;
-//   align-items: center;
-//   flex-wrap: wrap;
-//   margin-top: 50px;
-// }
-
-// .button {
-//   width: 300px;
-//   height: 50px;
-//   margin-bottom: 20px;
-//   background-color: #24cca7;
-//   border-radius: 20px;
-//   border: none;
-//   color: #ffffff;
-//   outline: none;
-//   cursor: pointer;
-
-//   font-style: normal;
-//   font-weight: normal;
-//   font-size: 18px;
-//   line-height: 27px;
-//   text-align: center;
-//   letter-spacing: 0.1em;
-//   text-transform: uppercase;
-// }
-
-// .button2 {
-//   width: 300px;
-//   height: 50px;
-
-//   background-color: #ffffff;
-//   border-radius: 20px;
-//   border: 1px solid #4a56e2;
-//   color: #4a56e2;
-//   outline: none;
-//   cursor: pointer;
-//   font-style: normal;
-//   font-weight: normal;
-//   font-size: 18px;
-//   line-height: 27px;
-//   text-align: center;
-//   letter-spacing: 0.1em;
-//   text-transform: uppercase;
-// }
-
-// .btn2 {
-//   display: block;
-//   width: 300px;
-//   height: 50px;
-//   margin: 20px auto 0 auto;
-//   background-color: #ffffff;
-//   border-radius: 20px;
-//   border: 1px solid #4a56e2;
-//   color: #4a56e2;
-//   outline: none;
-//   cursor: pointer;
-//   font-style: normal;
-//   font-weight: normal;
-//   font-size: 18px;
-//   line-height: 27px;
-//   text-align: center;
-//   letter-spacing: 0.1em;
-//   text-transform: uppercase;
-//   text-align: center;
-// }
-
 // // select
 
 // .select {
@@ -343,4 +288,69 @@
 
 .PlaceholderSelect {
   color: #bdbdbd;
+}
+
+///mobile
+@media screen and (max-width: 320px) {
+  .modal {
+    top: -60px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 320px;
+    height: 830px;
+  }
+
+  .container {
+    background-color: #ffffff;
+  }
+  .form {
+    padding: 20px 20px;
+  }
+
+  .title {
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 40px;
+  }
+  .box {
+    margin-bottom: 40px;
+  }
+  .select {
+    width: 280px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+  }
+  .Credentials {
+    flex-direction: column;
+    align-items: center;
+  }
+  .Amount {
+    width: 280px;
+    height: 34px;
+    text-align: left;
+    margin-bottom: 40px;
+    &::placeholder {
+      text-align: left;
+    }
+  }
+  .Date {
+    width: 280px;
+    height: 34px;
+    text-align: left;
+  }
+
+  .Comment {
+    width: 280px;
+    height: 74px;
+    margin-top: 40px;
+    justify-content: center;
+    text-align: center;
+  }
 }
