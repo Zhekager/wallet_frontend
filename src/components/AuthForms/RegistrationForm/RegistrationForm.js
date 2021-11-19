@@ -1,6 +1,8 @@
-// import { useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 // import { authOperations, authSelectors } from 'redux/auth';
+import { authOperations } from '../../../redux/auth';
+import { authSelectors } from '../../../redux/auth';
 import { Formik, Form } from 'formik';
 import TextFieldForm from '../TextFieldForm';
 import * as Yup from 'yup';
@@ -14,12 +16,12 @@ import { ReactComponent as IconName } from '../../icons/user.svg';
 import styles from './RegistrationForm.module.scss';
 
 export default function RegistrationForm() {
-  //   const dispatch = useDispatch();
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [confirmPassword, setConfirmPassword] = useState('');
-  // const [name, setName] = useState('');
-  //   const isLoading = useSelector(authSelectors.getLoading);
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [name, setName] = useState('');
+  const isLoading = useSelector(authSelectors.getLoading);
 
   const validationsSchema = Yup.object({
     email: Yup.string()
@@ -40,14 +42,12 @@ export default function RegistrationForm() {
   });
 
   const handleSubmit = e => {
-    e.preventDefault();
-    // dispatch(
-    //   authOperations.register({ email, password, confirmPassword, name }),
-    // );
-    // setEmail('');
-    // setPassword('');
-    // setConfirmPassword('');
-    // setName('');
+    // e.preventDefault();
+    dispatch(authOperations.register({ email, password, name }));
+    setEmail('');
+    setPassword('');
+    setConfirmPassword('');
+    setName('');
   };
 
   return (
@@ -61,10 +61,13 @@ export default function RegistrationForm() {
       onSubmit={handleSubmit}
       validationSchema={validationsSchema}
     >
-      {({ isSubmitting }) => (
+      {({ handleChange, handleBlur, values, isValid, dirty }) => (
         <Form className={styles.Form}>
           <TextFieldForm
             label={<IconEmail width={24} height={24} />}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.email}
             name="email"
             type="email"
             placeholder="E-mail"
@@ -74,6 +77,9 @@ export default function RegistrationForm() {
             label={<IconLock width={24} height={24} />}
             name="password"
             type="password"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.password}
             placeholder="Password"
             className={styles.Field}
           />
@@ -81,6 +87,9 @@ export default function RegistrationForm() {
             label={<IconLock width={24} height={24} />}
             name="confirmPassword"
             type="password"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.confirmPassword}
             placeholder="Confirm password"
             className={styles.Field}
           />
@@ -88,18 +97,22 @@ export default function RegistrationForm() {
             label={<IconName width={24} height={24} />}
             name="name"
             type="text"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.name}
             placeholder="Your name"
             className={styles.Field}
           />
 
           <Button
-            disabled={isSubmitting}
             type="submit"
             contentBtn="Sign up"
             button="Button"
+            disabled={!isValid && !dirty}
+            onClick={handleSubmit}
           />
 
-          {/* {isLoading && <Spinner />} */}
+          {isLoading && <Spinner />}
         </Form>
       )}
     </Formik>

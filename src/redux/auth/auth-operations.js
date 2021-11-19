@@ -16,7 +16,7 @@ import {
 
 import { toast } from 'react-toastify';
 
-axios.defaults.baseURL = 'https://wallet-api.herokuapp.com';
+axios.defaults.baseURL = 'https://personal-expenses.herokuapp.com';
 
 const token = {
   set(token) {
@@ -37,7 +37,7 @@ export const register = credentials => async dispatch => {
   dispatch(registerRequest());
 
   try {
-    const { data } = await axios.post('/users/signup', credentials);
+    const { data } = await axios.post('api/users/signup', credentials);
     token.set(data.token);
     dispatch(registerSuccess(data));
   } catch (error) {
@@ -64,7 +64,7 @@ export const logIn = credentials => async dispatch => {
   dispatch(loginRequest());
 
   try {
-    const { data } = await axios.post('/users/login', credentials);
+    const { data } = await axios.post('api/users/login', credentials);
     token.set(data.token);
     dispatch(loginSuccess(data));
   } catch (error) {
@@ -87,7 +87,7 @@ export const logOut = () => async dispatch => {
   dispatch(logoutRequest());
 
   try {
-    await axios.post('/users/logout');
+    await axios.post('api/users/logout');
     token.unset();
     dispatch(logoutSuccess());
   } catch (error) {
@@ -128,7 +128,7 @@ export const fetchCurrentUser = () => async (dispatch, getState) => {
   dispatch(fetchCurrentUserRequest());
 
   try {
-    const { data } = await axios.get('/users/current');
+    const { data } = await axios.get('api/users/current');
     dispatch(fetchCurrentUserSuccess(data));
   } catch (error) {
     dispatch(fetchCurrentUserError(error));
