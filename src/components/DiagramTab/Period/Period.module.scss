@@ -1,0 +1,28 @@
+@import '../../../stylesheet/variables';
+
+.select {
+  width: 166px;
+  height: 50px;
+  border: 1px solid $black-color;
+  background-color: transparent;
+  border-radius: 30px;
+  padding-left: 21px;
+  padding-right: 21px;
+  @media screen and (max-width: 767px) {
+    width: 280px;
+  }
+}
+.form {
+  display: flex;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
+}
+.form :first-child {
+  margin-right: 20px;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+}
