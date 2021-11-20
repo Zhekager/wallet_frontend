@@ -6,7 +6,7 @@ export const SignupImgPage = ({ svg }) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_3_1011)">
+      <g clipPath="url(#clip0_3_1011)">
         <path
           d="M404.5 0H370.6C359.554 0 350.6 8.95431 350.6 20V53.9C350.6 64.9457 359.554 73.9 370.6 73.9H404.5C415.546 73.9 424.5 64.9457 424.5 53.9V20C424.5 8.95431 415.546 0 404.5 0Z"
           fill="#24CCA7"

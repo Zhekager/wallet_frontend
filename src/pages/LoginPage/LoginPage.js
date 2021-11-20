@@ -28,7 +28,7 @@ export default function LoginPage() {
           <AuthHeading text="Wallet" />
           <LoginForm />
           <LoginGoogle />
-          <AuthNav content="Sign up" path="/register" />
+          <AuthNav content="Sign up" path="/signup" />
         </AuthContentContainer>
       </AuthContentContainer>
     </BgPageContainer>

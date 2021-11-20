@@ -39,7 +39,7 @@ function Navigation() {
     <div>
       <nav className={styles.navigation}>
         <NavLink
-          exact
+          // exact
           to={{
             pathname: `${url}`,
             // state: {
@@ -60,7 +60,7 @@ function Navigation() {
           )}
         </NavLink>
         <NavLink
-          exact
+          // exact
           to={{
             pathname: '/statistics',
             // state: {
@@ -81,7 +81,7 @@ function Navigation() {
         </NavLink>
         {sizeScreen <= 767 && (
           <NavLink
-            exact
+            // exact
             to={{
               pathname: '/currency',
               // state: {

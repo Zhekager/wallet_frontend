@@ -38,7 +38,7 @@ function App() {
               <RegistrationPage />
             </Route>
 
-            <Route path="/register" redirectTo="/dashboard" restricted>
+            <Route path="/signup" redirectTo="/dashboard" restricted>
               <RegistrationPage />
             </Route>
 
