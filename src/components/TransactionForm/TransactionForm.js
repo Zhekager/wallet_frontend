@@ -6,13 +6,14 @@ import Switch from './Switch';
 import SelectCategory from './SelectCategory';
 import { costs } from '../../assets/data/select-data/selectData';
 //import "./transactionFormSelect.scss";
-//import Box from '@material-ui/core/Box';
+import Box from '@material-ui/core/Box';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 //import Select from "react-select";
-
+import TextField from '@material-ui/core/TextField';
 import './TransactionFormDatepicker.scss';
+import { makeStyles } from '@material-ui/core/styles';
 //redux
 import {useSelector, useDispatch} from 'react-redux';
 //import fetchTransactions from '../../redux/transactions/transaction-operations';
@@ -89,7 +90,7 @@ export default function TransactionForm({ onClose }) {
     <div className={styles.modal}>
     <div className={styles.container}>
       <div className={styles.form}>
-        <h3 className={styles.title}>Add transaction</h3>
+        
 
         <Formik
           initialValues={{
@@ -103,7 +104,8 @@ export default function TransactionForm({ onClose }) {
           validationSchema={validationsSchema}
         >
           {({ errors, touched, isSubmitting, values, handleChange }) => (
-            <Form>
+              <Form>
+                <h3 className={styles.title}>Add transaction</h3>
               {/* <div id="my-radio-group"></div>
           <div role="group" aria-labelledby="my-radio-group">
             <label>
@@ -120,16 +122,20 @@ export default function TransactionForm({ onClose }) {
           </div> */}
 
               <div className={styles.box}>
-                <p
-                  className={styles.text}
-                  style={{ color: 'rgba(36, 204, 167, 1)' }}
+               <p  className={styles.text} 
+                    style={{ color: 'rgba(36, 204, 167, 1)' }} 
+                    
+                    
                 >
                   Income
-                </p>
+                </p>  
+                 
+      
                 <Switch
                   onSwitch={chooseSelect => onSwitchChecked(chooseSelect)}
                   isChecked={chooseSelect}
                   onClick={chooseSelect => onSwitchChecked(chooseSelect)}
+                    
                 />
                 <p
                   className={styles.text}
@@ -156,7 +162,8 @@ export default function TransactionForm({ onClose }) {
                 </option>
                 {costs.map(SelectCategoryItem)}
               </Field> */}
-              {!visibleCategory &&
+                {!visibleCategory &&
+ <Box className={styles.categoryBox}>                
                   <SelectCategory
                  
                   name="category"
@@ -170,7 +177,8 @@ export default function TransactionForm({ onClose }) {
               
                 //error={touched.category && Boolean(errors.category)}
                 //helperText={touched.category && errors.category}
-                />
+                  />
+  </Box>                 
               }
               {/* <div className={style.select}>
                 <Select
@@ -189,7 +197,7 @@ export default function TransactionForm({ onClose }) {
               {errors.amount && touched.amount && (
                 <div className={styles.inputFeedback}>{errors.amount}</div>
               )}
-
+  
               <div className={styles.Credentials}>
                 <Field
                   name="amount"
@@ -198,28 +206,33 @@ export default function TransactionForm({ onClose }) {
                   className={styles.Amount}
                 />
                 {/*  <Field name="date" type="date" className={styles.Date} />  */}
-
+<Box className={styles.data}>
                 <DatePicker
                   id="select"
                   className={styles.Date}
                   selected={startDate}
                   onChange={handleDate}
                   dateFormat="dd.MM.yyyy"
-                />
+                    />
+ </Box>                   
               </div>
+                  
 
               {errors.comment && touched.comment && (
                 <div className={styles.inputFeedback}>{errors.comment}</div>
               )}
-
-              <Field
+  <Box className={styles.box_select}>
+              <div className={styles.MobileComment}>
+              <TextField
                 name="comment"
                 as="textarea"
                 type="text"
                 placeholder="Comment"
                 className={styles.Comment}
+                
               />
-
+                  </div>
+  </Box>                
               <Button
                 // onClick={handleSubmit}
                 disabled={isSubmitting}
