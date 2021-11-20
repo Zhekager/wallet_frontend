@@ -10,7 +10,7 @@
 @media screen and (min-width: 768px) {
   .sidebar {
     display: flex;
-    padding: 20px 40px 40px;
+    // padding: 20px;
     justify-content: space-between;
     align-items: flex-end;
     width: 100%;
@@ -21,6 +21,6 @@
   .sidebar {
     flex-direction: column;
     justify-content: flex-start;
-    padding-right: 30px;
+    padding: 0px 50px 0px 0px;
   }
 }

@@ -13,7 +13,7 @@ import useSizeScreen from '../../hooks/useSizeScreen';
 import { HiX } from 'react-icons/hi';
 // import Currency from '../../components/Sidebar/Currency';
 
-import './DashboardPage.scss';
+import style from './DashboardPage.module.scss';
 
 export default function DashboardPage() {
   const sizeScreen = useSizeScreen();
@@ -30,13 +30,13 @@ export default function DashboardPage() {
   return (
     <>
       <Header />
-      <div className="dashboard">
-        <div className="wrapper">
+      <div className={style.dashboard}>
+        <div className={style.wrapper}>
           <Sidebar />
-
           <Switch>
             <Route path="/dashboard" component={HomeTab} />
             <Route />
+
             {/* <Route path="/currency" component={Currency} /> */}
           </Switch>
 

@@ -6,13 +6,13 @@
   // margin-right: 85px;
   @media screen and (min-width: 1280px) {
     width: 700px;
-    padding-top: 20px;
   }
 }
 .table-head {
   display: block;
 
   &_row {
+    margin-top: 20px;
     padding: 16px 21px 15px 20px;
     background-color: #fff;
     border-radius: 30px;
