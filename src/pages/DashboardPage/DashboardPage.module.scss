@@ -11,14 +11,13 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
-      min-height: 100vh;
     }
   }
 }
 
 @media screen and (min-width: 1280px) {
   .dashboard {
-    padding: 45px 85px 0px 85px;
+    padding: 40px 85px 0px 85px;
     position: relative;
     width: 1280px;
     display: flex;
@@ -34,11 +33,6 @@
       justify-content: space-between;
     }
   }
-}
-
-.dashboard {
-  background-color: rgba(238, 238, 238, 0.4);
-  // min-height: 100vh;
 }
 
 .dashboard__currency_wrapper {
@@ -85,18 +79,6 @@
     z-index: 2;
     position: relative;
   }
-
-  .dashboard__aside {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 174px;
-    margin-bottom: 40px;
-  }
-
-  .dashboard__currency_wrapper {
-    display: table;
-  }
 }
 
 @media (min-width: 1280px) {
@@ -121,13 +103,16 @@
   }
 
   .dashboard__aside {
-    width: 380px;
+    position: absolute;
+    left: 390px;
+    top: -50px;
+    height: 770px;
     height: 100%;
     margin-bottom: 0;
     border-right: 1px solid #e7e5f2;
-  }
 
-  .content__wrapper {
-    width: 700px;
+    @media (max-width: 768px) {
+      opacity: 0;
+    }
   }
 }

@@ -33,12 +33,13 @@ export default function DashboardPage() {
       <div className={style.dashboard}>
         <div className={style.wrapper}>
           <Sidebar />
-          <Switch>
+          <Switch className={style.wrapper}>
             <Route path="/dashboard" component={HomeTab} />
             <Route />
 
             {/* <Route path="/currency" component={Currency} /> */}
           </Switch>
+          <aside className={style.dashboard__aside}></aside>
 
           <ButtonIcon
             onClick={onOpenModal}

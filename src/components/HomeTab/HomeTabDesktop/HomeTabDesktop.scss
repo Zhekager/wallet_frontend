@@ -12,7 +12,7 @@
   display: block;
 
   &_row {
-    margin-top: 20px;
+    // margin-top: 20px;
     padding: 16px 21px 15px 20px;
     background-color: #fff;
     border-radius: 30px;
@@ -27,29 +27,29 @@
     line-height: 1.5;
     text-align: left;
     &:nth-child(1) {
-      flex-basis: 72px;
-      margin-right: 10px;
+      flex-basis: auto;
+      margin-right: 55px;
     }
     &:nth-child(2) {
       text-align: center;
-      flex-basis: 50px;
-      margin-right: 20px;
+      flex-basis: auto;
+      margin-right: 55px;
     }
     &:nth-child(3) {
-      flex-basis: 126px;
-      margin-right: 20px;
+      flex-basis: auto;
+      margin-right: 55px;
     }
     &:nth-child(4) {
-      flex-basis: 124px;
-      margin-right: 20px;
+      flex-basis: auto;
+      margin-right: 55px;
     }
     &:nth-child(5) {
-      flex-basis: 80px;
-      margin-right: 20px;
+      flex-basis: auto;
+      margin-right: 55px;
       text-align: right;
     }
     &:nth-child(6) {
-      flex-basis: 95px;
+      flex-basis: auto;
       text-align: right;
     }
   }
@@ -87,32 +87,35 @@
 
     &:nth-child(1) {
       flex-basis: 72px;
-      margin-right: 10px;
+      margin-right: 25px;
     }
     &:nth-child(2) {
       text-align: center;
       flex-basis: 50px;
-      margin-right: 20px;
+      margin-right: 50px;
     }
     &:nth-child(3) {
       flex-basis: 126px;
-      margin-right: 20px;
+      margin-right: 10px;
       text-align: left;
+      padding-left: 5px;
     }
     &:nth-child(4) {
-      text-align: left;
       flex-basis: 124px;
       margin-right: 20px;
       text-align: left;
+      padding-left: 15px;
     }
     &:nth-child(5) {
       margin-right: 20px;
       flex-basis: 80px;
       text-align: right;
+      padding-right: 25px;
     }
     &:nth-child(6) {
       flex-basis: 95px;
       text-align: right;
+      padding-right: 12px;
     }
   }
 
