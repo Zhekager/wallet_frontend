@@ -1,35 +1,41 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+
+//components
 import Button from '../Button';
 import Switch from './Switch';
 import SelectCategory from './SelectCategory';
 import { costs } from '../../assets/data/select-data/selectData';
-
 import Box from '@material-ui/core/Box';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-import 'react-datepicker/dist/react-datepicker.css';
-import styles from './TransactionForm.module.scss';
 //import Select from "react-select";
 
+//styles
+import 'react-datepicker/dist/react-datepicker.css';
+import styles from './TransactionForm.module.scss';
 import './TransactionFormDatepicker.scss';
 import { makeStyles } from '@material-ui/core/styles';
 
 //redux
-import {useSelector, useDispatch} from 'react-redux';
-//import fetchTransactions from '../../redux/transactions/transaction-operations';
+import { useSelector, useDispatch } from 'react-redux';
+//import '../../redux/transactions';
+//import { fetchTransactions } from '../../redux/transactions/transaction-operations';
+//import { fetchTransRequest// } from '../../redux/transactions/transaction-actions';
 
 
-
-export default function TransactionForm({ onClose }) {
-  // const dispatch = useDispatch();
+export default function TransactionForm ({ onClose }) {
   
+  const dispatch = useDispatch();
   const [chooseSelect, setChooseSelect] = useState(false);
   const [visibleCategory, setVisibleCategory] = useState(false);
   const [category, setCategory] = useState('Choose category');
   const [typeOfTransaction, setTypeOfTransaction] = useState('Сosts');
   const [startDate, setStartDate] = useState(new Date());
+  
+
+
 
   const handleChangeCategory = event => {
     setCategory(event.target.value);
@@ -67,9 +73,9 @@ export default function TransactionForm({ onClose }) {
 
   const handleSubmitForm = (e, data) => {
     e.preventDefault();
-    // dispatch(fetchTransactions.addTransaction(data));
+    //dispatch(fetchTransactions.addTransaction(data));
     reset();
-    // onClose();
+    onClose();
   };
 
   const reset = () => {
@@ -80,7 +86,7 @@ export default function TransactionForm({ onClose }) {
 
   const validationsSchema = Yup.object().shape({
     typeOfTransaction: Yup.string().required('Type is required'),
-    //category: Yup.string('Choose category').required('Category is required'),
+    category: Yup.string('Choose category').required('Category is required'),
     amount: Yup.number('Enter your amount')
       .min(0)
       .required('Amount is required'),
@@ -89,11 +95,10 @@ export default function TransactionForm({ onClose }) {
   });
 
   return (
-    <div className={styles.modal}>
-    <div className={styles.container}>
-      <div className={styles.form}>
-        
 
+  <div className={styles.modal}>
+    <div className={styles.container}>
+      
         <Formik
           initialValues={{
             typeOfTransaction: 'Costs',
@@ -105,126 +110,84 @@ export default function TransactionForm({ onClose }) {
           onSubmit={handleSubmitForm}
           validationSchema={validationsSchema}
         >
-          {({ errors, touched, isSubmitting, values, handleChange }) => (
-              <Form>
-                <h3 className={styles.title}>Add transaction</h3>
-              {/* <div id="my-radio-group"></div>
-          <div role="group" aria-labelledby="my-radio-group">
-            <label>
-              <Field type="radio" name="typeOfTransaction" value="Доход" />
-              Доход
-            </label>
-            <label>
-              <Field type="radio" name="typeOfTransaction" value="Расход" />
-              Расход
-            </label>
-              {errors.typeOfTransaction && touched.typeOfTransaction && (
-                <span className="error">{errors.typeOfTransaction}</span>
-              )}
-          </div> */}
 
-              <div className={styles.box}>
-               <p  className={styles.text} 
-                    style={{ color: 'rgba(36, 204, 167, 1)' }} 
-                    
-                    
-                >
-                  Income
-                </p>  
+      {({ errors, touched, isSubmitting, values, handleChange }) => (
+              
+        <Form className={styles.form}>
+          <h3 className={styles.title}>Add transaction</h3>
+        
+          <div className={styles.box}>
+                  
+            <p  className={styles.text} style={{ color: 'rgba(36, 204, 167, 1)' }} >
+                Income
+            </p>  
                  
-      
-                <Switch
+              <Switch
                   onSwitch={chooseSelect => onSwitchChecked(chooseSelect)}
                   isChecked={chooseSelect}
-                  onClick={chooseSelect => onSwitchChecked(chooseSelect)}
-                    
-                />
-                <p
-                  className={styles.text}
-                  style={{ color: 'rgba(255, 101, 150, 1)' }}
-                >
-                  Costs
-                </p>
-              </div>
-
-              {/* <Field
-                name="category"
-                costs={costs.costs}
-                as="select"
-                hidden={visibleCategory}
-                onBlur={handleChange}
-                handleChange={handleChangeCategory}
-                className={styles.SelectBox}
-              >
-                <option
-                  value="Choose category"
-                  className={styles.PlaceholderSelect}
-                >
-                  Choose category
-                </option>
-                {costs.map(SelectCategoryItem)}
-              </Field> */}
-                {!visibleCategory &&
- <Box className={styles.categoryBox}>                
-                  <SelectCategory
-                 
-                  name="category"
-                  costs={costs.costs}
-                  hidden={visibleCategory}
-                  category={category}
-                  value={values.category}
-                  onBlur={handleChange}
-                  handleChange={handleChangeCategory}
-                  
-              
-                //error={touched.category && Boolean(errors.category)}
-                //helperText={touched.category && errors.category}
+                  onClick={chooseSelect => onSwitchChecked(chooseSelect)}     
                   />
-  </Box>                 
-              }
-              {/* <div className={style.select}>
-                <Select
-                  className="select"
-                  classNamePrefix="selectprefix"
-                  isIncome={!chooseSelect}
-                  category={category}
-                  placeholder="Choose category"
-                  isSearchable={true}
-                  name="category"
-                  value={category}
-                  onChange={handleSelect}
-                />
-              </div> */}
+                  
+            <p className={styles.text} style={{ color: 'rgba(255, 101, 150, 1)' }} >
+                Costs
+            </p>
+                 
+          </div>
 
-              {errors.amount && touched.amount && (
-                <div className={styles.inputFeedback}>{errors.amount}</div>
-              )}
+      {!visibleCategory &&
+                
+        <Box className={styles.categoryBox}>
+          {errors.typeOfTransaction && touched.typeOfTransaction && (
+            <span className={styles.inputFeedback}>{errors.typeOfTransaction}</span>
+          )}    
+            <SelectCategory
+              name="category"
+              costs={costs.costs}
+              hidden={visibleCategory}
+              category={category}
+              value={values.category}
+              onBlur={handleChange}
+              handleChange={handleChangeCategory}
+                  
+             /* error={touched.category && Boolean(errors.category)}
+              helperText={touched.category && errors.category} */
+            />                                 
+        </Box>                 
+      }
+              
+
+          {errors.amount && touched.amount && (
+            <div className={styles.inputFeedback}>{errors.amount}</div>
+          )}
   
-              <div className={styles.Credentials}>
-                <Field
+          <div className={styles.Credentials}>
+            <Field
                   name="amount"
                   type="number"
                   placeholder="0.00"
                   className={styles.Amount}
-                />
-                {/*  <Field name="date" type="date" className={styles.Date} />  */}
-<Box className={styles.data}>
-                <DatePicker
+            />
+               
+            <Box className={styles.data}>
+              <DatePicker
                   id="select"
                   className={styles.Date}
                   selected={startDate}
                   onChange={handleDate}
                   dateFormat="dd.MM.yyyy"
-                    />
- </Box>                   
-              </div>
+                  />
+            {errors.data && touched.data && (
+            <div className={styles.inputFeedback}>{errors.data}</div>
+          )}    
+            </Box>                   
+          </div>
                   
-
-              {errors.comment && touched.comment && (
-                <div className={styles.inputFeedback}>{errors.comment}</div>
-              )}
-  <Box className={styles.box_select}>
-              <div className={styles.MobileComment}>
+          {errors.comment && touched.comment && (
+            <div className={styles.inputFeedback}>{errors.comment}</div>
+          )}
+              
+          <Box className={styles.box_select}>
+                
               <Field
                 name="comment"
                 as="textarea"
@@ -232,29 +195,28 @@ export default function TransactionForm({ onClose }) {
                 placeholder="Comment"
                 className={styles.Comment}
                 
-              />
-                  </div>
-  </Box>                
-              <Button
-                // onClick={handleSubmit}
+              />      
+          </Box>
+              
+          <Button
+                //onClick={handleSubmit}
                 disabled={isSubmitting}
                 type="submit"
                 contentBtn="Add"
                 button="Button"
               />
 
-              <Button
+          <Button
                 handleClick={handleClick}
                 contentBtn="Cancel"
                 button="ButtonSecondary"
               />
 
               {/* {isLoading && <LoaderSpinner />} */}
-            </Form>
+      </Form>
           )}
         </Formik>
-      </div>
-      </div>
-      </div>
+    </div>
+  </div>
   );
 }
