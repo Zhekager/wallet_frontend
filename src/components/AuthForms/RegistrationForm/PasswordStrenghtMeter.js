@@ -1,6 +1,8 @@
 import React from 'react';
 import zxcvbn from 'zxcvbn';
 
+import styles from './RegistrationForm.module.scss';
+
 const PasswordStrenghtMeter = ({ password }) => {
   const testResult = zxcvbn(password);
   const num = (testResult.score * 100) / 4;
@@ -44,7 +46,7 @@ const PasswordStrenghtMeter = ({ password }) => {
     width: '100%',
     height: '4px',
     // marginBottom: '20px',
-    marginTop: '-15px',
+    marginTop: '-10px',
   });
 
   const changePasswordColor = () => ({
@@ -52,14 +54,19 @@ const PasswordStrenghtMeter = ({ password }) => {
     height: '4px',
     // background: '#24CCA7',
     background: funcProgressColor(),
+    boxShadow: '0px 1px 8px rgba(36, 204, 167, 0.5)',
+    borderRadius: '4px',
   });
 
   return (
     <>
-      <div className="progress" style={changeStyleProgress()}>
+      {/* <div className="progress" style={changeStyleProgress()}> */}
+      <div className={styles.progress} style={changeStyleProgress()}>
         <div className="progress-bar" style={changePasswordColor()}></div>
       </div>
-      <p style={{ color: funcProgressColor() }}>{createPasswordLabel()}</p>
+      <p className={styles.Text} style={{ color: funcProgressColor() }}>
+        {createPasswordLabel()}
+      </p>
     </>
   );
 };

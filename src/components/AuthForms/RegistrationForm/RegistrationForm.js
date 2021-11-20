@@ -8,7 +8,6 @@ import PasswordStrenghtMeter from './PasswordStrenghtMeter';
 import TextFieldForm from '../TextFieldForm';
 import * as Yup from 'yup';
 import Spinner from '../../Spinner';
-// import PasswordStrengthIndicator from './PasswordStrenghtIndicator';
 
 import Button from '../../Button';
 import { ReactComponent as IconEmail } from '../../icons/email.svg';
@@ -16,7 +15,6 @@ import { ReactComponent as IconLock } from '../../icons/lock.svg';
 import { ReactComponent as IconName } from '../../icons/user.svg';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import styles from './RegistrationForm.module.scss';
 
 export default function RegistrationForm() {
