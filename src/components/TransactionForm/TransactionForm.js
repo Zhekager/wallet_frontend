@@ -6,13 +6,14 @@ import Switch from './Switch';
 import SelectCategory from './SelectCategory';
 import { costs } from '../../assets/data/select-data/selectData';
 //import "./transactionFormSelect.scss";
-//import Box from '@material-ui/core/Box';
+import Box from '@material-ui/core/Box';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 //import Select from "react-select";
-//import TextField from '@mui/material/TextField';
+import TextField from '@material-ui/core/TextField';
 import './TransactionFormDatepicker.scss';
+import { makeStyles } from '@material-ui/core/styles';
 //redux
 import {useSelector, useDispatch} from 'react-redux';
 //import fetchTransactions from '../../redux/transactions/transaction-operations';
@@ -194,7 +195,7 @@ export default function TransactionForm({ onClose }) {
               {errors.amount && touched.amount && (
                 <div className={styles.inputFeedback}>{errors.amount}</div>
               )}
-
+  
               <div className={styles.Credentials}>
                 <Field
                   name="amount"
@@ -203,28 +204,33 @@ export default function TransactionForm({ onClose }) {
                   className={styles.Amount}
                 />
                 {/*  <Field name="date" type="date" className={styles.Date} />  */}
-
+<Box>
                 <DatePicker
                   id="select"
                   className={styles.Date}
                   selected={startDate}
                   onChange={handleDate}
                   dateFormat="dd.MM.yyyy"
-                />
+                    />
+ </Box>                   
               </div>
+                  
 
               {errors.comment && touched.comment && (
                 <div className={styles.inputFeedback}>{errors.comment}</div>
               )}
+  <Box className={styles.box_select}>
               <div className={styles.MobileComment}>
-              <Field
+              <TextField
                 name="comment"
                 as="textarea"
                 type="text"
                 placeholder="Comment"
                 className={styles.Comment}
+                
               />
-              </div>
+                  </div>
+  </Box>                
               <Button
                 // onClick={handleSubmit}
                 disabled={isSubmitting}
