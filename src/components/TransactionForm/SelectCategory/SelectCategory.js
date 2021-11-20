@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(2),
     background: 'white',
     opacity: '0.7',
-    boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.1)',
+    boxShadow: '0px 6px 15px rgba(0, 0, 0, 0)',
     backdropFilter: 'blur(50px)',
     borderRadius: '20px',
   },
