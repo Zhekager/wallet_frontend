@@ -1,7 +1,13 @@
 .react-datepicker__input-container::after {
   position: absolute;
   content: url('../icons/calendar.png');
-  transform: translate(-30px, 8px);
+  transform: translate(-30px, 3px);
+
+  /* @media (min-width: 320px) and (max-width: 767px) {
+    //transform: translate(-10px, 8px);
+    // margin-left: 10px;
+    //text-align: left;
+  } */
 }
 
 .react-datepicker__input-container:focus {
@@ -11,8 +17,8 @@
 .react-datepicker-wrapper {
   display: block;
 
-  @media screen and (max-width: 320px) {
+  /* @media screen and (max-width: 320px) {
     margin-left: 40px;
     text-align: left;
-  }
+  } */
 }
