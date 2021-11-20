@@ -5,20 +5,22 @@ import Button from '../Button';
 import Switch from './Switch';
 import SelectCategory from './SelectCategory';
 import { costs } from '../../assets/data/select-data/selectData';
-//import "./transactionFormSelect.scss";
+
 import Box from '@material-ui/core/Box';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+import styles from './TransactionForm.module.scss';
 //import Select from "react-select";
-import TextField from '@material-ui/core/TextField';
+
 import './TransactionFormDatepicker.scss';
 import { makeStyles } from '@material-ui/core/styles';
+
 //redux
 import {useSelector, useDispatch} from 'react-redux';
 //import fetchTransactions from '../../redux/transactions/transaction-operations';
 
-import styles from './TransactionForm.module.scss';
+
 
 export default function TransactionForm({ onClose }) {
   // const dispatch = useDispatch();
@@ -223,7 +225,7 @@ export default function TransactionForm({ onClose }) {
               )}
   <Box className={styles.box_select}>
               <div className={styles.MobileComment}>
-              <TextField
+              <Field
                 name="comment"
                 as="textarea"
                 type="text"
