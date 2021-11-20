@@ -6,7 +6,7 @@ export const LoginImgPage = ({ svg }) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_3_65)">
+      <g clipPath="url(#clip0_3_65)">
         <path
           d="M412.4 7.6L412.6 88.1C412.6 92.6 409 96.3 404.5 96.3L276.8 96.6C272.3 96.6 268.6 93 268.6 88.5L268.4 8C268.4 3.8 271.8 0.4 276 0.4L404.8 0C409 0 412.4 3.4 412.4 7.6Z"
           fill="#4A56E2"

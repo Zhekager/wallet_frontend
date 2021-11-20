@@ -5,7 +5,7 @@ import { Google } from '../../IconBtn/Google';
 
 import styles from './LoginGoogle.module.scss';
 
-const CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+// const CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 const LoginGoogle = () => {
   const [isLogined, setIsLogined] = useState(false);
@@ -35,14 +35,14 @@ const LoginGoogle = () => {
     <div>
       {isLogined ? (
         <GoogleLogout
-          clientId={CLIENT_ID}
+          // clientId={CLIENT_ID}
           buttonText="Logout"
           onLogoutSuccess={logout}
           onFailure={handleLogoutFailure}
         ></GoogleLogout>
       ) : (
         <GoogleLogin
-          clientId={CLIENT_ID}
+          // clientId={CLIENT_ID}
           // clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
           render={({ onClick, disabled }) => (
             <button
