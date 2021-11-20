@@ -3,13 +3,14 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import SelectCategoryItem from '../SelectCategoryItem';
-import styles from './SelectCategory.module.scss';
+import classes from './SelectCategory.module.scss';
 import { costs } from '../../../assets/data/select-data/selectData';
 
 const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
-    width: '97%',
+    width: '100%',
+    minWidth: '70%',
     color: 'white',
     margin: '0px',
     marginBottom: '34px',
@@ -20,13 +21,13 @@ const useStyles = makeStyles(theme => ({
     background: 'white',
     opacity: '0.7',
     boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.1)',
-    backdropFfilter: 'blur(50px)',
+    backdropFilter: 'blur(50px)',
     borderRadius: '20px',
   },
 
   select: {
     color: 'black',
-    background: 'white',
+    backgroundColor: 'white',
   },
 
   padding: {
