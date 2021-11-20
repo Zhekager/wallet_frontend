@@ -11,7 +11,7 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 //import Select from "react-select";
-import TextField from '@material-ui/core/TextField';
+//import TextField from '@material-ui/core/TextField';
 import './TransactionFormDatepicker.scss';
 import { makeStyles } from '@material-ui/core/styles';
 //redux
@@ -223,7 +223,7 @@ export default function TransactionForm({ onClose }) {
               )}
   <Box className={styles.box_select}>
               <div className={styles.MobileComment}>
-              <TextField
+              <Field
                 name="comment"
                 as="textarea"
                 type="text"
