@@ -111,7 +111,7 @@
 }
 
 .Date {
-  margin-left: 30px;
+  //margin-left: 30px;
   width: 195px;
 }
 
@@ -276,5 +276,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: none;
+  }
+
+  .data {
+    display: flex;
+    margin-left: 0px;
+  }
+
+  .categoryBox {
+    width: 280px;
+    margin-left: 17vw;
+    margin-right: 17vw;
   }
 }

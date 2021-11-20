@@ -162,7 +162,8 @@ export default function TransactionForm({ onClose }) {
                 </option>
                 {costs.map(SelectCategoryItem)}
               </Field> */}
-              {!visibleCategory &&
+                {!visibleCategory &&
+ <Box className={styles.categoryBox}>                
                   <SelectCategory
                  
                   name="category"
@@ -176,7 +177,8 @@ export default function TransactionForm({ onClose }) {
               
                 //error={touched.category && Boolean(errors.category)}
                 //helperText={touched.category && errors.category}
-                />
+                  />
+  </Box>                 
               }
               {/* <div className={style.select}>
                 <Select
@@ -204,7 +206,7 @@ export default function TransactionForm({ onClose }) {
                   className={styles.Amount}
                 />
                 {/*  <Field name="date" type="date" className={styles.Date} />  */}
-<Box>
+<Box className={styles.data}>
                 <DatePicker
                   id="select"
                   className={styles.Date}
