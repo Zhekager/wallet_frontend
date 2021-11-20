@@ -3,24 +3,45 @@
 .container {
   margin-left: auto;
   margin-right: auto;
-  // width: 540px;
+  width: 540px;
+  //min-height: 540;
   background-color: #ffffff;
 
   padding-left: 20px;
   padding-right: 20px;
-  max-width: 100vw;
+  //max-width: 100vw;
   height: 100vh;
   border-radius: 0;
 
   @media (min-width: $tablet) {
     width: 540px;
-    // min-height: 617px;
-
-    padding: 60px 40px;
+    min-height: 617px;
+    padding: 40px 60px;
     border-radius: 20px;
     min-height: 540px;
     max-height: 700px; // це тимчасово, поки не буде готова і поправлена сторінка Дашборду
   }
+}
+
+.form {
+  //padding: 20px 64px 60px 64px;
+
+  @media (min-width: $tablet) {
+    // padding: 40px 65px 60px;
+    // min-height: 540px;
+  }
+}
+
+.title {
+  margin-top: 0px;
+  margin-bottom: 40px;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.5;
+  text-align: center;
+  color: #000000;
 }
 
 .box {
@@ -30,7 +51,7 @@
   justify-content: center;
 
   @media (min-width: $tablet) {
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
   }
 }
 
@@ -39,60 +60,17 @@
   margin-top: 12px;
   padding-left: 70px;
   padding-right: 70px;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.5;
   color: #e0e0e0;
 }
 
-/* .Form {
-  display: flex;
-  flex-direction: column;
-} */
-
-.form {
-  padding: 20px 64px 60px 64px;
-
-  @media (min-width: $tablet) {
-    // padding: 40px 65px 60px;
-    // min-height: 540px;
-  }
-}
-
-.title {
-  margin: 0;
-  margin-bottom: 42px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 1.5;
-  text-align: center;
-  color: #000000;
-
-  @media (min-width: $tablet) {
-    margin-bottom: 40px;
-  }
-}
-
-// .formBox {
-//   display: flex;
-//   flex-wrap: wrap;
-//   /*justify-content: space-between; */
-//   /* flex-direction: column; */
-//   align-items: center;
-// }
-
-// .formBox input,
-// .formBox textarea,
-// .formBox select {
-//   outline: none;
-// }
-
-.SelectBox {
-  margin-bottom: 40px;
+/* .SelectBox {
+  // margin-bottom: 40px;
   width: 412px;
   padding: 10px 20px;
 
@@ -104,22 +82,23 @@
   border: none;
   outline: none;
   border-bottom: 1px solid #e0e0e0;
-}
+} */
 
 .Credentials {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 34px;
+  margin-bottom: 40px;
   @media (min-width: $tablet) {
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
   }
 }
 
 .Amount,
 .Date {
-  padding: 10px 16px 10px 20px;
+  //padding: 10px 16px 10px 20px;
+
   width: 190px;
-  height: 44px;
+  height: 34px;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
@@ -133,6 +112,7 @@
 
 .Date {
   margin-left: 30px;
+  width: 195px;
 }
 
 .Amount::placeholder {
@@ -150,16 +130,16 @@
 
 .Comment {
   margin-bottom: 34px;
-  width: 412px;
+  width: 100%;
   height: 44px;
-  padding: 10px 20px;
+  // padding: 10px 20px;
   color: #000000;
   font-family: 'Circe', sans-serif;
   font-size: 18px;
   line-height: 1.5;
   border: none;
   border-bottom: 1px solid #e0e0e0;
-  margin-bottom: 30px;
+
   outline: none;
   resize: none;
   overflow: hidden;
@@ -169,90 +149,9 @@
   }
 
   @media (min-width: $tablet) {
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
   }
 }
-
-// .labelBox {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   cursor: pointer;
-// }
-
-// .btn {
-//   width: 300px;
-//   height: 50px;
-//   margin-bottom: 20px;
-//   background-color: #24cca7;
-//   border-radius: 20px;
-//   border: none;
-//   color: #ffffff;
-//   outline: none;
-//   cursor: pointer;
-
-// .inputRadio {
-//   margin-top: 0px;
-//   margin-bottom: 0px;
-//   margin-right: 5px;
-//   cursor: pointer;
-// }
-
-///////////////////////////
-// .categoryBox {
-//   width: 409.5px;
-//   height: 34px;
-//   margin: 40px 0px;
-// }
-
-// .inputNumber,
-// .inputDate {
-//   width: 185px;
-//   height: 34px;
-//   border: none;
-//   border-bottom: 2px solid #b9c9d4;
-//   margin-bottom: 40px;
-// }
-
-// .inputNumber::placeholder {
-//   text-align: center;
-// }
-// .inputDate {
-//   margin-left: 35px;
-//   text-align: end;
-// }
-// .inputNumber {
-//   text-align: center;
-// }
-
-// .inputCategory {
-//   width: 409.5px;
-//   height: 34px;
-//   border: none;
-//   border-bottom: 2px solid #b9c9d4;
-
-//   font-style: normal;
-//   font-weight: normal;
-//   font-size: 18px;
-//   line-height: 27px;
-//   color: #bdbdbd;
-// }
-
-// .textareaBox {
-//   width: 281px;
-// }
-
-// .textarea {
-//   width: 409.5px;
-//   height: 34px;
-//   border: none;
-//   border-bottom: 2px solid #b9c9d4;
-//   resize: none;
-//   padding: 5px;
-//   outline: none;
-// }
-
-// // select
 
 // .select {
 //   width: 409.5px;
@@ -299,35 +198,38 @@
 }
 
 ///mobile
-@media screen and (max-width: 320px) {
+@media (min-width: $mobile) and (max-width: 767px) {
   .modal {
-    top: -60px;
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    width: 320px;
-    height: 830px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+    //width: 320px;
+    //height: 830px;
   }
 
   .container {
     background-color: #ffffff;
   }
   .form {
-    padding: 20px 20px;
+    // padding: 20px 20px;
   }
 
   .title {
     font-size: 24px;
     line-height: 36px;
-    margin-bottom: 40px;
+    margin-top: 20px;
   }
   .box {
-    margin-bottom: 40px;
+    //margin-bottom: 40px;
   }
   .select {
     width: 280px;
@@ -336,6 +238,7 @@
     align-items: center;
   }
   .Credentials {
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
@@ -354,11 +257,14 @@
     text-align: left;
   }
 
-  .Comment {
-    width: 280px;
+  .MobileComment {
+    width: 100%;
     height: 74px;
-    margin-top: 40px;
+    // margin-top: 40px;
     justify-content: center;
     text-align: center;
+    margin-right: 0px;
+    width: 280px;
+    height: 74px;
   }
 }

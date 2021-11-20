@@ -11,7 +11,7 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 //import Select from "react-select";
-
+//import TextField from '@mui/material/TextField';
 import './TransactionFormDatepicker.scss';
 //redux
 import {useSelector, useDispatch} from 'react-redux';
@@ -89,7 +89,7 @@ export default function TransactionForm({ onClose }) {
     <div className={styles.modal}>
     <div className={styles.container}>
       <div className={styles.form}>
-        <h3 className={styles.title}>Add transaction</h3>
+        
 
         <Formik
           initialValues={{
@@ -103,7 +103,8 @@ export default function TransactionForm({ onClose }) {
           validationSchema={validationsSchema}
         >
           {({ errors, touched, isSubmitting, values, handleChange }) => (
-            <Form>
+              <Form>
+                <h3 className={styles.title}>Add transaction</h3>
               {/* <div id="my-radio-group"></div>
           <div role="group" aria-labelledby="my-radio-group">
             <label>
@@ -120,16 +121,20 @@ export default function TransactionForm({ onClose }) {
           </div> */}
 
               <div className={styles.box}>
-                <p
-                  className={styles.text}
-                  style={{ color: 'rgba(36, 204, 167, 1)' }}
+               <p  className={styles.text} 
+                    style={{ color: 'rgba(36, 204, 167, 1)' }} 
+                    
+                    
                 >
                   Income
-                </p>
+                </p>  
+                 
+      
                 <Switch
                   onSwitch={chooseSelect => onSwitchChecked(chooseSelect)}
                   isChecked={chooseSelect}
                   onClick={chooseSelect => onSwitchChecked(chooseSelect)}
+                    
                 />
                 <p
                   className={styles.text}
@@ -211,7 +216,7 @@ export default function TransactionForm({ onClose }) {
               {errors.comment && touched.comment && (
                 <div className={styles.inputFeedback}>{errors.comment}</div>
               )}
-
+              <div className={styles.MobileComment}>
               <Field
                 name="comment"
                 as="textarea"
@@ -219,7 +224,7 @@ export default function TransactionForm({ onClose }) {
                 placeholder="Comment"
                 className={styles.Comment}
               />
-
+              </div>
               <Button
                 // onClick={handleSubmit}
                 disabled={isSubmitting}
