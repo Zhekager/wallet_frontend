@@ -71,7 +71,7 @@ const logIn = credentials => async dispatch => {
 
   try {
     console.log(credentials);
-    const { data } = await axios.post('/api/users/login', credentials);
+    const { data } = await axios.post('api/users/login', credentials);
 
     token.set(data.token);
     dispatch(loginSuccess(data));
@@ -81,6 +81,11 @@ const logIn = credentials => async dispatch => {
     if (error.response.status === 400) {
       return toast.error('Login error! Try login again.');
     }
+
+    if (error.response.status === 401) {
+      return toast.error('error! Try signup');
+    }
+
     return toast.error('Something went wrong! Try login again.');
   }
 };
