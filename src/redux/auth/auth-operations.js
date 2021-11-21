@@ -34,10 +34,11 @@ const token = {
  * После успешной регистрации добавляем токен в HTTP-заголовок
  */
 
-export const register = credentials => async dispatch => {
+const register = credentials => async dispatch => {
   dispatch(registerRequest());
 
   try {
+    console.log(credentials);
     const { data } = await axios.post('/api/users/signup', credentials);
     token.set(data.token);
     dispatch(registerSuccess(data));
@@ -46,6 +47,10 @@ export const register = credentials => async dispatch => {
 
     if (error.response.status === 400) {
       return toast.error('User creation error! Try signup again.');
+    }
+
+    if (error.response.status === 409) {
+      return toast.error('User has already created');
     }
 
     if (error.response.status === 500) {
@@ -61,12 +66,12 @@ export const register = credentials => async dispatch => {
  * После успешного логина добавляем токен в HTTP-заголовок
  */
 
-export const logIn = credentials => async dispatch => {
+const logIn = credentials => async dispatch => {
   dispatch(loginRequest());
 
   try {
     console.log(credentials);
-    const { data } = await axios.post('/api/users/login', credentials);
+    const { data } = await axios.post('api/users/login', credentials);
 
     token.set(data.token);
     dispatch(loginSuccess(data));
@@ -76,6 +81,11 @@ export const logIn = credentials => async dispatch => {
     if (error.response.status === 400) {
       return toast.error('Login error! Try login again.');
     }
+
+    if (error.response.status === 401) {
+      return toast.error('error! Try signup');
+    }
+
     return toast.error('Something went wrong! Try login again.');
   }
 };
@@ -86,7 +96,7 @@ export const logIn = credentials => async dispatch => {
  * После успешного логаута, удаляем токен из HTTP-заголовка
  */
 
-export const logOut = () => async dispatch => {
+const logOut = () => async dispatch => {
   dispatch(logoutRequest());
 
   try {
@@ -118,7 +128,7 @@ export const logOut = () => async dispatch => {
  * 3. Если токен есть, добавляет его в HTTP-заголовок и выполянем операцию
  */
 
-export const fetchCurrentUser = () => async (dispatch, getState) => {
+const fetchCurrentUser = () => async (dispatch, getState) => {
   const state = getState();
   const persistedToken = state.auth.token;
 
@@ -132,6 +142,7 @@ export const fetchCurrentUser = () => async (dispatch, getState) => {
 
   try {
     const { data } = await axios.get('/api/users/current');
+    console.log({ data });
     dispatch(fetchCurrentUserSuccess(data));
   } catch (error) {
     dispatch(fetchCurrentUserError(error));
@@ -147,10 +158,10 @@ export const fetchCurrentUser = () => async (dispatch, getState) => {
 };
 
 const authOperations = {
-  token,
-  logOut,
-  logIn,
   register,
+  logIn,
+  logOut,
+  fetchCurrentUser,
 };
 
 export default authOperations;

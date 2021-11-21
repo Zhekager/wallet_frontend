@@ -25,9 +25,9 @@
 // export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);
 
 /////////////////////////
-
-// import { useDispatch, useSelector } from 'react-redux';
-// import { authSelectors, authOperations } from '../../redux/auth';
+import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import authSelectors from '../../../redux/auth/auth-selectors';
 import ButtonIcon from '../../ModalAddTransaction/ButtonIcon';
 import { Logout } from '../../IconBtn/Logout';
 import useSizeScreen from '../../../hooks/useSizeScreen';
@@ -51,7 +51,6 @@ const MyAvatar = styled(Avatar)({
 
 export default function UserMenu({ onClick }) {
   const sizeScreen = useSizeScreen();
-  // const dispatch = useDispatch();
   // const name = useSelector(authSelectors.getUsername);
 
   return (
@@ -59,14 +58,14 @@ export default function UserMenu({ onClick }) {
       {sizeScreen <= 767 ? (
         <div className={styles.UserName}>
           {/* <MyAvatar>{name[0]}</MyAvatar> */}
-          <MyAvatar>N</MyAvatar>
+          <MyAvatar></MyAvatar>
         </div>
       ) : (
         <div className={styles.UserName}>
           {/* <MyAvatar>{name[0]}</MyAvatar>
           <span className={styles.Name}>{name}</span> */}
 
-          <MyAvatar>N</MyAvatar>
+          <MyAvatar></MyAvatar>
           <span className={styles.Name}>Maryna Skrypnyk</span>
         </div>
       )}
@@ -90,3 +89,9 @@ export default function UserMenu({ onClick }) {
     </div>
   );
 }
+
+UserMenu.propTypes = {
+  onClick: PropTypes.func,
+};
+
+////////////////////////

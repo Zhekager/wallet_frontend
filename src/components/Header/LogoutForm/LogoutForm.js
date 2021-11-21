@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 // import { authOperations, authSelectors } from '../../../redux/auth';
-
 import authOperations from '../../../redux/auth/auth-operations';
 import authSelectors from '../../../redux/auth/auth-selectors';
 import Button from '../../Button';
@@ -43,3 +43,7 @@ export default function LogoutForm({ onClose }) {
     </div>
   );
 }
+
+LogoutForm.propTypes = {
+  onClose: PropTypes.func,
+};
