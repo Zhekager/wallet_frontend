@@ -1,5 +1,11 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+// import { authOperations, authSelectors } from 'redux/auth';
+import { authOperations } from './redux/auth';
+import { authSelectors } from './redux/auth';
+import PrivateRoute from './routes/PrivateRoute';
+import PublicRoute from './routes/PublicRoute';
 import Container from './components/Container';
 import Spinner from './components/Spinner';
 // import TransactionForm from './components/TransactionForm/TransactionForm';
@@ -25,40 +31,45 @@ const DashboardPage = lazy(() =>
 );
 
 function App() {
-  // const dispatch = useDispatch();
-  // const isLoading = useSelector(authSelectors.getLoading);
+  const dispatch = useDispatch();
+  const isLoading = useSelector(authSelectors.getLoading);
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
 
   return (
-    // !isLoading && (
-    <>
-      <Container>
-        <Suspense fallback={<Spinner />}>
-          <Switch>
-            <Route path="/" exact redirectTo="/dashboard" restricted>
-              <RegistrationPage />
-            </Route>
+    !isLoading && (
+      <>
+        <Container>
+          <Suspense fallback={<Spinner />}>
+            <Switch>
+              <PublicRoute path="/" exact redirectTo="/login" restricted>
+                <RegistrationPage />
+              </PublicRoute>
 
-            <Route path="/signup" redirectTo="/dashboard" restricted>
-              <RegistrationPage />
-            </Route>
+              <PublicRoute path="/signup" redirectTo="/login" restricted>
+                <RegistrationPage />
+              </PublicRoute>
 
-            <Route path="/login" redirectTo="/dashboard" restricted>
-              <LoginPage />
-            </Route>
+              <PublicRoute path="/login" redirectTo="/dashboard" restricted>
+                <LoginPage />
+              </PublicRoute>
 
-            <Route path="/dashboard" redirectTo="/login">
-              <DashboardPage />
-            </Route>
+              <PrivateRoute path="/dashboard" redirectTo="/login">
+                <DashboardPage />
+              </PrivateRoute>
 
-            <Route>
-              <NotFoundPage />
-            </Route>
-          </Switch>
-        </Suspense>
+              <Route>
+                <NotFoundPage />
+              </Route>
+            </Switch>
+          </Suspense>
 
-        <ToastContainer autoClose={3000} position="top-center" />
-      </Container>
-    </>
+          <ToastContainer autoClose={3000} position="top-center" />
+        </Container>
+      </>
+    )
   );
 }
 

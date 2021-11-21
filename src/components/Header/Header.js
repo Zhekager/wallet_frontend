@@ -63,7 +63,6 @@ import ButtonIcon from '../ModalAddTransaction/ButtonIcon';
 import LogoutForm from './LogoutForm';
 import { HiX } from 'react-icons/hi';
 import useSizeScreen from '../../hooks/useSizeScreen';
-// import ModalLogout from '../ModalLogout';
 
 import styles from './Header.module.scss';
 
