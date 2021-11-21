@@ -47,7 +47,7 @@ function App() {
                 <LoginPage />
               </PublicRoute>
 
-              <PublicRoute path="/signup" redirectTo="/login" restricted>
+              <PublicRoute path="/signup" redirectTo="/dashboard" restricted>
                 <RegistrationPage />
               </PublicRoute>
 
