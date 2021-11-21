@@ -39,7 +39,7 @@ export const store = configureStore({
   devTools: process.env.NODE_ENV === 'development',
 });
 
-const persistor = persistStore(store);
+export const persistor = persistStore(store);
 
-const stor = { store, persistor };
-export default stor;
+// const stor = { store, persistor };
+// export default stor;

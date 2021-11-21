@@ -1,19 +1,20 @@
-export const getIsLoggedIn = state => state.auth.isLoggedIn;
+const getIsLoggedIn = state => state.auth.isLoggedIn;
 
-export const getUsername = state => state.auth.user.name;
+const getUsername = state => state.auth.user.name;
 
-export const getLoading = state => state.auth.isLoading;
+const getLoading = state => state.auth.isLoading;
 
-export const getError = state => state.auth.error;
+const getError = state => state.auth.error;
 
-//const getBalance = state => state.auth.balance;
+const getToken = state => state.auth.token;
+
+// export const getBalance = state => state.auth.balance;
 
 const authSelectors = {
   getIsLoggedIn,
   getUsername,
   getLoading,
   getError,
-  //getBalance
+  getToken,
 };
-
 export default authSelectors;

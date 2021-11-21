@@ -67,10 +67,13 @@ const error = createReducer(null, {
   [fetchCurrentUserError]: (_, { payload }) => payload,
 });
 
+// const balance = createReducer(null, {});
+
 export default combineReducers({
   user,
   token,
   isLoggedIn,
   isLoading,
   error,
+  // balance,
 });
