@@ -19,23 +19,23 @@ export default function HomeTabMobile() {
             style={{ borderColor: borderColor }}
           >
             <li className="mobile-list_item">
-              <span className="mobile-list_category">Дата</span>
+              <span className="mobile-list_category">Date</span>
               <span className="mobile-list_data">{item.date}</span>
             </li>
             <li className="mobile-list_item">
-              <span className="mobile-list_category">Тип</span>
+              <span className="mobile-list_category">Type</span>
               <span className="mobile-list_data">{result}</span>
             </li>
             <li className="mobile-list_item">
-              <span className="mobile-list_category">Категория</span>
+              <span className="mobile-list_category">Category</span>
               <span className="mobile-list_data">{item.category}</span>
             </li>
             <li className="mobile-list_item">
-              <span className="mobile-list_category">Комментарий</span>
+              <span className="mobile-list_category">Comment</span>
               <span className="mobile-list_data">{item.comment}</span>
             </li>
             <li className="mobile-list_item">
-              <span className="mobile-list_category">Сумма</span>
+              <span className="mobile-list_category">Sum</span>
               <span
                 className={
                   result === '+'
@@ -47,7 +47,7 @@ export default function HomeTabMobile() {
               </span>
             </li>
             <li className="mobile-list_item">
-              <span className="mobile-list_category">Баланс</span>
+              <span className="mobile-list_category">Balance</span>
               <span className="mobile-list_data">{item.balance}</span>
             </li>
           </ul>

@@ -5,11 +5,12 @@ $tablet: 768px;
 $desktop: 1280px;
 
 .container {
-  background-color: rgba(0, 0, 0, 0.055);
+  background-color: rgba(255, 255, 255, 0.4);
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 30px;
   width: $mobile;
   @media screen and (min-width: $tablet) {
     width: $tablet;

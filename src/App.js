@@ -56,9 +56,9 @@ function App() {
                 <LoginPage />
               </PublicRoute>
 
-              <PrivateRoute path="/dashboard" redirectTo="/login">
+              <Route path="/dashboard" redirectTo="/login">
                 <DashboardPage />
-              </PrivateRoute>
+              </Route>
 
               <Route>
                 <NotFoundPage />
