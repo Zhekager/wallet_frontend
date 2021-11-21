@@ -1,6 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { authOperations, authSelectors } from '../../../redux/auth';
+// import { authOperations, authSelectors } from '../../../redux/auth';
+
+import authOperations from '../../../redux/auth/auth-operations';
+import authSelectors from '../../../redux/auth/auth-selectors';
 import Button from '../../Button';
 import Spinner from '../../Spinner';
 
@@ -24,7 +27,11 @@ export default function LogoutForm({ onClose }) {
   return (
     <div className={styles.Form}>
       <p className={styles.Text}>Are you sure you want to quit?</p>
-      <Button onClick={handleClickLogout} contentBtn="Yes" button="Button" />
+      <Button
+        handleClick={handleClickLogout}
+        contentBtn="Yes"
+        button="Button"
+      />
 
       <Button
         handleClick={handleClickCancel}
