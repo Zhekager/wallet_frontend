@@ -24,18 +24,13 @@ import { useSelector, useDispatch } from 'react-redux';
 //import { fetchTransactions } from '../../redux/transactions/transaction-operations';
 //import { fetchTransRequest// } from '../../redux/transactions/transaction-actions';
 
-
-export default function TransactionForm ({ onClose }) {
-  
+export default function TransactionForm({ onClose }) {
   const dispatch = useDispatch();
   const [chooseSelect, setChooseSelect] = useState(false);
   const [visibleCategory, setVisibleCategory] = useState(false);
   const [category, setCategory] = useState('Choose category');
   const [typeOfTransaction, setTypeOfTransaction] = useState('Сosts');
   const [startDate, setStartDate] = useState(new Date());
-  
-
-
 
   const handleChangeCategory = event => {
     setCategory(event.target.value);
@@ -95,10 +90,8 @@ export default function TransactionForm ({ onClose }) {
   });
 
   return (
-
-  <div className={styles.modal}>
-    <div className={styles.container}>
-      
+    <div className={styles.modal}>
+      <div className={styles.container}>
         <Formik
           initialValues={{
             typeOfTransaction: 'Costs',
@@ -110,95 +103,95 @@ export default function TransactionForm ({ onClose }) {
           onSubmit={handleSubmitForm}
           validationSchema={validationsSchema}
         >
+          {({ errors, touched, isSubmitting, values, handleChange }) => (
+            <Form className={styles.form}>
+              <h3 className={styles.title}>Add transaction</h3>
 
-      {({ errors, touched, isSubmitting, values, handleChange }) => (
-              
-        <Form className={styles.form}>
-          <h3 className={styles.title}>Add transaction</h3>
-        
-          <div className={styles.box}>
-                  
-            <p  className={styles.text} style={{ color: 'rgba(36, 204, 167, 1)' }} >
-                Income
-            </p>  
-                 
-              <Switch
+              <div className={styles.box}>
+                <p
+                  className={styles.text}
+                  style={{ color: 'rgba(36, 204, 167, 1)' }}
+                >
+                  Income
+                </p>
+
+                <Switch
                   onSwitch={chooseSelect => onSwitchChecked(chooseSelect)}
                   isChecked={chooseSelect}
-                  onClick={chooseSelect => onSwitchChecked(chooseSelect)}     
-                  />
-                  
-            <p className={styles.text} style={{ color: 'rgba(255, 101, 150, 1)' }} >
-                Costs
-            </p>
-                 
-          </div>
+                  onClick={chooseSelect => onSwitchChecked(chooseSelect)}
+                />
 
-      {!visibleCategory &&
-                
-        <Box className={styles.categoryBox}>
-          {errors.typeOfTransaction && touched.typeOfTransaction && (
-            <span className={styles.inputFeedback}>{errors.typeOfTransaction}</span>
-          )}    
-            <SelectCategory
-              name="category"
-              costs={costs.costs}
-              hidden={visibleCategory}
-              category={category}
-              value={values.category}
-              onBlur={handleChange}
-              handleChange={handleChangeCategory}
-                  
-             /* error={touched.category && Boolean(errors.category)}
+                <p
+                  className={styles.text}
+                  style={{ color: 'rgba(255, 101, 150, 1)' }}
+                >
+                  Costs
+                </p>
+              </div>
+
+              {!visibleCategory && (
+                <Box className={styles.categoryBox}>
+                  {errors.typeOfTransaction && touched.typeOfTransaction && (
+                    <span className={styles.inputFeedback}>
+                      {errors.typeOfTransaction}
+                    </span>
+                  )}
+                  <SelectCategory
+                    name="category"
+                    costs={costs.costs}
+                    hidden={visibleCategory}
+                    category={category}
+                    value={values.category}
+                    onBlur={handleChange}
+                    handleChange={handleChangeCategory}
+
+                    /* error={touched.category && Boolean(errors.category)}
               helperText={touched.category && errors.category} */
-            />                                 
-        </Box>                 
-      }
-              
+                  />
+                </Box>
+              )}
 
-          {errors.amount && touched.amount && (
-            <div className={styles.inputFeedback}>{errors.amount}</div>
-          )}
-  
-          <div className={styles.Credentials}>
-            <Field
+              {errors.amount && touched.amount && (
+                <div className={styles.inputFeedback}>{errors.amount}</div>
+              )}
+
+              <div className={styles.Credentials}>
+                <Field
                   name="amount"
                   type="number"
                   placeholder="0.00"
                   className={styles.Amount}
-            />
-               
-            <Box className={styles.data}>
-              <DatePicker
-                  id="select"
-                  className={styles.Date}
-                  selected={startDate}
-                  onChange={handleDate}
-                  dateFormat="dd.MM.yyyy"
+                />
+
+                <Box className={styles.data}>
+                  <DatePicker
+                    id="select"
+                    className={styles.Date}
+                    selected={startDate}
+                    onChange={handleDate}
+                    dateFormat="dd.MM.yyyy"
                   />
-            {errors.data && touched.data && (
-            <div className={styles.inputFeedback}>{errors.data}</div>
-          )}    
-            </Box>                   
-          </div>
-                  
-          {errors.comment && touched.comment && (
-            <div className={styles.inputFeedback}>{errors.comment}</div>
-          )}
-              
-          <Box className={styles.box_select}>
-                
-              <Field
-                name="comment"
-                as="textarea"
-                type="text"
-                placeholder="Comment"
-                className={styles.Comment}
-                
-              />      
-          </Box>
-              
-          <Button
+                  {errors.data && touched.data && (
+                    <div className={styles.inputFeedback}>{errors.data}</div>
+                  )}
+                </Box>
+              </div>
+
+              {errors.comment && touched.comment && (
+                <div className={styles.inputFeedback}>{errors.comment}</div>
+              )}
+
+              <Box className={styles.box_select}>
+                <Field
+                  name="comment"
+                  as="textarea"
+                  type="text"
+                  placeholder="Comment"
+                  className={styles.Comment}
+                />
+              </Box>
+
+              <Button
                 //onClick={handleSubmit}
                 disabled={isSubmitting}
                 type="submit"
@@ -206,17 +199,17 @@ export default function TransactionForm ({ onClose }) {
                 button="Button"
               />
 
-          <Button
+              <Button
                 handleClick={handleClick}
                 contentBtn="Cancel"
                 button="ButtonSecondary"
               />
 
               {/* {isLoading && <LoaderSpinner />} */}
-      </Form>
+            </Form>
           )}
         </Formik>
+      </div>
     </div>
-  </div>
   );
 }

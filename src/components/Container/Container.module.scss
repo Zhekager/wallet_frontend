@@ -9,6 +9,7 @@ $desktop: 1280px;
   margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 30px;
   width: $mobile;
   @media screen and (min-width: $tablet) {
     width: $tablet;
