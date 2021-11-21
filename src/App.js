@@ -1,9 +1,8 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-// import { authOperations, authSelectors } from 'redux/auth';
-import { authOperations } from './redux/auth';
-import { authSelectors } from './redux/auth';
+import authSelectors from './redux/auth/auth-selectors';
+import authOperations from './redux/auth/auth-operations';
 import PrivateRoute from './routes/PrivateRoute';
 import PublicRoute from './routes/PublicRoute';
 import Container from './components/Container';
@@ -44,8 +43,8 @@ function App() {
         <Container>
           <Suspense fallback={<Spinner />}>
             <Switch>
-              <PublicRoute path="/" exact redirectTo="/login" restricted>
-                <RegistrationPage />
+              <PublicRoute path="/" exact redirectTo="/dashboard" restricted>
+                <LoginPage />
               </PublicRoute>
 
               <PublicRoute path="/signup" redirectTo="/login" restricted>
