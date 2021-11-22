@@ -8,36 +8,36 @@ export default function HomeTabDesktop() {
 
   return (
     <>
-      <table className={'table'}>
-        <thead className={'table-head'}>
-          <tr className={'table-head_row'}>
+      <table className={'homeTab'}>
+        <thead className={'homeTab-head'}>
+          <tr className={'homeTab-head_row'}>
             {tableHeadData.map(head => (
-              <th className={'table-head_data'} key={head}>
+              <th className={'homeTab-head_data'} key={head}>
                 {head}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody className={'table-body'}>
+        <tbody className={'homeTab-body'}>
           {res.map(item => {
             const result = item.Expenses ? '-' : '+';
 
             return (
-              <tr key={item.id} className={'table-body_row'}>
-                <td className={'table-body_data'}>{item.date}</td>
-                <td className={'table-body_data'}>{result}</td>
-                <td className={'table-body_data'}>{item.category}</td>
-                <td className={'table-body_data'}>{item.comment}</td>
+              <tr key={item.id} className={'homeTab-body_row'}>
+                <td className={'homeTab-body_data'}>{item.date}</td>
+                <td className={'homeTab-body_data'}>{result}</td>
+                <td className={'homeTab-body_data'}>{item.category}</td>
+                <td className={'homeTab-body_data'}>{item.comment}</td>
                 <td
                   className={
                     result === '+'
-                      ? 'table-body_data table-body_data--plus'
-                      : 'table-body_data table-body_data--minus'
+                      ? 'homeTab-body_data homeTab-body_data--plus'
+                      : 'homeTab-body_data homeTab-body_data--minus'
                   }
                 >
                   {item.sum}
                 </td>
-                <td className={'table-body_data'}>{item.balance}</td>
+                <td className={'homeTab-body_data'}>{item.balance}</td>
               </tr>
             );
           })}
