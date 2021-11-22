@@ -71,6 +71,7 @@ const logIn = credentials => async dispatch => {
   try {
     const { data } = await axios.post('/api/users/login', credentials);
     console.log('Token login', data.data.token);
+    console.log('Data login', data.data);
     token.set(data.data.token);
     dispatch(loginSuccess(data.data));
   } catch (error) {

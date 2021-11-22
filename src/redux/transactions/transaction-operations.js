@@ -18,61 +18,89 @@ import {
   filterTransError,
 } from './transaction-actions';
 
-//axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = 'https://personal-expenses.herokuapp.com';
 
-export const fetchTransactions = () => async dispatch => {
+const fetchTransactions = () => async dispatch => {
   dispatch(fetchTransRequest());
   try {
-    const { data } = await axios.get('/transactions');
+    const { data } = await axios.get('/api/transactions');
+
+    console.log('Fetch data', data.transaction);
+
     dispatch(fetchTransSuccess(data));
   } catch (error) {
     dispatch(fetchTransError(error.message));
   }
 };
 
-export const addTransactions = transaction => async dispatch => {
+const addTransactions = transaction => async dispatch => {
   dispatch(addTransRequest());
   try {
-    const { data } = await axios.post('/transactions', transaction);
-    dispatch(addTransSuccess(data));
+    const { data } = await axios.post('/api/transactions', transaction);
+
+    console.log('Add data', data.data);
+
+    dispatch(addTransSuccess(data.data));
   } catch (error) {
     dispatch(addTransError(error.message));
   }
 };
 
-export const deleteTransaction = transactionId => async dispatch => {
+const deleteTransaction = transactionId => async dispatch => {
   dispatch(deleteTransRequest());
   try {
-    await axios.delete(`/transactions/${transactionId}`);
-    dispatch(deleteTransSuccess(transactionId));
+    // await axios.delete(`/api/transactions/${transactionId}`);
+    // dispatch(deleteTransSuccess(transactionId));
+
+    const { data } = await axios.delete(`/api/transactions/${transactionId}`);
+
+    console.log('Delete data', data.data);
+
+    dispatch(deleteTransSuccess(data.data));
   } catch (error) {
     dispatch(deleteTransError(error.message));
   }
 };
 
-export const updateTransaction =
+const updateTransaction =
   ({ date, transactionId }) =>
   async dispatch => {
     dispatch(updateTransRequest());
     const updateTransaction = { date };
     try {
       const { data } = await axios.patch(
-        `/transactions/${transactionId}`,
+        `/api/transactions/${transactionId}`,
         updateTransaction,
       );
-      dispatch(updateTransSuccess(data));
+      console.log('Update data', data.data);
+      dispatch(updateTransSuccess(data.data));
     } catch (error) {
       dispatch(updateTransError(error.message));
     }
   };
 
-export const filterTransaction = (month, year) => async dispatch => {
+const filterTransaction = (month, year) => async dispatch => {
   dispatch(filterTransRequest());
 
   try {
-    const { data } = await axios.get(`/categories?month=${month}&year=${year}`);
-    dispatch(filterTransSuccess(data));
+    const { data } = await axios.get(
+      `/api/transactions/stats?month=${month}&year=${year}`,
+    );
+
+    console.log('Filter data', data.data);
+
+    dispatch(filterTransSuccess(data.data));
   } catch (error) {
     dispatch(filterTransError(error.message));
   }
 };
+
+const transactionOperations = {
+  fetchTransactions,
+  addTransactions,
+  deleteTransaction,
+  updateTransaction,
+  filterTransaction,
+};
+
+export default transactionOperations;
