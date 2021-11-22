@@ -1,11 +1,20 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
-import { getCategoriesSuccess } from './categories-actions';
+import {
+  getCategoriesRequest,
+  getCategoriesSuccess,
+} from './categories-actions';
 
 const result = createReducer([], {
-    [getCategoriesSuccess]: (_, { payload }) => payload,
+  [getCategoriesSuccess]: (_, { payload }) => payload.result,
+});
+
+const isLoading = createReducer(false, {
+  [getCategoriesRequest]: () => true,
+  [getCategoriesSuccess]: () => false,
 });
 
 export default combineReducers({
-    result,
+  result,
+  isLoading,
 });

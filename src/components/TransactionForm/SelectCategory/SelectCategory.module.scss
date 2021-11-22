@@ -1,5 +1,27 @@
-/* .formControl {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
+.selectorContainer {
+  margin-bottom: 40px;
+}
+
+.Selector {
+  margin: 0;
+  width: 100%;
+  padding-bottom: 10px;
+  font-family: 'Circe', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #bdbdbd;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #e0e0e0;
+  outline: none;
+}
+
+.Selector:checked {
+  color: #000000;
+}
+
+.error {
+  position: absolute;
+  color: #ff6596;
+}

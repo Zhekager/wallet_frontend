@@ -4,7 +4,6 @@ export async function createArrCurrency() {
   try {
     const req = await fetchData();
     const data = [...req];
-    console.log(data);
 
     return data.map(({ ccy, buy, sale }) => ({
       ccy,

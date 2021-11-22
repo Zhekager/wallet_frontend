@@ -1,18 +1,26 @@
 import axios from 'axios';
 import {
-    getCategoriesRequest,
-    getCategoriesSuccess,
-    getCategoriesError,
-}
+  getCategoriesRequest,
+  getCategoriesSuccess,
+  getCategoriesError,
+} from './categories-actions';
+
+axios.defaults.baseURL = 'https://personal-expenses.herokuapp.com';
 
 const getCategories = () => async dispatch => {
-    dispatch(getCategoriesRequest());
-    try {
-        const { data } = await axios.get('/categories');
-        dispatch(getCategoriesSuccess(data.result));
-    } catch (error) {
-        dispatch(getCategoriesError(error.message));
-        
-    }
+  dispatch(getCategoriesRequest());
+  try {
+    const { data } = await axios.get('/api/categories');
+
+    console.log(data.result);
+
+    dispatch(getCategoriesSuccess(data.result));
+  } catch (error) {
+    dispatch(getCategoriesError(error.message));
+  }
 };
-export { getCategories };
+
+const categoriesOperations = {
+  getCategories,
+};
+export default categoriesOperations;

@@ -3,4 +3,4 @@
 
 export const getAllCategories = state => state.categories.result;
 
- 
+export const loading = state => state.categories.isLoading;
