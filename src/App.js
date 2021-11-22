@@ -43,11 +43,11 @@ function App() {
         <Container>
           <Suspense fallback={<Spinner />}>
             <Switch>
-              <PublicRoute path="/" exact redirectTo="/dashboard" restricted>
-                <LoginPage />
+              <PublicRoute path="/" exact>
+                <RegistrationPage />
               </PublicRoute>
 
-              <PublicRoute path="/signup" redirectTo="/dashboard" restricted>
+              <PublicRoute path="/signup" restricted>
                 <RegistrationPage />
               </PublicRoute>
 
