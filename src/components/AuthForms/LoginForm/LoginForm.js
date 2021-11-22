@@ -65,7 +65,6 @@ export default function LoginForm() {
             placeholder="Password"
             className={styles.Field}
           />
-
           <Button
             type="submit"
             disabled={!isValid && !dirty}
