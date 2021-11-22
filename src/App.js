@@ -43,11 +43,11 @@ function App() {
         <Container>
           <Suspense fallback={<Spinner />}>
             <Switch>
-              <PublicRoute path="/" exact>
-                <RegistrationPage />
+              <PublicRoute path="/" exact redirectTo="/dashboard" restricted>
+                <LoginPage />
               </PublicRoute>
 
-              <PublicRoute path="/signup" restricted>
+              <PublicRoute path="/signup" redirectTo="/login" restricted>
                 <RegistrationPage />
               </PublicRoute>
 
@@ -59,9 +59,9 @@ function App() {
                 <DashboardPage />
               </PrivateRoute>
 
-              <PrivateRoute path="/currency" redirectTo="/login">
+              {/* <PrivateRoute path="/currency" redirectTo="/login">
                 <DashboardPage />
-              </PrivateRoute>
+              </PrivateRoute> */}
 
               <Route>
                 <NotFoundPage />

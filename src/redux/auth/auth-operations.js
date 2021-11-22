@@ -40,9 +40,6 @@ const register = credentials => async dispatch => {
 
   try {
     const { data } = await axios.post('/api/users/signup', credentials);
-    // console.log('data token signup', data.data.token);
-    console.log('data signup', data);
-    token.set(data.data.token);
     dispatch(registerSuccess(data));
   } catch (error) {
     dispatch(registerError(error));
@@ -73,9 +70,9 @@ const logIn = credentials => async dispatch => {
 
   try {
     const { data } = await axios.post('/api/users/login', credentials);
-    console.log('data login', data);
+    console.log('Token login', data.data.token);
     token.set(data.data.token);
-    dispatch(loginSuccess(data));
+    dispatch(loginSuccess(data.data));
   } catch (error) {
     dispatch(loginError(error));
 
@@ -143,7 +140,7 @@ const fetchCurrentUser = () => async (dispatch, getState) => {
 
   try {
     const { data } = await axios.get('/api/users/current');
-    // console.log(data);
+
     dispatch(fetchCurrentUserSuccess(data));
   } catch (error) {
     dispatch(fetchCurrentUserError(error));
