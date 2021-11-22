@@ -16,26 +16,22 @@ import {
 } from './transaction-actions';
 
 axios.defaults.baseURL = 'https://personal-expenses.herokuapp.com';
-const setToken = token => {
-  if (!axios.defaults.headers.common.Authorization)
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
 
-const fetchTransactions = (token) => async dispatch => {
+const fetchTransactions = () => async dispatch => {
   dispatch(fetchTransRequest());
   try {
-    setToken(token);
     const { data } = await axios.get('/api/transactions');
 
-    console.log('Fetch data', data.data.result);
+    console.log('Fetch data', data);
 
     dispatch(fetchTransSuccess(data.data.result));
+    
   } catch (error) {
     dispatch(fetchTransError(error.message));
   }
 };
 
-const addTransactions = transaction => async dispatch => {
+export const addTransactions = transaction => async dispatch => {
   dispatch(addTransRequest());
   try {
     const { data } = await axios.post('/api/transactions', transaction);
@@ -82,9 +78,7 @@ const getStatistics =
 
 const transactionOperations = {
   fetchTransactions,
-  addTransactions,
   filterTransaction,
-  getStatistics,
 };
-
+export { getStatistics };
 export default transactionOperations;
