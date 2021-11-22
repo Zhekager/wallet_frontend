@@ -47,7 +47,7 @@ your site without re-authorization.
 
 ## Overall balance:
 
--In the left sidebar you can see the current overall balance.
+- In the left sidebar you can see the current overall balance.
 
 ## Statistics:
 
