@@ -17,8 +17,8 @@ import {
 const user = createReducer(
   { name: null, email: null },
   {
-    [registerSuccess]: (_, { payload }) => payload.user,
-    [loginSuccess]: (_, { payload }) => payload.user,
+    [registerSuccess]: (_, { payload }) => payload,
+    [loginSuccess]: (_, { payload }) => payload,
     [logoutSuccess]: () => ({ name: null, email: null }),
     [fetchCurrentUserSuccess]: (_, { payload }) => payload,
   },
@@ -31,7 +31,7 @@ const token = createReducer(null, {
 });
 
 const isLoggedIn = createReducer(false, {
-  [registerSuccess]: () => true,
+  [registerSuccess]: () => false,
   [registerError]: () => false,
   [loginSuccess]: () => true,
   [loginError]: () => false,

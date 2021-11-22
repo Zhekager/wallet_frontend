@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { authOperations, authSelectors } from '../../../redux/auth';
+import { useHistory } from 'react-router-dom';
 import authOperations from '../../../redux/auth/auth-operations';
 import authSelectors from '../../../redux/auth/auth-selectors';
 import { Formik, Form } from 'formik';
@@ -19,6 +19,7 @@ import styles from './RegistrationForm.module.scss';
 
 export default function RegistrationForm() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [password, setPassword] = useState('');
   const isLoading = useSelector(authSelectors.getLoading);
 
@@ -49,6 +50,8 @@ export default function RegistrationForm() {
         name,
       }),
     );
+
+    history.push('/login');
   };
 
   return (
