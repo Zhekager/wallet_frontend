@@ -18,6 +18,7 @@
     border-radius: 30px;
     display: flex;
     align-items: center;
+    border: none;
   }
   &_data {
     font-family: 'Circe', 'Manrope', sans-serif;
@@ -66,6 +67,9 @@
   display: block;
   max-height: 90vh;
   overflow: auto;
+  .table > :not(:first-child) {
+    border-top: none;
+  }
   &_row {
     display: flex;
     align-items: center;
