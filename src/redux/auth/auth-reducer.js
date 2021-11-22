@@ -20,7 +20,7 @@ const user = createReducer(
     [registerSuccess]: (_, { payload }) => payload,
     [loginSuccess]: (_, { payload }) => payload,
     [logoutSuccess]: () => ({ name: null, email: null }),
-    [fetchCurrentUserSuccess]: (_, { payload }) => payload,
+    [fetchCurrentUserSuccess]: (_, { payload }) => payload.user,
   },
 );
 
