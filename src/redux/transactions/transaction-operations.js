@@ -16,6 +16,9 @@ import {
   filterTransRequest,
   filterTransSuccess,
   filterTransError,
+  getStatisticsRequest,
+  getStatisticsSuccess,
+  getStatisticsError,
 } from './transaction-actions';
 
 //axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
@@ -76,3 +79,17 @@ export const filterTransaction = (month, year) => async dispatch => {
     dispatch(filterTransError(error.message));
   }
 };
+
+//Statistics
+export const getStatistics = ({ month, year }) => async dispatch => {
+  dispatch(getStatisticsRequest());
+  try {
+    const { data } = await axios.get(
+      `/transactions/statistics?month=${month}&year=${year}`,
+    );
+    dispatch(getStatisticsSuccess(data.data))
+    console.log(data.data)
+  } catch (error) {
+    dispatch(getStatisticsError(error.message))
+  }
+}

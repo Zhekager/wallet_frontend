@@ -4,6 +4,7 @@ export const getTransactions = state => state.transactions.result;
 export const getLoading = state => state.transactions.loading;
 export const getError = state => state.transactions.error;
 export const getFilter = state => state.transactions.filter;
+export const getStatistics = state => state.transactions.result;
 //export const getYears = state => state.transactions.years;
 //export const getCategoriesTransactions = state => state.transactions.categories;
 //export const totalTransactions = state => getTransactions(state).length;
