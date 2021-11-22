@@ -7,12 +7,6 @@ import {
   addTransRequest,
   addTransSuccess,
   addTransError,
-  deleteTransRequest,
-  deleteTransSuccess,
-  deleteTransError,
-  updateTransRequest,
-  updateTransSuccess,
-  updateTransError,
   filterTransRequest,
   filterTransSuccess,
   filterTransError,
@@ -28,7 +22,7 @@ const fetchTransactions = () => async dispatch => {
   try {
     const { data } = await axios.get('/api/transactions');
 
-    console.log('Fetch data', data.transaction);
+    console.log('Fetch data', data.data);
 
     dispatch(fetchTransSuccess(data));
   } catch (error) {
@@ -49,39 +43,6 @@ const addTransactions = transaction => async dispatch => {
   }
 };
 
-const deleteTransaction = transactionId => async dispatch => {
-  dispatch(deleteTransRequest());
-  try {
-    // await axios.delete(`/api/transactions/${transactionId}`);
-    // dispatch(deleteTransSuccess(transactionId));
-
-    const { data } = await axios.delete(`/api/transactions/${transactionId}`);
-
-    console.log('Delete data', data.data);
-
-    dispatch(deleteTransSuccess(data.data));
-  } catch (error) {
-    dispatch(deleteTransError(error.message));
-  }
-};
-
-const updateTransaction =
-  ({ date, transactionId }) =>
-  async dispatch => {
-    dispatch(updateTransRequest());
-    const updateTransaction = { date };
-    try {
-      const { data } = await axios.patch(
-        `/api/transactions/${transactionId}`,
-        updateTransaction,
-      );
-      console.log('Update data', data.data);
-      dispatch(updateTransSuccess(data.data));
-    } catch (error) {
-      dispatch(updateTransError(error.message));
-    }
-  };
-
 const filterTransaction = (month, year) => async dispatch => {
   dispatch(filterTransRequest());
 
@@ -98,29 +59,27 @@ const filterTransaction = (month, year) => async dispatch => {
   }
 };
 
+const getStatistics =
+  ({ month, year }) =>
+  async dispatch => {
+    dispatch(getStatisticsRequest());
+    try {
+      const { data } = await axios.get(
+        `/transactions/statistics?month=${month}&year=${year}`,
+      );
+      console.log(data.data);
+
+      dispatch(getStatisticsSuccess(data.data));
+    } catch (error) {
+      dispatch(getStatisticsError(error.message));
+    }
+  };
 
 const transactionOperations = {
   fetchTransactions,
   addTransactions,
-  deleteTransaction,
-  updateTransaction,
   filterTransaction,
+  getStatistics,
 };
 
 export default transactionOperations;
-
-//Statistics
-  
-// export const getStatistics = ({ month, year }) => async dispatch => {
-//   dispatch(getStatisticsRequest());
-//   try {
-//     const { data } = await axios.get(
-//       `/transactions/statistics?month=${month}&year=${year}`,
-//     );
-//     dispatch(getStatisticsSuccess(data.data))
-//     console.log(data.data)
-//   } catch (error) {
-//     dispatch(getStatisticsError(error.message))
-//   }
-// }
-
