@@ -16,11 +16,15 @@ import {
   filterTransRequest,
   filterTransSuccess,
   filterTransError,
+  getStatisticsRequest,
+  getStatisticsSuccess,
+  getStatisticsError,
 } from './transaction-actions';
 
 const result = createReducer([], {
   [fetchTransSuccess]: (_, { payload }) => payload,
   [addTransSuccess]: (state, { payload }) => [...state, payload],
+  [getStatisticsSuccess]: (_, { payload }) => payload,
   [deleteTransSuccess]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
   [updateTransSuccess]: (state, { payload }) =>
@@ -49,6 +53,9 @@ const loading = createReducer(false, {
   [filterTransRequest]: () => true,
   [filterTransSuccess]: () => false,
   [filterTransError]: () => false,
+  [getStatisticsRequest]: () => true,
+  [getStatisticsSuccess]: () => false,
+  [getStatisticsError]: () => false,
 });
 
 const error = createReducer(null, {
@@ -56,10 +63,12 @@ const error = createReducer(null, {
   [addTransError]: (_, { payload }) => payload,
   [deleteTransError]: (_, { payload }) => payload,
   [filterTransError]: (_, { payload }) => payload,
+  [getStatisticsError]: (_, { payload }) => payload,
   [fetchTransRequest]: () => null,
   [addTransRequest]: () => null,
   [deleteTransRequest]: () => null,
   [filterTransRequest]: () => null,
+  [getStatisticsRequest]: () => null,
 });
 
 export default combineReducers({

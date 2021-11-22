@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import Select from 'react-select';
-import {
-  month,
-  year,
-  tableData,
-} from '../../assets/data/select-data/selectData';
+import { useDispatch } from 'react-redux';
+import { getStatistics } from '../../redux/transactions/transaction-operations';
+// import {
+//   month,
+//   year,
+//   tableData,
+// } from '../../assets/data/select-data/selectData';
 import styles from './Table.module.scss';
 import {
   monthInitial,
@@ -61,30 +63,71 @@ const colourStyles = {
   }),
 };
 
-function Table() {
-  const [selected, setSelected] = useState({ month: '', year: '' });
-  const handleChange = event => {
-    setSelected(event.label);
-  };
+function Table({
+  data: { categoriesSummary,
+    totalSpend,
+    totalIncome,
+    uniqueMonth,
+    uniqueYear,
+  }
+}) {
+  const backgroundColor = [
+    '#FED057',
+    '#FFD8D0',
+    '#FD9498',
+    '#C5BAFF',
+    '#6E78E8',
+    '#4A56E2',
+    '#81E1FF',
+    '#24CCA7',
+    '#00AD84',
+  ];
+  const [filterData, setFilterData] = useState({
+    month: '',
+    year: '',
+  });
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getStatistics(filterData));
+  }, [dispatch, filterData]);
+
+  const handleChange = useCallback(e => {
+    const {
+      currentTarget: { name, value },
+    } = e;
+    setFilterData(prev => ({ ...prev, [name]: value }));
+  }, []);
+  const onClick = useCallback(e => {
+    e.currentTarget.value = '';
+    const {
+      currentTarget: { name, value },
+    } = e;
+
+    setFilterData(prev => ({ ...prev, [name]: value }));
+  }, []);
   return (
     <div className={styles.tableContainer}>
       <div className={styles.selectContainer}>
         <div className={styles.select}>
           <Select
-            value={selected.month}
-            options={month}
+            value={filterData.month}
+            options={uniqueMonth}
             name="month"
             onChange={handleChange}
+            onClick={onClick}
             placeholder={monthInitial}
             styles={colourStyles}
           />
         </div>
         <div className={styles.select}>
           <Select
-            value={selected.year}
-            options={year}
-            name="month"
+            value={filterData.year}
+            options={uniqueYear}
+            name="year"
             onChange={handleChange}
+            onClick={onClick}
             placeholder={yearInitial}
             styles={colourStyles}
           />
@@ -93,44 +136,44 @@ function Table() {
 
       <div className={styles.categoryContainer}>
         <ul className={styles.listTitle}>
-          <li className={styles.listTitleText}>Категория</li>
-          <li className={styles.listTitleText}>Сумма</li>
+          <li className={styles.listTitleText}>Category</li>
+          <li className={styles.listTitleText}>Amount</li>
         </ul>
 
         <ul className={styles.listTransaction}>
-          {tableData?.length > 0 ? (
-            tableData.map(({ color, value, sum }) => {
+          {categoriesSummary &&
+            Object.keys(categoriesSummary).map((category, index) => {
               return (
-                <li className={styles.elementTransaction}>
+                <li className={styles.elementTransaction} key={index}>
                   <div
-                    style={{
-                      backgroundColor: `${color}`,
-                      width: '24px',
-                      minHeight: '24px',
-                      borderRadius: '2px',
-                      marginRight: '16px',
-                    }}
+                    style={
+                      { backgroundColor: backgroundColor[index] }
+                      // width: '24px',
+                      // minHeight: '24px',
+                      // borderRadius: '2px',
+                      // marginRight: '16px',
+                    }
                   ></div>
-                  <div className={styles.category}>{value}</div>
-                  <div className={styles.sum}>{sum}</div>
+                  <div className={styles.category}>{category}</div>
+                  <div className={styles.sum}>{categoriesSummary[category]}</div>
                 </li>
-              );
+              )
             })
-          ) : (
-            <li className={styles.elementTransaction}>
-              <div className={styles.category}>
-                За выбраный период нет транзакций :(
-              </div>
-            </li>
-          )}
+          }
         </ul>
 
         <ul className={styles.listTotal}>
           <li className={styles.itemTotal}>
-            <div className={styles.itemText}>Расходы:</div>
+            <div className={styles.itemText}>Expenses:</div>
+            <div className={styles.itemTextSpend}>
+              {totalSpend}
+            </div>
           </li>
           <li className={styles.itemTotal}>
-            <div className={styles.itemText}>Доходы:</div>
+            <div className={styles.itemText}>Income:</div>
+            <div className={styles.itemTextIncome}>
+              {totalIncome}
+            </div>
           </li>
         </ul>
       </div>
