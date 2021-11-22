@@ -31,3 +31,9 @@ export const filterTransSuccess = createAction(
   'transaction/filterTransSuccess',
 );
 export const filterTransError = createAction('transaction/filterTransError');
+
+//get statistics
+export const getStatisticsRequest = createAction('transactions/getStatisticsRequest');
+export const getStatisticsSuccess = createAction('transactions/getStatisticsSuccess');
+export const getStatisticsError = createAction('transactions/getStatisticsError');
+
