@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './auth';
+// import authReducer from './auth/auth-reducer';
 // import { balanceReducer } from './balance';
 // import { transactionsReducer } from './transactions';
 
@@ -26,7 +27,7 @@ const middleware = [
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'isLoggedIn', 'user'],
 };
 
 export const store = configureStore({
