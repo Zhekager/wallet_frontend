@@ -64,12 +64,7 @@ const colourStyles = {
 };
 
 function Table({
-  data: { categoriesSummary,
-    totalSpend,
-    totalIncome,
-    uniqueMonth,
-    uniqueYear,
-  }
+  data: { categoriesSummary, totalSpend, totalIncome, uniqueMonth, uniqueYear },
 }) {
   const backgroundColor = [
     '#FED057',
@@ -155,25 +150,22 @@ function Table({
                     }
                   ></div>
                   <div className={styles.category}>{category}</div>
-                  <div className={styles.sum}>{categoriesSummary[category]}</div>
+                  <div className={styles.sum}>
+                    {categoriesSummary[category]}
+                  </div>
                 </li>
-              )
-            })
-          }
+              );
+            })}
         </ul>
 
         <ul className={styles.listTotal}>
           <li className={styles.itemTotal}>
             <div className={styles.itemText}>Expenses:</div>
-            <div className={styles.itemTextSpend}>
-              {totalSpend}
-            </div>
+            <div className={styles.itemTextSpend}>{totalSpend}</div>
           </li>
           <li className={styles.itemTotal}>
             <div className={styles.itemText}>Income:</div>
-            <div className={styles.itemTextIncome}>
-              {totalIncome}
-            </div>
+            <div className={styles.itemTextIncome}>{totalIncome}</div>
           </li>
         </ul>
       </div>
