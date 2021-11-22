@@ -14,6 +14,7 @@ import { HiX } from 'react-icons/hi';
 import Currency from '../../components/Sidebar/Currency';
 import Navigation from '../../components/Navigation';
 import Balance from '../../components/Balance';
+import DiagramTab from '../../components/DiagramTab';
 
 import style from './DashboardPage.module.scss';
 
@@ -59,9 +60,9 @@ export default function DashboardPage() {
                       {location.pathname === routes.dashboard && <Balance />}
                       {location.pathname === routes.currency && <Currency />}
                       {location.pathname === routes.dashboard && <HomeTab />}
-                      {/* {location.pathname === routes.statistics && (
+                      {location.pathname === routes.statistics && (
                         <DiagramTab />
-                      )} */}
+                      )}
                     </>
                   )}
 
@@ -70,9 +71,9 @@ export default function DashboardPage() {
                       <Sidebar />
                       <div>
                         {location.pathname === routes.dashboard && <HomeTab />}
-                        {/* {location.pathname === routes.statistics && (
+                        {location.pathname === routes.statistics && (
                           <DiagramTab />
-                        )} */}
+                        )}
                       </div>
                       <aside className={style.dashboard__aside}></aside>
                     </>

@@ -220,7 +220,7 @@ import Table from '../Table';
 import styles from './DiagramTab.module.scss';
 
 export default function DiagramTab() {
-  const data = useSelector(getStatistics)
+  const data = useSelector(getStatistics);
 
   return (
     <section className={styles.SectionStats}>
@@ -230,5 +230,5 @@ export default function DiagramTab() {
         <Table data={data} />
       </div>
     </section>
-  )
-};
+  );
+}

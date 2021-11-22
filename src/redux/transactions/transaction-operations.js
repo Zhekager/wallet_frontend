@@ -79,7 +79,6 @@ const transactionOperations = {
   fetchTransactions,
   addTransactions,
   filterTransaction,
-  getStatistics,
 };
-
+export { getStatistics };
 export default transactionOperations;
