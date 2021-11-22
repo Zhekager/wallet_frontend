@@ -116,6 +116,9 @@
     border-radius: 6px;
     background-color: transparent;
   }
+  .textNav {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -136,6 +139,7 @@
   }
 
   .textNav {
+    display: block;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-size: 18px;

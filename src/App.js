@@ -59,6 +59,10 @@ function App() {
                 <DashboardPage />
               </PrivateRoute>
 
+              <PrivateRoute path="/currency" redirectTo="/login">
+                <DashboardPage />
+              </PrivateRoute>
+
               <Route>
                 <NotFoundPage />
               </Route>
