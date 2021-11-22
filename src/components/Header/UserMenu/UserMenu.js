@@ -51,22 +51,28 @@ const MyAvatar = styled(Avatar)({
 
 export default function UserMenu({ onClick }) {
   const sizeScreen = useSizeScreen();
-  // const name = useSelector(authSelectors.getUsername);
+  const name = useSelector(authSelectors.getUsername);
+
+  // const userAvatarName = () => {
+  //   if (name.included(' ')) {
+  //     return name.split(' ');
+  //   }
+  //   return name[0];
+  // };
 
   return (
     <div className={styles.UserMenu}>
       {sizeScreen <= 767 ? (
         <div className={styles.UserName}>
-          {/* <MyAvatar>{name[0]}</MyAvatar> */}
-          <MyAvatar></MyAvatar>
+          <MyAvatar>{name[0]}</MyAvatar>
+          {/* <MyAvatar></MyAvatar> */}
         </div>
       ) : (
         <div className={styles.UserName}>
-          {/* <MyAvatar>{name[0]}</MyAvatar>
-          <span className={styles.Name}>{name}</span> */}
+          <MyAvatar>{name[0]}</MyAvatar>
+          <span className={styles.Name}>{name}</span>
 
-          <MyAvatar></MyAvatar>
-          <span className={styles.Name}>Maryna Skrypnyk</span>
+          {/* <MyAvatar></MyAvatar> */}
         </div>
       )}
 
