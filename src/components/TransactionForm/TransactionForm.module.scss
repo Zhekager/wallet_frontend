@@ -44,17 +44,6 @@
   color: #000000;
 }
 
-.box {
-  margin-bottom: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  @media (min-width: $tablet) {
-    // margin-bottom: 40px;
-  }
-}
-
 .text {
   margin: 0;
   margin-top: 12px;
@@ -78,9 +67,8 @@
   // }
 }
 
-.Amount,
-.Date {
-  //padding: 10px 16px 10px 20px;
+.Amount {
+  padding: 0 0 10px 0;
 
   width: 190px;
   height: 34px;
@@ -93,11 +81,6 @@
   outline: none;
   border-bottom: 1px solid #e0e0e0;
   line-height: 1.5;
-}
-
-.Date {
-  //margin-left: 30px;
-  width: 195px;
 }
 
 .Amount::placeholder {
@@ -184,9 +167,7 @@
     line-height: 36px;
     margin-top: 20px;
   }
-  .box {
-    //margin-bottom: 40px;
-  }
+
   .select {
     width: 280px;
     height: 34px;
@@ -207,11 +188,6 @@
       text-align: left;
     }
   }
-  .Date {
-    width: 280px;
-    height: 34px;
-    text-align: left;
-  }
 
   .box_select {
     width: 100%;
@@ -221,11 +197,6 @@
     border: none;
   }
 
-  .date {
-    display: flex;
-    margin-left: 0px;
-  }
-
   .categoryBox {
     display: block;
     width: 280px;
@@ -233,6 +204,61 @@
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.DateBox {
+  // display: flex;
+  // margin-left: 0px;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+
+.Date {
+  width: 280px;
+  height: 34px;
+  text-align: left;
+  padding: 0 0 10px 0;
+
+  // width: 100%;
+  // padding: 0 20px 10px 20px;
+  font-family: 'Circe', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #000000;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #e0e0e0;
+  outline: none;
+
+  @media screen and (min-width: 768px) {
+    //padding: 10px 16px 10px 20px;
+    width: 190px;
+    text-align: center;
+  }
+}
+
+.BtnIconCalendar {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+// .svgCalendar {
+
+// }
+
+.datePicker {
+  position: absolute;
+  top: 40px;
 }
 
 .optionSelect {

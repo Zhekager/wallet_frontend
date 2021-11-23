@@ -46,7 +46,7 @@ const MyAvatar = styled(Avatar)({
   // marginRight: 10,
   fontSize: 16,
   border: 0,
-  boxShadow: '0px 3px 3px rgba(0, 0, 0, 0.15)',
+  boxShadow: '0px 6px 15px rgba(36, 204, 167, 0.5);',
 });
 
 export default function UserMenu({ onClick }) {

@@ -1,29 +1,3 @@
-// .button {
-//   border-radius: 10px;
-//   border: 0;
-//   min-width: 60px;
-//   padding: 2px 10px;
-//   margin-left: 15px;
-
-//   font-size: 16px;
-//   line-height: 1.6;
-//   color: #212121;
-//   background: #24cca7;
-
-//   transition-property: background-color, color, box-shadow, transform;
-//   transition-duration: 250ms;
-//   &:hover {
-//     transform: scale(1.05);
-//     background-color: tomato;
-//     color: #ffffff;
-//     box-shadow: 4px 4px 4px 0px rgba(34, 60, 80, 0.2);
-//     cursor: pointer;
-//   }
-// }
-// .user {
-//   font-weight: 700;
-// }
-
 .UserMenu {
   display: flex;
   align-items: center;
@@ -59,43 +33,6 @@
   line-height: 1.5;
   border-right: 1px solid #bdbdbd;
 }
-
-// .btn {
-//   display: block;
-//   margin: 0 auto;
-//   padding: 5px;
-//   min-width: 60px;
-//   background-color: #30d5c8;
-//   color: #bdbdbd;
-//   font-weight: 500;
-//   font-size: 12px;
-//   letter-spacing: 0.02em;
-//   text-align: center;
-//   // text-transform: uppercase;
-//   border-radius: 4px;
-//   // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-//   border: none;
-//   cursor: pointer;
-//   transition-property: color;
-//   transition-duration: 250ms;
-//   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-//   @media screen and (min-width: 400px) {
-//     font-size: 14px;
-//   }
-
-//   @media screen and (min-width: 768px) {
-//     font-size: 16px;
-//   }
-
-//   &:hover,
-//   &:focus {
-//     color: #ff6596;
-//     background-color: #ffffff;
-//     // box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
-//     //   0px 2px 2px rgba(0, 0, 0, 0.12);
-//   }
-// }
 
 .svgLogout {
   fill: currentColor;

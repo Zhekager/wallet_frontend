@@ -12,9 +12,9 @@ const getCategories = () => async dispatch => {
   try {
     const { data } = await axios.get('/api/categories');
 
-    console.log(data.result);
+    console.log('Categories', data.result);
 
-    dispatch(getCategoriesSuccess(data.result));
+    dispatch(getCategoriesSuccess(data));
   } catch (error) {
     dispatch(getCategoriesError(error.message));
   }

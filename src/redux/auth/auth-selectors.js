@@ -12,7 +12,7 @@ const getBalance = state => state.auth.user.balance;
 
 const getTransactionsUser = state => state.auth.transactions;
 
-
+// const getCategories = state => state.auth.user.
 
 const authSelectors = {
   getIsLoggedIn,

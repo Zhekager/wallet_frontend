@@ -5,8 +5,8 @@ import {
   getCategoriesSuccess,
 } from './categories-actions';
 
-const result = createReducer([], {
-  [getCategoriesSuccess]: (_, { payload }) => payload.result,
+const categories = createReducer([], {
+  [getCategoriesSuccess]: (_, { payload }) => payload,
 });
 
 const isLoading = createReducer(false, {
@@ -15,6 +15,6 @@ const isLoading = createReducer(false, {
 });
 
 export default combineReducers({
-  result,
+  categories,
   isLoading,
 });
