@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import Select from 'react-select';
 import { useDispatch } from 'react-redux';
-import { getStatistics } from '../../redux/transactions/transaction-operations';
+//import { getStatistics } from '../../redux/transactions/transaction-operations';
 // import {
 //   month,
 //   year,
@@ -89,9 +89,9 @@ function Table({
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
+/*   useEffect(() => {
     dispatch(getStatistics(filterData));
-  }, [dispatch, filterData]);
+  }, [dispatch, filterData]); */
 
   const handleChange = useCallback(e => {
     const {

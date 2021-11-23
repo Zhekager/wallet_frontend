@@ -1,3 +1,5 @@
+@import '../../stylesheet/breakpoints';
+
 li {
   list-style-type: none;
 }
@@ -6,19 +8,39 @@ ul {
   padding-left: 0;
 }
 .tableContainer {
-  width: 280px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 10px;
+  width: 350px;
+  //padding-left: 20px;
+  //padding-right: 20px;
+  //padding-bottom: 10px;
   background-color: rgba(231, 234, 242, 1);
 
-  @media screen and (min-width: 768px) {
-    width: 350px;
+  @media (min-width: $mobile) and (max-width: 767px) {
+    width: 280px;
+  }
+}
+.selectContainer {
+  display: flex;
+  justify-content: space-between;
+
+  @media (min-width: $mobile) and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
   }
 }
 
 .select {
   margin-bottom: 20px;
+  font-family: Circe;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  outline: none;
+
+  &:nth-child(n) {
+    padding-right: 19px;
+  }
 }
 
 .categoryContainer {
@@ -36,7 +58,7 @@ ul {
   border-radius: 29px;
   align-items: center;
   background-color: #fff;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Circe', sans-serif;
 }
 
 .listTitleText {
