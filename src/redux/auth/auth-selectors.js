@@ -10,7 +10,7 @@ const getToken = state => state.auth.token;
 
 const getBalance = state => state.auth.user.balance;
 
-const getTransactionsUser = state => state.auth.transactions;
+const getTransactionsUser = state => state.auth.user.transactions;
 
 
 
