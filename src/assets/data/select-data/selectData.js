@@ -106,4 +106,27 @@ const categories = [
   },
 ];
 
-export { month, year, yearInitial, monthInitial, tableData, categories };
+const addIncomes = [
+  {
+    value: 'Regular income',
+    category: 'Regular income',
+    label: 'Regular income',
+    id: 1,
+  },
+  {
+    value: 'Irregular income',
+    category: 'Irregular income',
+    label: 'Irregular income',
+    id: 2,
+  },
+];
+
+export {
+  month,
+  year,
+  yearInitial,
+  monthInitial,
+  tableData,
+  categories,
+  addIncomes,
+};

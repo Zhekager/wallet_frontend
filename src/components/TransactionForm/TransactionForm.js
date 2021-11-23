@@ -18,7 +18,10 @@ import SelectCategory from './SelectCategory';
 
 import { Calendar } from '../IconBtn/Calendar';
 
-import { categories } from '../../assets/data/select-data/selectData';
+import {
+  categories,
+  addIncomes,
+} from '../../assets/data/select-data/selectData';
 
 //styles
 import 'react-datepicker/dist/react-datepicker.css';
@@ -26,13 +29,7 @@ import styles from './TransactionForm.module.scss';
 
 export default function TransactionForm({ onClose }) {
   const dispatch = useDispatch();
-
   const [chooseType, setChooseType] = useState(false);
-
-  // const [chooseSelect, setChooseSelect] = useState(false);
-  // const [visibleCategory, setVisibleCategory] = useState(false);
-  // const [category, setCategory] = useState('Choose category');
-
   const [startDate, setStartDate] = useState(new Date());
   const [isOpenDate, setIsOpenDate] = useState(false);
   const [type, setType] = useState('-');
@@ -42,6 +39,7 @@ export default function TransactionForm({ onClose }) {
 
   const handleChangeType = () => {
     setChooseType(!chooseType);
+
     setType('+');
   };
 
@@ -56,22 +54,6 @@ export default function TransactionForm({ onClose }) {
   };
 
   const dateMoment = moment(new Date()).format('DD.MM.YYYY');
-
-  // const handleDate = date => {
-  //   setStartDate(date);
-  //   // const formatedDate = moment(date).format('DD/MMMM/yyyy');
-  //   // const dateD = moment(formatedDate).date();
-  //   // const month = moment(formatedDate).format('MMMM');
-  //   // const year = moment(formatedDate).year();
-  //   /* setTransactionItem((state) => ({
-  //     ...state,
-  //     date: dateD,
-  //     month: month,
-  //     year: year,
-  //   })); */
-  // };
-
-  // // const currentDate = new Date().toLocaleDateString();
 
   const handleClick = e => {
     if (e.currentTarget === e.target) {
@@ -115,7 +97,7 @@ export default function TransactionForm({ onClose }) {
       <div className={styles.container}>
         <Formik
           initialValues={{
-            type: '-',
+            type: !chooseType ? '-' : '+',
             category: '',
             money: '',
             date: dateMoment,
@@ -125,17 +107,7 @@ export default function TransactionForm({ onClose }) {
           validationSchema={validationsSchema}
           enableReinitialize
         >
-          {({
-            errors,
-            touched,
-            isSubmitting,
-            values,
-            handleChange,
-            handleSubmit,
-            handleReset,
-            setFieldValue,
-            setFieldTouched,
-          }) => (
+          {({ errors, touched }) => (
             <Form className={styles.form}>
               <h3 className={styles.title}>Add transaction</h3>
 
@@ -145,14 +117,26 @@ export default function TransactionForm({ onClose }) {
                 value="type"
               />
 
-              {!chooseType && (
+              {chooseType ? (
                 <Box className={styles.categoryBox}>
-                  {/* {errors.type && touched.type && (
-                    <span className={styles.inputFeedback}>
-                      {errors.type}
-                    </span>
-                  )} */}
+                  <SelectCategory label="category" name="category">
+                    <option className={styles.optionSelect} value="">
+                      Choose category
+                    </option>
 
+                    {addIncomes.map(category => (
+                      <option
+                        className={styles.optionChoose}
+                        key={category.id}
+                        value={category.value}
+                      >
+                        {category.value}
+                      </option>
+                    ))}
+                  </SelectCategory>
+                </Box>
+              ) : (
+                <Box className={styles.categoryBox}>
                   <SelectCategory label="category" name="category">
                     <option className={styles.optionSelect} value="">
                       Choose category
@@ -161,33 +145,13 @@ export default function TransactionForm({ onClose }) {
                     {categories.map(category => (
                       <option
                         className={styles.optionChoose}
-                        key={category}
+                        key={category.id}
                         value={category.value}
                       >
                         {category.value}
                       </option>
                     ))}
-
-                    {/* {categories.map(category => (
-                      <option
-                        className={styles.optionChoose}
-                        key={category.result}
-                        value={category.result}
-                      >
-                        {category.result}
-                      </option>
-                    ))} */}
                   </SelectCategory>
-
-                  {/* <SelectCategory
-                    name="category"
-                    costs={costs}
-                    hidden={visibleCategory}
-                    category={category}
-                    value={values.category}
-                    onBlur={handleChange}
-                    handleChange={handleChangeCategory}
-                  /> */}
                 </Box>
               )}
 
@@ -267,23 +231,3 @@ export default function TransactionForm({ onClose }) {
     </div>
   );
 }
-
-/* преобразование даты в строку с помощью библиотеки момент
-const initialState = {
-  date: Number(moment(new Date()).format("D")),
-  month: moment(new Date()).format("MMMM"),
-  year: Number(moment(new Date()).format("YYYY")),
-}
-const handleDate = (date) => {
-    setStartDate(date);
-    const formatedDate = moment(date).format("DD/MMMM/yyyy");
-    const dateD = moment(formatedDate).date();
-    const month = moment(formatedDate).format("MMMM");
-    const year = moment(formatedDate).year();
-    setTransactionItem((state) => ({
-      ...state,
-      date: dateD,
-      month: month,
-      year: year,
-    }));
-  }; */

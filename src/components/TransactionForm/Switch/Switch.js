@@ -32,6 +32,6 @@ export default function Switch({ isChecked, onSwitch, value }) {
 
 Switch.propTypes = {
   onchange: PropTypes.func,
-  checked: PropTypes.bool.isRequired,
+  isChecked: PropTypes.bool.isRequired,
   value: PropTypes.string.isRequired,
 };
