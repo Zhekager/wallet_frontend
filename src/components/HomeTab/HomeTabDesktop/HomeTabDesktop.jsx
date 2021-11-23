@@ -1,4 +1,3 @@
-//import transactions from '../transactions.json';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import authSelectors from '../../../redux/auth/auth-selectors';
@@ -8,7 +7,6 @@ import './HomeTabDesktop.scss';
 const tableHeadData = ['Date', 'Type', 'Category', 'Comment', 'Sum', 'Balance'];
 
 export default function HomeTabDesktop() {
-  //const res = transactions.data;
   const arr = useSelector(authSelectors.getTransactionsUser);
 
   return (
@@ -28,7 +26,7 @@ export default function HomeTabDesktop() {
               <tr key={_id} className={'homeTab-body_row'}>
                 <td className={'homeTab-body_data'}>{date}</td>
                 <td className={'homeTab-body_data'}>{type}</td>
-                <td className={'homeTab-body_data'}>{category?.name}</td>
+                <td className={'homeTab-body_data'}>{category.name}</td>
                 <td className={'homeTab-body_data'}>{comment}</td>
                 <td
                   className={
