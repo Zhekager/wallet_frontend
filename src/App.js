@@ -8,10 +8,10 @@ import PublicRoute from './routes/PublicRoute';
 import Container from './components/Container';
 import Spinner from './components/Spinner';
 // import TransactionForm from './components/TransactionForm/TransactionForm';
-
+//import DiagramTab from './components/DiagramTab';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+//import Chart from './components/Chart';
 import './App.module.scss';
 
 const RegistrationPage = lazy(() =>
@@ -72,7 +72,8 @@ function App() {
               </Route>
             </Switch>
           </Suspense>
-
+        {/*   <DiagramTab />  */}
+        {/*  <Chart/>  */}
           <ToastContainer autoClose={3000} position="top-center" />
         </Container>
       </>
