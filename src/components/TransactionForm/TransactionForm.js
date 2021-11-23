@@ -213,3 +213,33 @@ export default function TransactionForm({ onClose }) {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+/* преобразование даты в строку с помощью библиотеки момент
+const initialState = {
+  date: Number(moment(new Date()).format("D")),
+  month: moment(new Date()).format("MMMM"),
+  year: Number(moment(new Date()).format("YYYY")),
+}
+const handleDate = (date) => {
+    setStartDate(date);
+    const formatedDate = moment(date).format("DD/MMMM/yyyy");
+    const dateD = moment(formatedDate).date();
+    const month = moment(formatedDate).format("MMMM");
+    const year = moment(formatedDate).year();
+    setTransactionItem((state) => ({
+      ...state,
+      date: dateD,
+      month: month,
+      year: year,
+    }));
+  }; */
