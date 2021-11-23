@@ -1,4 +1,4 @@
-.table {
+.homeTab {
   display: block;
   min-width: 688px;
   margin: 0 auto;
@@ -8,7 +8,7 @@
     width: 700px;
   }
 }
-.table-head {
+.homeTab-head {
   display: block;
 
   &_row {
@@ -63,11 +63,11 @@
   }
 }
 
-.table-body {
+.homeTab-body {
   display: block;
   max-height: 90vh;
   overflow: auto;
-  .table > :not(:first-child) {
+  .homeTab > :not(:first-child) {
     border-top: none;
   }
   &_row {

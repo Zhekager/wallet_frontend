@@ -59,9 +59,13 @@ function App() {
                 <DashboardPage />
               </PrivateRoute>
 
-              {/* <PrivateRoute path="/currency" redirectTo="/login">
+              <PrivateRoute path="/currency" redirectTo="/login">
                 <DashboardPage />
-              </PrivateRoute> */}
+              </PrivateRoute>
+
+              <PrivateRoute path="/statistics" redirectTo="/login">
+                <DashboardPage />
+              </PrivateRoute>
 
               <Route>
                 <NotFoundPage />

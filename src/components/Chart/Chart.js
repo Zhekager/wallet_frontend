@@ -43,7 +43,7 @@ export default function Chart( ) {
                   ],
                   borderWidth: 1,
                   cutout: 90,
-                }
+                },
                 // {
                 //   label: '# of Votes',
                 //   data: arrMoney,

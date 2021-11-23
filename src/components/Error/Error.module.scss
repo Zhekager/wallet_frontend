@@ -143,13 +143,13 @@
   font-size: 18px;
   font-weight: 400;
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
+  display: flex;
+  align-items: center;
   text-decoration: none;
   color: #24cca7;
 
-  @media screen and (min-width: 1280px) {
-    display: flex;
-    align-items: center;
-  }
+  // @media screen and (min-width: 1280px) {
+  //   display: flex;
+  //   align-items: center;
+  // }
 }

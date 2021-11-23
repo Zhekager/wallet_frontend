@@ -2,43 +2,47 @@ import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
-//components
-import Button from '../Button';
-import Switch from './Switch';
-import SelectCategory from './SelectCategory';
-import { costs } from '../../assets/data/select-data/selectData';
-import Box from '@material-ui/core/Box';
-import DatePicker from 'react-datepicker';
-import moment from 'moment';
-//import Select from "react-select";
-
-//styles
-import 'react-datepicker/dist/react-datepicker.css';
-import styles from './TransactionForm.module.scss';
-import './TransactionFormDatepicker.scss';
-import { makeStyles } from '@material-ui/core/styles';
-
 //redux
 import { useSelector, useDispatch } from 'react-redux';
 //import '../../redux/transactions';
 //import { fetchTransactions } from '../../redux/transactions/transaction-operations';
 //import { fetchTransRequest// } from '../../redux/transactions/transaction-actions';
 
+//components
+import { getAllCategories } from '../../redux/categories/categories-selectors';
+import transactionOperations from '../../redux/transactions/transaction-operations';
+import Button from '../Button';
+import Switch from './Switch';
+import SelectCategory from './SelectCategory';
+import Box from '@material-ui/core/Box';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+
+import { costs } from '../../assets/data/select-data/selectData';
+
+//styles
+import 'react-datepicker/dist/react-datepicker.css';
+import styles from './TransactionForm.module.scss';
+import './TransactionFormDatepicker.scss';
+
 export default function TransactionForm({ onClose }) {
   const dispatch = useDispatch();
   const [chooseSelect, setChooseSelect] = useState(false);
   const [visibleCategory, setVisibleCategory] = useState(false);
-  const [category, setCategory] = useState('Choose category');
-  const [typeOfTransaction, setTypeOfTransaction] = useState('Сosts');
+  // const [category, setCategory] = useState('Choose category');
+  const [type, setType] = useState('Сosts');
   const [startDate, setStartDate] = useState(new Date());
 
-  const handleChangeCategory = event => {
-    setCategory(event.target.value);
-  };
+  const categories = useSelector(getAllCategories);
+  const IdCategory = categories.find(category => category.id);
+
+  // const handleChangeCategory = event => {
+  //   setCategory(event.target.value);
+  // };
 
   const onSwitchChecked = evt => {
     setChooseSelect(evt.target.checked);
-    setTypeOfTransaction('Income');
+    setType('Income');
     toggleVisibleCategory();
   };
 
@@ -60,29 +64,39 @@ export default function TransactionForm({ onClose }) {
     })); */
   };
 
+  const currentDate = new Date().toLocaleDateString();
+
   const handleClick = e => {
     if (e.currentTarget === e.target) {
       onClose();
     }
   };
 
-  const handleSubmitForm = (e, data) => {
-    e.preventDefault();
-    //dispatch(fetchTransactions.addTransaction(data));
+  const handleSubmitForm = ({ type, money, comment, category, date }) => {
+    // e.preventDefault();
+    console.log({ type, category: IdCategory, money, date, comment });
+    dispatch(
+      transactionOperations.addTransactions({
+        type,
+        IdCategory,
+        money,
+        date,
+        comment,
+      }),
+    );
     reset();
     onClose();
   };
 
   const reset = () => {
     setChooseSelect(false);
-    setCategory('Choose category');
     setStartDate(new Date());
   };
 
   const validationsSchema = Yup.object().shape({
-    typeOfTransaction: Yup.string().required('Type is required'),
+    type: Yup.string().required('Type is required'),
     category: Yup.string('Choose category').required('Category is required'),
-    amount: Yup.number('Enter your amount')
+    money: Yup.number('Enter your amount')
       .min(0)
       .required('Amount is required'),
     date: Yup.date(),
@@ -94,16 +108,27 @@ export default function TransactionForm({ onClose }) {
       <div className={styles.container}>
         <Formik
           initialValues={{
-            typeOfTransaction: 'Costs',
-            category: category,
-            amount: null,
+            type: 'Costs',
+            category: '',
+            money: '',
             date: startDate,
             comment: '',
           }}
           onSubmit={handleSubmitForm}
           validationSchema={validationsSchema}
+          enableReinitialize
         >
-          {({ errors, touched, isSubmitting, values, handleChange }) => (
+          {({
+            errors,
+            touched,
+            isSubmitting,
+            values,
+            handleChange,
+            handleSubmit,
+            handleReset,
+            setFieldValue,
+            setFieldTouched,
+          }) => (
             <Form className={styles.form}>
               <h3 className={styles.title}>Add transaction</h3>
 
@@ -131,39 +156,63 @@ export default function TransactionForm({ onClose }) {
 
               {!visibleCategory && (
                 <Box className={styles.categoryBox}>
-                  {errors.typeOfTransaction && touched.typeOfTransaction && (
+                  {/* {errors.type && touched.type && (
                     <span className={styles.inputFeedback}>
-                      {errors.typeOfTransaction}
+                      {errors.type}
                     </span>
-                  )}
-                  <SelectCategory
+                  )} */}
+
+                  <SelectCategory label="category" name="category">
+                    <option className={styles.optionSelect} value="">
+                      Choose category
+                    </option>
+
+                    {costs.map(cost => (
+                      <option
+                        className={styles.optionChoose}
+                        key={cost.id}
+                        value={cost.id}
+                      >
+                        {cost.value}
+                      </option>
+                    ))}
+                    {/* {categories.expenses.map(category => (
+                      <option
+                        className={styles.optionChoose}
+                        key={category.id}
+                        value={category.id}
+                      >
+                        {category.name}
+                      </option>
+                    ))} */}
+                  </SelectCategory>
+
+                  {/* <SelectCategory
                     name="category"
-                    costs={costs.costs}
+                    costs={costs}
                     hidden={visibleCategory}
                     category={category}
                     value={values.category}
                     onBlur={handleChange}
                     handleChange={handleChangeCategory}
-
-                    /* error={touched.category && Boolean(errors.category)}
-              helperText={touched.category && errors.category} */
-                  />
+                  /> */}
                 </Box>
               )}
 
-              {errors.amount && touched.amount && (
-                <div className={styles.inputFeedback}>{errors.amount}</div>
-              )}
-
               <div className={styles.Credentials}>
-                <Field
-                  name="amount"
-                  type="number"
-                  placeholder="0.00"
-                  className={styles.Amount}
-                />
+                <div className={styles.AmountContainer}>
+                  <Field
+                    name="money"
+                    type="number"
+                    placeholder="0.00"
+                    className={styles.Amount}
+                  />
+                  {errors.money && touched.money && (
+                    <div className={styles.inputFeedback}>{errors.money}</div>
+                  )}
+                </div>
 
-                <Box className={styles.data}>
+                <Box className={styles.date}>
                   <DatePicker
                     id="select"
                     className={styles.Date}
@@ -171,15 +220,8 @@ export default function TransactionForm({ onClose }) {
                     onChange={handleDate}
                     dateFormat="dd.MM.yyyy"
                   />
-                  {errors.data && touched.data && (
-                    <div className={styles.inputFeedback}>{errors.data}</div>
-                  )}
                 </Box>
               </div>
-
-              {errors.comment && touched.comment && (
-                <div className={styles.inputFeedback}>{errors.comment}</div>
-              )}
 
               <Box className={styles.box_select}>
                 <Field
@@ -189,15 +231,12 @@ export default function TransactionForm({ onClose }) {
                   placeholder="Comment"
                   className={styles.Comment}
                 />
+                {errors.comment && touched.comment && (
+                  <div className={styles.inputFeedback}>{errors.comment}</div>
+                )}
               </Box>
 
-              <Button
-                //onClick={handleSubmit}
-                disabled={isSubmitting}
-                type="submit"
-                contentBtn="Add"
-                button="Button"
-              />
+              <Button type="submit" contentBtn="Add" button="Button" />
 
               <Button
                 handleClick={handleClick}
@@ -205,7 +244,7 @@ export default function TransactionForm({ onClose }) {
                 button="ButtonSecondary"
               />
 
-              {/* {isLoading && <LoaderSpinner />} */}
+              {/* {isLoading && <Spinner />} */}
             </Form>
           )}
         </Formik>
