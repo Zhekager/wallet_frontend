@@ -16,9 +16,9 @@ import {
 
 import { toast } from 'react-toastify';
 
-axios.defaults.baseURL = 'https://personal-expenses.herokuapp.com';
+//axios.defaults.baseURL = 'https://personal-expenses.herokuapp.com';
 // axios.defaults.baseURL = 'https://nameless-reef-47827.herokuapp.com/api';
-// axios.defaults.baseURL = 'http://localhost:3000';
+ axios.defaults.baseURL = 'http://localhost:3000';
 
 const token = {
   set(token) {
