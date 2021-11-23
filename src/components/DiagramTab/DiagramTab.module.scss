@@ -1,5 +1,5 @@
-// @import '../../stylesheet/breakpoints';
-// @import '../../stylesheet/variables';
+@import '../../stylesheet/breakpoints';
+@import '../../stylesheet/variables';
 
 // .statsContainer {
 //   @media screen and (max-width: 767px) {
@@ -59,8 +59,21 @@
 // }
 
 .StatisticsTitle {
-  font-family: $secondary-font;
+  font-family: 'Poppins', sans-serif;
   font-weight: normal;
+  font-size: 30px;
+  line-height: 1.5;
+  //letter-spacing: 0.05em;
+  color: #000000;
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-bottom: 20px;
+
+  @media (min-width: $mobile) and (max-width: 767px) {
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
 }
 
 .ContainerStats {
