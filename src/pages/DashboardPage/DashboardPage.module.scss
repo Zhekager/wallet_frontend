@@ -4,12 +4,14 @@
   padding-right: 20px;
   background-color: #e7eaf2;
   min-width: 320px;
+  height: 100%;
 }
 
 @media screen and (min-width: 768px) {
   .dashboard {
     padding: 20px 40px 0px 40px;
     background-image: #e7eaf2;
+    height: 100%;
     & .wrapper {
       display: flex;
       flex-wrap: wrap;
@@ -17,7 +19,6 @@
     }
   }
 }
-
 @media screen and (min-width: 1280px) {
   .dashboard {
     padding: 40px 85px 0px 85px;

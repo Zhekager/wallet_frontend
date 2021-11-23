@@ -1,6 +1,6 @@
 .currency {
   width: 280px;
-  margin-bottom: 250px;
+  padding-bottom: 289px;
 
   &__title-list {
     display: flex;
@@ -52,7 +52,7 @@
 @media screen and (min-width: 768px) {
   .currency {
     width: 334px;
-    margin-bottom: 0;
+    padding-bottom: 0;
   }
 }
 
