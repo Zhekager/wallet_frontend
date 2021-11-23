@@ -4,7 +4,7 @@ import { Home } from '../IconBtn/Home';
 import { Statistic } from '../IconBtn/Statistic';
 import { Currenc } from '../IconBtn/Currenc';
 import routes from '../../routes';
-import Spinner from '../Spinner';
+// import Spinner from '../Spinner';
 
 import styles from './Navigation.module.scss';
 

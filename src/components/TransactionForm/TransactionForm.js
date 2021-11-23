@@ -16,7 +16,7 @@ import Switch from './Switch';
 import SelectCategory from './SelectCategory';
 import Box from '@material-ui/core/Box';
 import DatePicker from 'react-datepicker';
-import moment from 'moment';
+// import moment from 'moment';
 
 import { costs } from '../../assets/data/select-data/selectData';
 
@@ -30,7 +30,7 @@ export default function TransactionForm({ onClose }) {
   const [chooseSelect, setChooseSelect] = useState(false);
   const [visibleCategory, setVisibleCategory] = useState(false);
   // const [category, setCategory] = useState('Choose category');
-  const [type, setType] = useState('Сosts');
+  const [setType] = useState('Сosts'); //видалив type
   const [startDate, setStartDate] = useState(new Date());
 
   const categories = useSelector(getAllCategories);
@@ -52,10 +52,10 @@ export default function TransactionForm({ onClose }) {
 
   const handleDate = date => {
     setStartDate(date);
-    const formatedDate = moment(date).format('DD/MMMM/yyyy');
-    const dateD = moment(formatedDate).date();
-    const month = moment(formatedDate).format('MMMM');
-    const year = moment(formatedDate).year();
+    // const formatedDate = moment(date).format('DD/MMMM/yyyy');
+    // const dateD = moment(formatedDate).date();
+    // const month = moment(formatedDate).format('MMMM');
+    // const year = moment(formatedDate).year();
     /* setTransactionItem((state) => ({
       ...state,
       date: dateD,
@@ -64,7 +64,7 @@ export default function TransactionForm({ onClose }) {
     })); */
   };
 
-  const currentDate = new Date().toLocaleDateString();
+  // const currentDate = new Date().toLocaleDateString();
 
   const handleClick = e => {
     if (e.currentTarget === e.target) {
@@ -253,16 +253,6 @@ export default function TransactionForm({ onClose }) {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
 
 /* преобразование даты в строку с помощью библиотеки момент
 const initialState = {

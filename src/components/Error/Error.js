@@ -7,7 +7,11 @@ const NotFound = () => (
     <div className={style.box}>
       <div className={style.error}>
         <h1 className={style.notFound}>404 - Page Not Found!</h1>
-        <img className={style.image} src="https://i.imgur.com/qIufhof.png" />
+        <img
+          className={style.image}
+          src="https://i.imgur.com/qIufhof.png"
+          alt="imgur"
+        />
         <p className={style.text}>
           Looks like you've followed a broken link or entered a URL that doesn't
           exist on this site.
