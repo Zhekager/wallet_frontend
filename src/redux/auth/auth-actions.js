@@ -22,3 +22,13 @@ export const fetchCurrentUserSuccess = createAction(
   'auth/fetchCurrentUserSuccess',
 );
 export const fetchCurrentUserError = createAction('auth/fetchCurrentUserError');
+
+export const getUserByGoogleAuthRequest = createAction(
+  'auth/getUserByGoogleAuthRequest',
+);
+export const getUserByGoogleAuthSuccess = createAction(
+  'auth/getUserByGoogleAuthSuccess',
+);
+export const getUserByGoogleAuthError = createAction(
+  'auth/getUserByGoogleAuthError',
+);
