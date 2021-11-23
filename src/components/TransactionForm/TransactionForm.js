@@ -82,6 +82,7 @@ export default function TransactionForm({ onClose }) {
         money,
         date,
         comment,
+        category,
       }),
     );
     reset();
