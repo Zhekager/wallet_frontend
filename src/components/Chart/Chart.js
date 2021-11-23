@@ -3,10 +3,12 @@ import { Doughnut } from 'react-chartjs-2';
 import Balance from './ChartBalance/ChartBalance';
 import styles from './Chart.module.scss';
 
-export default function Chart({ data }, consumption) {
+export default function Chart( ) {
+  const data = [200, 150, 20, 10, 15, 67, 89, 34, 55];
+  const consumption = 24000;
   return (
     <div className={styles.chart}>
-      <p className={styles.title}>Statistics</p>
+      {/* <p className={styles.title}>Statistics</p> */} {/* уже есть в диаграмм табе */}
       <div className={styles.containerChart}>
         <Balance consumption={consumption} />
         <div className={styles.doughnut}>
@@ -14,9 +16,10 @@ export default function Chart({ data }, consumption) {
             data={{
               datasets: [
                 {
-                  data: data.categoriesSummary
+                  data: [200, 150, 20, 10, 15, 67, 89, 34, 55],
+                 /*  data: data.categoriesSummary
                     ? Object.values(data.categoriesSummary)
-                    : null,
+                    : null, */
                   backgroundColor: [
                     '#FED057',
                     '#FFD8D0',
