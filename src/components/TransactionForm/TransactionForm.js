@@ -7,7 +7,7 @@ import DatePicker from 'react-datepicker';
 import { addMonths } from 'date-fns';
 
 //redux
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux'; //видалив  useSelector,
 
 //components
 // import categorySelectors from '../../redux/categories/categories-selectors';
@@ -32,7 +32,7 @@ export default function TransactionForm({ onClose }) {
   const [chooseType, setChooseType] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const [isOpenDate, setIsOpenDate] = useState(false);
-  const [type, setType] = useState('-');
+  const [setType] = useState('-'); // видалив type,
 
   // const categories = useSelector(categorySelectors.getAllCategories);
   // console.log(categories);
