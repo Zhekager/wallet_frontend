@@ -10,6 +10,10 @@ const getToken = state => state.auth.token;
 
 const getBalance = state => state.auth.user.balance;
 
+const getTransactionsUser = state => state.auth.transactions;
+
+
+
 const authSelectors = {
   getIsLoggedIn,
   getUsername,
@@ -17,5 +21,6 @@ const authSelectors = {
   getError,
   getToken,
   getBalance,
+  getTransactionsUser,
 };
 export default authSelectors;

@@ -38,7 +38,7 @@ export const addTransactions = transaction => async dispatch => {
 
     console.log('Add data', data.data.result);
 
-    dispatch(addTransSuccess(data.data.result));
+    dispatch(addTransSuccess(data.result));
   } catch (error) {
     dispatch(addTransError(error.message));
   }
