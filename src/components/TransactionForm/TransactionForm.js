@@ -10,11 +10,12 @@ import { addMonths } from 'date-fns';
 import { useSelector, useDispatch } from 'react-redux';
 
 //components
-import categorySelectors from '../../redux/categories/categories-selectors';
+// import categorySelectors from '../../redux/categories/categories-selectors';
 import transactionOperations from '../../redux/transactions/transaction-operations';
 import Button from '../Button';
 import Switch from './Switch';
 import SelectCategory from './SelectCategory';
+
 import { Calendar } from '../IconBtn/Calendar';
 
 import { categories } from '../../assets/data/select-data/selectData';
@@ -25,7 +26,13 @@ import styles from './TransactionForm.module.scss';
 
 export default function TransactionForm({ onClose }) {
   const dispatch = useDispatch();
+
   const [chooseType, setChooseType] = useState(false);
+
+  // const [chooseSelect, setChooseSelect] = useState(false);
+  // const [visibleCategory, setVisibleCategory] = useState(false);
+  // const [category, setCategory] = useState('Choose category');
+
   const [startDate, setStartDate] = useState(new Date());
   const [isOpenDate, setIsOpenDate] = useState(false);
   const [type, setType] = useState('-');
@@ -49,6 +56,22 @@ export default function TransactionForm({ onClose }) {
   };
 
   const dateMoment = moment(new Date()).format('DD.MM.YYYY');
+
+  // const handleDate = date => {
+  //   setStartDate(date);
+  //   // const formatedDate = moment(date).format('DD/MMMM/yyyy');
+  //   // const dateD = moment(formatedDate).date();
+  //   // const month = moment(formatedDate).format('MMMM');
+  //   // const year = moment(formatedDate).year();
+  //   /* setTransactionItem((state) => ({
+  //     ...state,
+  //     date: dateD,
+  //     month: month,
+  //     year: year,
+  //   })); */
+  // };
+
+  // // const currentDate = new Date().toLocaleDateString();
 
   const handleClick = e => {
     if (e.currentTarget === e.target) {

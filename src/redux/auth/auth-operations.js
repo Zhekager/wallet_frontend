@@ -12,13 +12,16 @@ import {
   fetchCurrentUserRequest,
   fetchCurrentUserSuccess,
   fetchCurrentUserError,
+  getUserByGoogleAuthRequest,
+  getUserByGoogleAuthSuccess,
+  getUserByGoogleAuthError,
 } from './auth-actions';
 
 import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://personal-expenses.herokuapp.com';
 // axios.defaults.baseURL = 'https://nameless-reef-47827.herokuapp.com/api';
- //axios.defaults.baseURL = 'http://localhost:3000';
+//axios.defaults.baseURL = 'http://localhost:3000';
 
 const token = {
   set(token) {
@@ -156,11 +159,29 @@ const fetchCurrentUser = () => async (dispatch, getState) => {
   }
 };
 
+const getUserByGoogleAuth = () => async dispatch => {
+  dispatch(getUserByGoogleAuthRequest());
+
+  try {
+    const {
+      data: { data },
+    } = await axios.get('/auth/google-user');
+    dispatch(getUserByGoogleAuthSuccess(data));
+
+    token.set(data.token);
+
+    return data;
+  } catch (error) {
+    dispatch(getUserByGoogleAuthError(error.message));
+  }
+};
+
 const authOperations = {
   register,
   logIn,
   logOut,
   fetchCurrentUser,
+  getUserByGoogleAuth,
 };
 
 export default authOperations;

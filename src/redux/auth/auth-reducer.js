@@ -12,6 +12,7 @@ import {
   fetchCurrentUserRequest,
   fetchCurrentUserSuccess,
   fetchCurrentUserError,
+  getUserByGoogleAuthSuccess,
 } from './auth-actions';
 
 const user = createReducer(
@@ -21,6 +22,7 @@ const user = createReducer(
     [loginSuccess]: (_, { payload }) => payload,
     [logoutSuccess]: () => ({ name: null, email: null }),
     [fetchCurrentUserSuccess]: (_, { payload }) => payload.user,
+    [getUserByGoogleAuthSuccess]: (_, { payload }) => payload.user,
   },
 );
 
@@ -28,6 +30,7 @@ const token = createReducer(null, {
   [registerSuccess]: (_, { payload }) => payload.token,
   [loginSuccess]: (_, { payload }) => payload.token,
   [logoutSuccess]: () => null,
+  [getUserByGoogleAuthSuccess]: (_, { payload }) => payload.token,
 });
 
 const isLoggedIn = createReducer(false, {
@@ -37,8 +40,13 @@ const isLoggedIn = createReducer(false, {
   [loginError]: () => false,
   [logoutSuccess]: () => false,
   [fetchCurrentUserSuccess]: () => true,
+  [getUserByGoogleAuthSuccess]: () => true,
   [fetchCurrentUserError]: () => false,
   // [logoutError]: () => true,
+});
+
+const isRegistered = createReducer(false, {
+  [registerSuccess]: () => true,
 });
 
 const isLoading = createReducer(false, {
@@ -73,6 +81,7 @@ export default combineReducers({
   user,
   token,
   isLoggedIn,
+  isRegistered,
   isLoading,
   error,
   // balance,
