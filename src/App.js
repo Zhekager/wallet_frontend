@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import authSelectors from './redux/auth/auth-selectors';
 import authOperations from './redux/auth/auth-operations';
@@ -12,6 +12,10 @@ import Spinner from './components/Spinner';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 //import Chart from './components/Chart';
+
+import GoogleAuth from './components/GoogleAuth';
+
+import routes from './routes';
 import './App.module.scss';
 
 const RegistrationPage = lazy(() =>
@@ -32,6 +36,8 @@ const DashboardPage = lazy(() =>
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(authSelectors.getLoading);
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  const isRegistered = useSelector(authSelectors.getIsRegistered);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
@@ -50,6 +56,20 @@ function App() {
               <PublicRoute path="/signup" redirectTo="/login" restricted>
                 <RegistrationPage />
               </PublicRoute>
+
+              <Route
+                path={routes.google}
+                restricted
+                render={props =>
+                  isLoggedIn ? (
+                    <Redirect to={routes.dashboard} />
+                  ) : isRegistered ? (
+                    <Redirect to={routes.login} />
+                  ) : (
+                    <GoogleAuth />
+                  )
+                }
+              />
 
               <PublicRoute path="/login" redirectTo="/dashboard" restricted>
                 <LoginPage />
@@ -72,8 +92,8 @@ function App() {
               </Route>
             </Switch>
           </Suspense>
-        {/*   <DiagramTab />  */}
-        {/*  <Chart/>  */}
+          {/*   <DiagramTab />  */}
+          {/*  <Chart/>  */}
           <ToastContainer autoClose={3000} position="top-center" />
         </Container>
       </>
