@@ -7,11 +7,6 @@
 }
 
 .switch_for {
-  // cursor: pointer;
-  // font-size: 16px;
-  // line-height: 1.56;
-  // position: relative;
-
   position: relative;
   display: inline-block;
   width: 80px;
@@ -19,64 +14,6 @@
   margin-left: 10px;
 }
 
-// .switch_box {
-//   display: flex;
-//   background: #e0e0e0;
-//   margin-bottom: 50px;
-//   width: 100%;
-// }
-
-// .switch {
-//   display: none;
-// }
-
-// .switch_for::after {
-//   content: '';
-//   width: 80px;
-//   height: 40px;
-//   box-sizing: border-box;
-//   border-radius: 30px;
-//   border: 1px solid #e0e0e0;
-//   position: absolute;
-//   top: 13px;
-//   right: -40px;
-// }
-
-// .switch_for::before {
-//   right: -48px;
-//   top: 11px;
-//   background: #ff6596;
-//   box-shadow: 0px 6px 15px rgba(255, 101, 150, 0.5);
-//   content: '';
-//   width: 44px;
-//   height: 44px;
-//   border-radius: 50%;
-//   position: absolute;
-//   z-index: 1;
-//   transition-duration: 300ms;
-//   background-image: url(https://img.icons8.com/material-outlined/24/ffffff/minus.png);
-//   background-repeat: no-repeat;
-//   background-position: center;
-// }
-
-// .switch:checked + .switch_for::before {
-//   content: '';
-//   width: 44px;
-//   height: 44px;
-//   background: #24cca7;
-//   box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
-//   border-radius: 50%;
-//   position: absolute;
-//   right: 8px;
-//   top: 11px;
-//   z-index: 1;
-//   transition-duration: 300ms;
-//   background-image: url(https://img.icons8.com/android/24/ffffff/plus.png);
-//   background-repeat: no-repeat;
-//   background-position: center;
-// }
-
-///////////////////
 .income {
   margin-right: 24px;
 }
@@ -134,7 +71,7 @@
   border-radius: 50%;
   justify-content: center;
   align-items: center;
-  padding-top: 5px;
+  padding-top: 7px;
   padding-left: 12px;
 
   box-shadow: 0px 11px 20px 6px rgba(252, 86, 202, 0.5);
