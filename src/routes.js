@@ -4,5 +4,6 @@ const routes = {
   dashboard: '/dashboard',
   statistics: '/statistics',
   currency: '/currency',
+  google: '/google-user',
 };
 export default routes;
