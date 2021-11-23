@@ -25,20 +25,19 @@ const fetchTransactions = () => async dispatch => {
     console.log('Fetch data', data);
 
     dispatch(fetchTransSuccess(data.data.result));
-    
   } catch (error) {
     dispatch(fetchTransError(error.message));
   }
 };
 
-export const addTransactions = transaction => async dispatch => {
+const addTransactions = transaction => async dispatch => {
   dispatch(addTransRequest());
   try {
     const { data } = await axios.post('/api/transactions', transaction);
 
-    console.log('Add data', data.data.result);
+    console.log('Add data', data);
 
-    dispatch(addTransSuccess(data.result));
+    dispatch(addTransSuccess(data));
   } catch (error) {
     dispatch(addTransError(error.message));
   }
@@ -79,6 +78,7 @@ const getStatistics =
 const transactionOperations = {
   fetchTransactions,
   filterTransaction,
+  addTransactions,
 };
 export { getStatistics };
 export default transactionOperations;

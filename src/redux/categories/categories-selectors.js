@@ -1,6 +1,12 @@
 //export const getCategories = state => state.categories.categories;
 //export const getTransactionStats = state => state.categories.transactionStats;
 
-export const getAllCategories = state => state.categories.result;
+const getAllCategories = state => state.categories;
 
-export const loading = state => state.categories.isLoading;
+const loading = state => state.categories.isLoading;
+
+const categorySelectors = {
+  getAllCategories,
+  loading,
+};
+export default categorySelectors;
