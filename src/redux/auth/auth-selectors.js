@@ -8,7 +8,7 @@ const getError = state => state.auth.error;
 
 const getToken = state => state.auth.token;
 
-// export const getBalance = state => state.auth.balance;
+const getBalance = state => state.auth.user.balance;
 
 const authSelectors = {
   getIsLoggedIn,
@@ -16,5 +16,6 @@ const authSelectors = {
   getLoading,
   getError,
   getToken,
+  getBalance,
 };
 export default authSelectors;
