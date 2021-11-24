@@ -165,7 +165,7 @@ const getUserByGoogleAuth = () => async dispatch => {
   try {
     const {
       data: { data },
-    } = await axios.get('/google-user');
+    } = await axios.get('/users/google-user');
     dispatch(getUserByGoogleAuthSuccess(data));
 
     token.set(data.token);
