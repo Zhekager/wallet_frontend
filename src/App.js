@@ -57,7 +57,11 @@ function App() {
                 <RegistrationPage />
               </PublicRoute>
 
-              <Route
+              <PrivateRoute path="/google-user" redirectTo="/dashboard">
+                <DashboardPage />
+              </PrivateRoute>
+
+              {/* <Route
                 path={routes.google}
                 restricted
                 render={props =>
@@ -69,7 +73,7 @@ function App() {
                     <GoogleAuth />
                   )
                 }
-              />
+              /> */}
 
               <PublicRoute path="/login" redirectTo="/dashboard" restricted>
                 <LoginPage />
