@@ -51,73 +51,92 @@ const tableData = [
 ];
 
 const categories = [
-  // {
-  //   value: '',
-  //   category: 'Choose category',
-  //   id: 1,
-  // },
   {
+    _id: '6196e5398a118953cd850782',
+    name: 'Main costs',
     value: 'Main costs',
     category: 'Main costs',
     label: 'Main costs',
-    id: 2,
   },
   {
+    _id: '6196e5398a118953cd850783',
+    name: 'Products',
     value: 'Products',
     category: 'Products',
     label: 'Products',
-    id: 3,
   },
   {
+    _id: '6196e5398a118953cd850784',
+    name: 'Car',
     value: 'Car',
     category: 'Car',
     label: 'Car',
-    id: 4,
   },
   {
+    _id: '6196e5398a118953cd850785',
+    name: 'Taking Care of Yourself',
     value: 'Taking Care of Yourself',
     category: 'Taking Care of Yourself',
     label: 'Taking Care of Yourself',
-    id: 5,
   },
   {
+    _id: '6196e5398a118953cd850786',
+    name: 'Taking Care of children',
     value: 'Taking Care of children',
     category: 'Taking Care of children',
     label: 'Taking Care of children',
-    id: 6,
   },
   {
-    value: 'Leisure',
-    category: 'Leisure',
-    label: 'Leisure',
-    id: 7,
+    _id: '6196e5398a118953cd850787',
+    name: 'Home Goods',
+    value: 'Home Goods',
+    category: 'Home Goods',
+    label: 'Home Goods',
   },
   {
+    _id: '6196e5398a118953cd850788',
+    name: 'Education',
     value: 'Education',
     category: 'Education',
     label: 'Education',
-    id: 8,
   },
   {
+    _id: '6196e5398a118953cd850789',
+    name: 'Leisure',
+    value: 'Leisure',
+    category: 'Leisure',
+    label: 'Leisure',
+  },
+  {
+    _id: '6196e5398a118953cd85078a',
+    name: 'Other expenses',
     value: 'Other expenses',
     category: 'Other expenses',
     label: 'Other expenses',
-    id: 9,
   },
 ];
 
 const addIncomes = [
   {
+    _id: '6196e5398a118953cd85078b',
+    name: 'Regular income',
     value: 'Regular income',
     category: 'Regular income',
     label: 'Regular income',
-    id: 1,
   },
   {
+    _id: '6196e5398a118953cd85078c',
+    name: 'Irregular income',
     value: 'Irregular income',
     category: 'Irregular income',
     label: 'Irregular income',
-    id: 2,
+  },
+  {
+    _id: '6196e5398a118953cd85078d',
+    name: 'Miscellaneous',
+    value: 'Miscellaneous',
+    category: 'Miscellaneous',
+    label: 'Miscellaneous',
   },
 ];
 
