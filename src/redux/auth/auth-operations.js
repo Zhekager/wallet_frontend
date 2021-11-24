@@ -15,6 +15,9 @@ import {
   getUserByGoogleAuthRequest,
   getUserByGoogleAuthSuccess,
   getUserByGoogleAuthError,
+  addTransRequest,
+  addTransSuccess,
+  addTransError,
 } from './auth-actions';
 
 import { toast } from 'react-toastify';
@@ -176,12 +179,29 @@ const getUserByGoogleAuth = () => async dispatch => {
   }
 };
 
+
+/////Transactions
+
+const addTransactions = transaction => async dispatch => {
+  dispatch(addTransRequest());
+  try {
+    const { data } = await axios.post('/api/transactions', transaction);
+
+    console.log('Add data', data);
+
+    dispatch(addTransSuccess(transaction));
+  } catch (error) {
+    dispatch(addTransError(error.message));
+  }
+};
+
 const authOperations = {
   register,
   logIn,
   logOut,
   fetchCurrentUser,
   getUserByGoogleAuth,
+  addTransactions,
 };
 
 export default authOperations;

@@ -4,9 +4,9 @@ import {
   fetchTransRequest,
   fetchTransSuccess,
   fetchTransError,
-  addTransRequest,
-  addTransSuccess,
-  addTransError,
+  // addTransRequest,
+  // addTransSuccess,
+  // addTransError,
   filterTransRequest,
   filterTransSuccess,
   filterTransError,
@@ -30,18 +30,20 @@ const fetchTransactions = () => async dispatch => {
   }
 };
 
-const addTransactions = transaction => async dispatch => {
-  dispatch(addTransRequest());
-  try {
-    const { data } = await axios.post('/api/transactions', transaction);
+// const addTransactions = transaction => async dispatch => {
+//   dispatch(addTransRequest());
+//   try {
+//     const { data } = await axios.post('/api/transactions', transaction);
 
-    console.log('Add data', data);
+//     console.log('Add data', data);
 
-    dispatch(addTransSuccess(transaction));
-  } catch (error) {
-    dispatch(addTransError(error.message));
-  }
-};
+================================================
+//     dispatch(addTransSuccess(data));
+//   } catch (error) {
+//     dispatch(addTransError(error.message));
+//   }
+// };
+================================================
 
 const filterTransaction = (month, year) => async dispatch => {
   dispatch(filterTransRequest());
@@ -78,7 +80,7 @@ const getStatistics =
 const transactionOperations = {
   fetchTransactions,
   filterTransaction,
-  addTransactions,
+  //addTransactions,
 };
 export { getStatistics };
 export default transactionOperations;

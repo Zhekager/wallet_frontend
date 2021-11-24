@@ -4,9 +4,9 @@ import {
   fetchTransRequest,
   fetchTransSuccess,
   fetchTransError,
-  addTransRequest,
+  //addTransRequest,
   addTransSuccess,
-  addTransError,
+  //addTransError,
   filterTransRequest,
   filterTransSuccess,
   filterTransError,
@@ -17,7 +17,7 @@ import {
 
 const result = createReducer([], {
   [fetchTransSuccess]: (_, { payload }) => payload,
-  [addTransSuccess]: (state, { payload }) => [...state, payload],
+  //[addTransSuccess]: (state, { payload }) => [...state, payload],
   [getStatisticsSuccess]: (_, { payload }) => payload,
 });
 
@@ -29,9 +29,9 @@ const loading = createReducer(false, {
   [fetchTransRequest]: () => true,
   [fetchTransSuccess]: () => false,
   [fetchTransError]: () => false,
-  [addTransRequest]: () => true,
-  [addTransSuccess]: () => false,
-  [addTransError]: () => false,
+  //[addTransRequest]: () => true,
+  //[addTransSuccess]: () => false,
+  //[addTransError]: () => false,
   [filterTransRequest]: () => true,
   [filterTransSuccess]: () => false,
   [filterTransError]: () => false,
@@ -42,11 +42,11 @@ const loading = createReducer(false, {
 
 const error = createReducer(null, {
   [fetchTransError]: (_, { payload }) => payload,
-  [addTransError]: (_, { payload }) => payload,
+  //[addTransError]: (_, { payload }) => payload,
   [filterTransError]: (_, { payload }) => payload,
   [getStatisticsError]: (_, { payload }) => payload,
   [fetchTransRequest]: () => null,
-  [addTransRequest]: () => null,
+  //[addTransRequest]: () => null,
   [filterTransRequest]: () => null,
   [getStatisticsRequest]: () => null,
 });
