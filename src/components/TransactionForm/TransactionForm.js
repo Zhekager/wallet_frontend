@@ -1,70 +1,59 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import moment from 'moment';
+import Box from '@material-ui/core/Box';
+import DatePicker from 'react-datepicker';
+import { addMonths } from 'date-fns';
 
 //redux
-import { useSelector, useDispatch } from 'react-redux';
-//import '../../redux/transactions';
-//import { fetchTransactions } from '../../redux/transactions/transaction-operations';
-//import { fetchTransRequest// } from '../../redux/transactions/transaction-actions';
+import { useDispatch } from 'react-redux'; //видалив  useSelector,
 
 //components
-import { getAllCategories } from '../../redux/categories/categories-selectors';
+// import categorySelectors from '../../redux/categories/categories-selectors';
 import transactionOperations from '../../redux/transactions/transaction-operations';
 import Button from '../Button';
 import Switch from './Switch';
 import SelectCategory from './SelectCategory';
-import Box from '@material-ui/core/Box';
-import DatePicker from 'react-datepicker';
-// import moment from 'moment';
 
-import { costs } from '../../assets/data/select-data/selectData';
+import { Calendar } from '../IconBtn/Calendar';
+
+import {
+  categories,
+  addIncomes,
+} from '../../assets/data/select-data/selectData';
 
 //styles
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from './TransactionForm.module.scss';
-import './TransactionFormDatepicker.scss';
 
 export default function TransactionForm({ onClose }) {
   const dispatch = useDispatch();
-  const [chooseSelect, setChooseSelect] = useState(false);
-  const [visibleCategory, setVisibleCategory] = useState(false);
-  // const [category, setCategory] = useState('Choose category');
-  const [setType] = useState('Сosts'); //видалив type
+  const [chooseType, setChooseType] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
+  const [isOpenDate, setIsOpenDate] = useState(false);
+  const [setType] = useState('-'); // видалив type,
 
-  const categories = useSelector(getAllCategories);
-  const IdCategory = categories.find(category => category.id);
+  // const categories = useSelector(categorySelectors.getAllCategories);
+  // console.log(categories);
 
-  // const handleChangeCategory = event => {
-  //   setCategory(event.target.value);
-  // };
+  const handleChangeType = () => {
+    setChooseType(!chooseType);
 
-  const onSwitchChecked = evt => {
-    setChooseSelect(evt.target.checked);
-    setType('Income');
-    toggleVisibleCategory();
+    setType('+');
   };
 
-  const toggleVisibleCategory = () => {
-    setVisibleCategory(!visibleCategory);
+  const handleChangeDate = e => {
+    setIsOpenDate(!isOpenDate);
+    setStartDate(e);
   };
 
-  const handleDate = date => {
-    setStartDate(date);
-    // const formatedDate = moment(date).format('DD/MMMM/yyyy');
-    // const dateD = moment(formatedDate).date();
-    // const month = moment(formatedDate).format('MMMM');
-    // const year = moment(formatedDate).year();
-    /* setTransactionItem((state) => ({
-      ...state,
-      date: dateD,
-      month: month,
-      year: year,
-    })); */
+  const handleClickDate = e => {
+    e.preventDefault();
+    setIsOpenDate(!isOpenDate);
   };
 
-  // const currentDate = new Date().toLocaleDateString();
+  const dateMoment = moment(new Date()).format('DD.MM.YYYY');
 
   const handleClick = e => {
     if (e.currentTarget === e.target) {
@@ -72,36 +61,35 @@ export default function TransactionForm({ onClose }) {
     }
   };
 
-  const handleSubmitForm = ({ type, money, comment, category, date }) => {
-    // e.preventDefault();
-    console.log({ type, category: IdCategory, money, date, comment });
+  const handleSubmitForm = (
+    { type, category, money, date, comment },
+    { resetForm },
+  ) => {
+    console.log({ type, category, money, date, comment });
     dispatch(
       transactionOperations.addTransactions({
         type,
-        IdCategory,
+        category,
         money,
         date,
         comment,
-        category,
       }),
     );
-    reset();
+    resetForm();
     onClose();
-  };
-
-  const reset = () => {
-    setChooseSelect(false);
-    setStartDate(new Date());
   };
 
   const validationsSchema = Yup.object().shape({
     type: Yup.string().required('Type is required'),
-    category: Yup.string('Choose category').required('Category is required'),
+    category: Yup.string('Choose a category').required('Category is required'),
     money: Yup.number('Enter your amount')
       .min(0)
       .required('Amount is required'),
-    date: Yup.date(),
-    comment: Yup.string('Enter your comment'),
+    date: Yup.string(),
+    comment: Yup.string('Enter your comment').max(
+      12,
+      'No more than 20 characters',
+    ),
   });
 
   return (
@@ -109,94 +97,61 @@ export default function TransactionForm({ onClose }) {
       <div className={styles.container}>
         <Formik
           initialValues={{
-            type: 'Costs',
+            type: !chooseType ? '-' : '+',
             category: '',
             money: '',
-            date: startDate,
+            date: dateMoment,
             comment: '',
           }}
           onSubmit={handleSubmitForm}
           validationSchema={validationsSchema}
           enableReinitialize
         >
-          {({
-            errors,
-            touched,
-            isSubmitting,
-            values,
-            handleChange,
-            handleSubmit,
-            handleReset,
-            setFieldValue,
-            setFieldTouched,
-          }) => (
+          {({ errors, touched }) => (
             <Form className={styles.form}>
               <h3 className={styles.title}>Add transaction</h3>
 
-              <div className={styles.box}>
-                <p
-                  className={styles.text}
-                  style={{ color: 'rgba(36, 204, 167, 1)' }}
-                >
-                  Income
-                </p>
+              <Switch
+                isChecked={chooseType}
+                onSwitch={handleChangeType}
+                value="type"
+              />
 
-                <Switch
-                  onSwitch={chooseSelect => onSwitchChecked(chooseSelect)}
-                  isChecked={chooseSelect}
-                  onClick={chooseSelect => onSwitchChecked(chooseSelect)}
-                />
-
-                <p
-                  className={styles.text}
-                  style={{ color: 'rgba(255, 101, 150, 1)' }}
-                >
-                  Costs
-                </p>
-              </div>
-
-              {!visibleCategory && (
+              {chooseType ? (
                 <Box className={styles.categoryBox}>
-                  {/* {errors.type && touched.type && (
-                    <span className={styles.inputFeedback}>
-                      {errors.type}
-                    </span>
-                  )} */}
-
                   <SelectCategory label="category" name="category">
                     <option className={styles.optionSelect} value="">
                       Choose category
                     </option>
 
-                    {costs.map(cost => (
-                      <option
-                        className={styles.optionChoose}
-                        key={cost.id}
-                        value={cost.id}
-                      >
-                        {cost.value}
-                      </option>
-                    ))}
-                    {/* {categories.expenses.map(category => (
+                    {addIncomes.map(category => (
                       <option
                         className={styles.optionChoose}
                         key={category.id}
-                        value={category.id}
+                        value={category.value}
                       >
-                        {category.name}
+                        {category.value}
                       </option>
-                    ))} */}
+                    ))}
                   </SelectCategory>
+                </Box>
+              ) : (
+                <Box className={styles.categoryBox}>
+                  <SelectCategory label="category" name="category">
+                    <option className={styles.optionSelect} value="">
+                      Choose category
+                    </option>
 
-                  {/* <SelectCategory
-                    name="category"
-                    costs={costs}
-                    hidden={visibleCategory}
-                    category={category}
-                    value={values.category}
-                    onBlur={handleChange}
-                    handleChange={handleChangeCategory}
-                  /> */}
+                    {categories.map(category => (
+                      <option
+                        className={styles.optionChoose}
+                        key={category.id}
+                        value={category.value}
+                      >
+                        {category.value}
+                      </option>
+                    ))}
+                  </SelectCategory>
                 </Box>
               )}
 
@@ -213,14 +168,37 @@ export default function TransactionForm({ onClose }) {
                   )}
                 </div>
 
-                <Box className={styles.date}>
+                <Box className={styles.DateBox}>
                   <DatePicker
-                    id="select"
+                    maxDate={addMonths(new Date(), 0)}
+                    showDisabledMonthNavigation
+                    name="date"
+                    open={false}
                     className={styles.Date}
                     selected={startDate}
-                    onChange={handleDate}
+                    onChange={handleChangeDate}
                     dateFormat="dd.MM.yyyy"
                   />
+
+                  <button
+                    className={styles.BtnIconCalendar}
+                    onClick={handleClickDate}
+                  >
+                    <Calendar svg={styles.svgCalendar} />
+                  </button>
+
+                  {isOpenDate && (
+                    <div className={styles.datePicker}>
+                      <DatePicker
+                        maxDate={addMonths(new Date(), 0)}
+                        showDisabledMonthNavigation
+                        closeOnScroll={true}
+                        selected={startDate}
+                        onChange={handleChangeDate}
+                        inline
+                      />
+                    </div>
+                  )}
                 </Box>
               </div>
 
@@ -253,23 +231,3 @@ export default function TransactionForm({ onClose }) {
     </div>
   );
 }
-
-/* преобразование даты в строку с помощью библиотеки момент
-const initialState = {
-  date: Number(moment(new Date()).format("D")),
-  month: moment(new Date()).format("MMMM"),
-  year: Number(moment(new Date()).format("YYYY")),
-}
-const handleDate = (date) => {
-    setStartDate(date);
-    const formatedDate = moment(date).format("DD/MMMM/yyyy");
-    const dateD = moment(formatedDate).date();
-    const month = moment(formatedDate).format("MMMM");
-    const year = moment(formatedDate).year();
-    setTransactionItem((state) => ({
-      ...state,
-      date: dateD,
-      month: month,
-      year: year,
-    }));
-  }; */
