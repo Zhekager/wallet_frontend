@@ -13,9 +13,9 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 //import Chart from './components/Chart';
 
-// import GoogleAuth from './components/GoogleAuth';
+import GoogleAuth from './components/GoogleAuth';
 
-// import routes from './routes';
+import routes from './routes';
 import './App.module.scss';
 
 const RegistrationPage = lazy(() =>
@@ -36,8 +36,8 @@ const DashboardPage = lazy(() =>
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(authSelectors.getLoading);
-  // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  // const isRegistered = useSelector(authSelectors.getIsRegistered);
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  const isRegistered = useSelector(authSelectors.getIsRegistered);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
@@ -57,11 +57,7 @@ function App() {
                 <RegistrationPage />
               </PublicRoute>
 
-              <PrivateRoute path="/google-user" redirectTo="/dashboard">
-                <DashboardPage />
-              </PrivateRoute>
-
-              {/* <Route
+              <Route
                 path={routes.google}
                 restricted
                 render={props =>
@@ -73,7 +69,7 @@ function App() {
                     <GoogleAuth />
                   )
                 }
-              /> */}
+              />
 
               <PublicRoute path="/login" redirectTo="/dashboard" restricted>
                 <LoginPage />
