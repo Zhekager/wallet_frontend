@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux'; //видалив  useSelector,
 
 //components
 // import categorySelectors from '../../redux/categories/categories-selectors';
-import transactionOperations from '../../redux/transactions/transaction-operations';
+import authOperations from '../../redux/auth/auth-operations';
 import Button from '../Button';
 import Switch from './Switch';
 import SelectCategory from './SelectCategory';
@@ -62,23 +62,38 @@ export default function TransactionForm({ onClose }) {
   };
 
   const handleSubmitForm = (
-    { type, category, money, date, comment },
+    { type, money, category, date, comment },
     { resetForm },
   ) => {
-    console.log({ type, category, money, date, comment });
+    // console.log({ type, category, money, date, comment });
 
-    const currentCategoryCosts = categories.find(category => {
-      return category === category._id;
-    });
+    // const categoryCosts = categories.find(category => {
+    //   return category === category.name;
+    // });
 
-    const currentCategoryIncomes = addIncomes.find(category => {
-      return category === category._id;
+    // const categoryIncomes = addIncomes.find(category => {
+    //   return category === category.name;
+    // });
+
+    let currentCategory = {};
+    if (type === '-') {
+      currentCategory = categories.find(i => category === i.name);
+    } else {
+      currentCategory = addIncomes.find(i => category === i.name);
+    }
+    console.log({
+      type,
+      category: currentCategory,
+      money,
+      date,
+      comment,
     });
 
     dispatch(
-      transactionOperations.addTransactions({
+      authOperations.addTransactions({
         type,
-        category: type === '-' ? currentCategoryCosts : currentCategoryIncomes,
+        // category: type === '-' ? categoryCosts : categoryIncomes,
+        category: currentCategory,
         money,
         date,
         comment,

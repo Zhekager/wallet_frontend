@@ -18,13 +18,16 @@ import {
   addTransRequest,
   addTransSuccess,
   addTransError,
+  getTransRequest,
+  getTransSuccess,
+  getTransError,
 } from './auth-actions';
 
 import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://personal-expenses.herokuapp.com';
 // axios.defaults.baseURL = 'https://nameless-reef-47827.herokuapp.com/api';
-//axios.defaults.baseURL = 'http://localhost:3000';
+// axios.defaults.baseURL = 'http://localhost:3000';
 
 const token = {
   set(token) {
@@ -179,7 +182,6 @@ const getUserByGoogleAuth = () => async dispatch => {
   }
 };
 
-
 /////Transactions
 
 const addTransactions = transaction => async dispatch => {
@@ -187,11 +189,24 @@ const addTransactions = transaction => async dispatch => {
   try {
     const { data } = await axios.post('/api/transactions', transaction);
 
-    console.log('Add data', data);
+    console.log('Add data', transaction);
 
     dispatch(addTransSuccess(transaction));
   } catch (error) {
     dispatch(addTransError(error.message));
+  }
+};
+
+const getTransactions = () => async dispatch => {
+  dispatch(getTransRequest());
+  try {
+    const { data } = await axios.get('/api/transactions');
+
+    console.log('Fetch data', data);
+
+    dispatch(getTransSuccess(data.data.result));
+  } catch (error) {
+    dispatch(getTransError(error.message));
   }
 };
 
@@ -202,6 +217,7 @@ const authOperations = {
   fetchCurrentUser,
   getUserByGoogleAuth,
   addTransactions,
+  getTransactions,
 };
 
 export default authOperations;
