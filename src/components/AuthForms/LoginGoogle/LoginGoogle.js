@@ -81,7 +81,7 @@ const LoginGoogle = () => {
   return (
     <a
       className={styles.Link}
-      href="https://personal-expenses.herokuapp.com/auth/google"
+      href="https://personal-expenses.herokuapp.com/api/users/google"
     >
       <ButtonIcon
         onClick={() => console.log('click')}
