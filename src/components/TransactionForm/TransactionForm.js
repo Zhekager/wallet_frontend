@@ -32,7 +32,7 @@ export default function TransactionForm({ onClose }) {
   const [chooseType, setChooseType] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const [isOpenDate, setIsOpenDate] = useState(false);
-  const [setType] = useState('-'); // видалив type,
+  const [type, setType] = useState('-'); // видалив type,
 
   // const categories = useSelector(categorySelectors.getAllCategories);
   // console.log(categories);
@@ -66,10 +66,19 @@ export default function TransactionForm({ onClose }) {
     { resetForm },
   ) => {
     console.log({ type, category, money, date, comment });
+
+    const currentCategoryCosts = categories.find(category => {
+      return category === category._id;
+    });
+
+    const currentCategoryIncomes = addIncomes.find(category => {
+      return category === category._id;
+    });
+
     dispatch(
       transactionOperations.addTransactions({
         type,
-        category,
+        category: type === '-' ? currentCategoryCosts : currentCategoryIncomes,
         money,
         date,
         comment,
@@ -127,10 +136,10 @@ export default function TransactionForm({ onClose }) {
                     {addIncomes.map(category => (
                       <option
                         className={styles.optionChoose}
-                        key={category.id}
-                        value={category.value}
+                        key={category._id}
+                        value={category.name}
                       >
-                        {category.value}
+                        {category.name}
                       </option>
                     ))}
                   </SelectCategory>
@@ -145,10 +154,10 @@ export default function TransactionForm({ onClose }) {
                     {categories.map(category => (
                       <option
                         className={styles.optionChoose}
-                        key={category.id}
-                        value={category.value}
+                        key={category._id}
+                        value={category.name}
                       >
-                        {category.value}
+                        {category.name}
                       </option>
                     ))}
                   </SelectCategory>
