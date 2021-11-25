@@ -32,7 +32,7 @@ export default function TransactionForm({ onClose }) {
   const [chooseType, setChooseType] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const [isOpenDate, setIsOpenDate] = useState(false);
-  const [type, setType] = useState('-'); // видалив type,
+  const [type, setType] = useState('-');
 
   // const categories = useSelector(categorySelectors.getAllCategories);
   // console.log(categories);

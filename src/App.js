@@ -15,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import GoogleAuth from './components/GoogleAuth';
 
-import routes from './routes';
+// import routes from './routes';
 import './App.module.scss';
 
 const RegistrationPage = lazy(() =>
@@ -36,8 +36,8 @@ const DashboardPage = lazy(() =>
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(authSelectors.getLoading);
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  const isRegistered = useSelector(authSelectors.getIsRegistered);
+  // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  // const isRegistered = useSelector(authSelectors.getIsRegistered);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
