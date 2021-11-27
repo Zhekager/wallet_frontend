@@ -78,6 +78,8 @@ As a result of well-coordinated teamwork :handshake: our project turned out: ⬇
 
 <a href="https://control-wallet-team-3.netlify.app/"><img src="https://i.ibb.co/Sd1zZq3/2021-11-22-160308.jpg" alt="Wallet" border="0"></a>
 
-# Enjoy using the site!
+[_Welcome!_](https://personal-expenses.herokuapp.com/api-docs/) ⬇
 
-## https://personal-expenses.herokuapp.com/api-docs/#/
+<a href="https://personal-expenses.herokuapp.com/api-docs/"><img src="https://i.ibb.co/YQCM9wC/Shared-Screenshot.jpg" alt="Shared-Screenshot" border="0"></a>
+
+# Enjoy using the site!
