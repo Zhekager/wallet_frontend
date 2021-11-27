@@ -36,8 +36,3 @@ export const getUserByGoogleAuthError = createAction(
 export const addTransRequest = createAction('auth/addTransRequest');
 export const addTransSuccess = createAction('auth/addTransSuccess');
 export const addTransError = createAction('auth/addTransError');
-
-// getTrans
-export const getTransRequest = createAction('auth/getTransRequest');
-export const getTransSuccess = createAction('auth/getTransSuccess');
-export const getTransError = createAction('auth/getTransError');

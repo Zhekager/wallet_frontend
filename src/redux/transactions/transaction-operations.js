@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 import {
-  // fetchTransRequest,
-  // fetchTransSuccess,
-  // fetchTransError,
+  fetchTransRequest,
+  fetchTransSuccess,
+  fetchTransError,
   // addTransRequest,
   // addTransSuccess,
   // addTransError,
@@ -17,18 +17,18 @@ import {
 
 axios.defaults.baseURL = 'https://personal-expenses.herokuapp.com';
 
-// const fetchTransactions = () => async dispatch => {
-//   dispatch(fetchTransRequest());
-//   try {
-//     const { data } = await axios.get('/api/transactions');
+const fetchTransactions = () => async dispatch => {
+  dispatch(fetchTransRequest());
+  try {
+    const { data } = await axios.get('/api/transactions');
 
-//     console.log('Fetch data', data);
+    console.log('Fetch data', data);
 
-//     dispatch(fetchTransSuccess(data.data.result));
-//   } catch (error) {
-//     dispatch(fetchTransError(error.message));
-//   }
-// };
+    dispatch(fetchTransSuccess(data.data.result));
+  } catch (error) {
+    dispatch(fetchTransError(error.message));
+  }
+};
 
 // const addTransactions = transaction => async dispatch => {
 //   dispatch(addTransRequest());
@@ -76,7 +76,7 @@ const getStatistics =
   };
 
 const transactionOperations = {
-  // fetchTransactions,
+  fetchTransactions,
   filterTransaction,
   //addTransactions,
 };

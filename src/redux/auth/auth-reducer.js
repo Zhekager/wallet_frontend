@@ -16,9 +16,6 @@ import {
   addTransRequest,
   addTransSuccess,
   addTransError,
-  getTransRequest,
-  getTransSuccess,
-  getTransError,
 } from './auth-actions';
 
 const user = createReducer(
@@ -30,7 +27,6 @@ const user = createReducer(
     [fetchCurrentUserSuccess]: (_, { payload }) => payload.user,
     [getUserByGoogleAuthSuccess]: (_, { payload }) => payload.user,
     [addTransSuccess]: (state, { payload }) => [...state, payload],
-    [getTransSuccess]: (state, { payload }) => [...state, payload],
   },
 );
 
@@ -52,11 +48,7 @@ const isLoggedIn = createReducer(false, {
   [fetchCurrentUserError]: () => false,
   [addTransRequest]: () => true,
   [addTransSuccess]: () => false,
-  // [addTransError]: () => false,
-  [getTransSuccess]: () => false,
-  [getTransRequest]: () => true,
-  [getTransError]: () => false,
-
+  [addTransError]: () => false,
   // [logoutError]: () => true,
 });
 
@@ -77,9 +69,6 @@ const isLoading = createReducer(false, {
   [fetchCurrentUserSuccess]: () => false,
   [fetchCurrentUserRequest]: () => true,
   [fetchCurrentUserError]: () => false,
-  [getTransSuccess]: () => false,
-  [getTransRequest]: () => true,
-  [getTransError]: () => false,
 });
 
 const error = createReducer(null, {
@@ -93,8 +82,6 @@ const error = createReducer(null, {
   [fetchCurrentUserError]: (_, { payload }) => payload,
   [addTransError]: (_, { payload }) => payload,
   [addTransRequest]: () => null,
-  [getTransRequest]: () => null,
-  [getTransError]: (_, { payload }) => payload,
 });
 
 // const balance = createReducer(null, {});
