@@ -10,11 +10,16 @@ const getToken = state => state.auth.token;
 
 const getBalance = state => state.auth.user.balance;
 
-const getCategories = state => state.auth.user;
 
-const getTransactionsUser = state => state.auth.user.transactions;
+//const getTransactionsUser = state => state.auth.transactions;
+
+
+// const getCategories = state => state.auth.user.
+========================================================================
+//const getTransactionsUser = state => state.auth.user.transactions;  // конфлікт
 
 const addTransactionsUser = state => state.auth.user.transactions;
+================================================================================
 
 const getUserEmail = state => state.auth.user.email;
 
@@ -31,6 +36,5 @@ const authSelectors = {
   getUserEmail,
   getIsRegistered,
   addTransactionsUser,
-  getCategories,
 };
 export default authSelectors;

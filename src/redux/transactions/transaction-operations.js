@@ -37,11 +37,13 @@ axios.defaults.baseURL = 'https://personal-expenses.herokuapp.com';
 
 //     console.log('Add data', data);
 
+================================================
 //     dispatch(addTransSuccess(data));
 //   } catch (error) {
 //     dispatch(addTransError(error.message));
 //   }
 // };
+================================================
 
 const filterTransaction = (month, year) => async dispatch => {
   dispatch(filterTransRequest());
